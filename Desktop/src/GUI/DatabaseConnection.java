@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseConnection
 {
 private  static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-private static final String JDBC_URL = "jdbc:derby:backup1;create=true";
+private static final String JDBC_URL = "jdbc:derby:LibraryDB;create=true";
 Connection con;
 public DatabaseConnection()
 {
