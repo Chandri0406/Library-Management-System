@@ -21,6 +21,9 @@ public class Author {
         DateOfBirth = dateOfBirth;
     }
 
+    public Author() {
+    }
+
     public int getAuthorID() {
         return AuthorID;
     }

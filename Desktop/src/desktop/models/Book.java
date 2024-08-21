@@ -29,6 +29,9 @@ public class Book {
         Price = price;
     }
 
+    public Book() {
+    }
+
     public int getBookID() {
         return BookID;
     }

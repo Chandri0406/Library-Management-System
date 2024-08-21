@@ -17,6 +17,17 @@ public class Borrower {
         Email = email;
     }
 
+    public Borrower(String name, String surname, String address, String phone, String email) {
+        Name = name;
+        Surname = surname;
+        Address = address;
+        Phone = phone;
+        Email = email;
+    }
+
+    public Borrower() {
+    }
+
     public int getLibraryCardID() {
         return LibraryCardID;
     }
