@@ -6,9 +6,9 @@ public class Book {
     private String Title;
     private String Genre;
     private double Price;
-    private String AuthorID;
+    private int AuthorID;
 
-    public Book(int BookID, String Title, String Genre, double Price, String AuthorID) {
+    public Book(int BookID, String Title, String Genre, double Price, int AuthorID) {
         this.BookID = BookID;
         this.Title = Title;
         this.Genre = Genre;
@@ -21,6 +21,12 @@ public class Book {
         this.Title = Title;
         this.Genre = Genre;
         this.Price = Price;
+    }
+
+    public Book(String title, String genre, double price) {
+        Title = title;
+        Genre = genre;
+        Price = price;
     }
 
     public int getBookID() {
@@ -39,7 +45,7 @@ public class Book {
         return Price;
     }
 
-    public String getAuthorID() {
+    public int getAuthorID() {
         return AuthorID;
     }
 
@@ -59,7 +65,7 @@ public class Book {
         this.Price = Price;
     }
 
-    public void setAuthorID(String AuthorID) {
+    public void setAuthorID(int AuthorID) {
         this.AuthorID = AuthorID;
     }
 }

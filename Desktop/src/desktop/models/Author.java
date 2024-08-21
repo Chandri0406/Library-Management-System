@@ -15,6 +15,12 @@ public class Author {
         DateOfBirth = dateOfBirth;
     }
 
+    public Author(String name, String surname, Date dateOfBirth) {
+        Name = name;
+        Surname = surname;
+        DateOfBirth = dateOfBirth;
+    }
+
     public int getAuthorID() {
         return AuthorID;
     }
