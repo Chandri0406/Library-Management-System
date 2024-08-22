@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class DatabaseConnection
 {
-private  static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-private static final String JDBC_URL = "jdbc:derby:LibraryDB;create=true";
+private  static final String DRIVER = "org.postgresql.Driver";
+private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/LibraryDB";
 Connection con;
 public DatabaseConnection()
 {
