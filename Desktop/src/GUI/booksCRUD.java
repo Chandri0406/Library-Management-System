@@ -1,20 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUI;
 
-/**
- *
- * @author chanb
- */
-public class booksCRUD extends javax.swing.JFrame {
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-    /**
-     * Creates new form booksCRUD
-     */
+public class booksCRUD extends javax.swing.JFrame {
     public booksCRUD() {
         initComponents();
+        addHoverEffect(addBook);
+        addHoverEffect(viewBooks);
+        addHoverEffect(deleteBook);
+        addHoverEffect(editBook);
+    }
+    
+    private void addHoverEffect(javax.swing.JButton button) {
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent evt) {
+                button.setBackground(new Color(100, 80, 60));  // Hover color
+            }
+
+            @Override
+            public void mouseExited(MouseEvent evt) {
+                button.setBackground(new Color(78, 66, 52));  // Original color
+            }
+        });
     }
 
     /**
@@ -26,21 +36,202 @@ public class booksCRUD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bookBody = new javax.swing.JPanel();
+        addBook = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        deleteBook = new javax.swing.JButton();
+        viewBooks = new javax.swing.JButton();
+        editBook = new javax.swing.JButton();
+        Backbtn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bookBody.setBackground(new java.awt.Color(38, 39, 43));
+        bookBody.setPreferredSize(new java.awt.Dimension(900, 420));
+        bookBody.setRequestFocusEnabled(false);
+
+        addBook.setBackground(new java.awt.Color(78, 66, 52));
+        addBook.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        addBook.setForeground(new java.awt.Color(255, 255, 255));
+        addBook.setText("Add Book");
+        addBook.setAlignmentX(0.5F);
+        addBook.setBorderPainted(false);
+        addBook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addBook.setFocusable(false);
+        addBook.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addBook.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        addBook.setName("addBook"); // NOI18N
+        addBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBookActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setOpaque(false);
+
+        jTextPane1.setBackground(new java.awt.Color(38, 39, 43));
+        jTextPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
+        jTextPane1.setFont(new java.awt.Font("Sitka Heading", 1, 48)); // NOI18N
+        jTextPane1.setForeground(new java.awt.Color(159, 105, 50));
+        jTextPane1.setText("MANAGE BOOKS");
+        jTextPane1.setAutoscrolls(false);
+        jTextPane1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        jTextPane1.setSelectedTextColor(new java.awt.Color(159, 105, 50));
+        jScrollPane1.setViewportView(jTextPane1);
+
+        deleteBook.setBackground(new java.awt.Color(78, 66, 52));
+        deleteBook.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        deleteBook.setForeground(new java.awt.Color(255, 255, 255));
+        deleteBook.setText("Delete Book");
+        deleteBook.setAlignmentY(0.0F);
+        deleteBook.setBorderPainted(false);
+        deleteBook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteBook.setFocusable(false);
+        deleteBook.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        deleteBook.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        deleteBook.setName("deleteBook"); // NOI18N
+        deleteBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBookActionPerformed(evt);
+            }
+        });
+
+        viewBooks.setBackground(new java.awt.Color(78, 66, 52));
+        viewBooks.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        viewBooks.setForeground(new java.awt.Color(255, 255, 255));
+        viewBooks.setText("View Books");
+        viewBooks.setAlignmentX(0.5F);
+        viewBooks.setBorderPainted(false);
+        viewBooks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewBooks.setFocusable(false);
+        viewBooks.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        viewBooks.setName("viewBooks"); // NOI18N
+        viewBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBooksActionPerformed(evt);
+            }
+        });
+
+        editBook.setBackground(new java.awt.Color(78, 66, 52));
+        editBook.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        editBook.setForeground(new java.awt.Color(255, 255, 255));
+        editBook.setText("Edit Book");
+        editBook.setAlignmentX(0.5F);
+        editBook.setBorderPainted(false);
+        editBook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editBook.setFocusable(false);
+        editBook.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        editBook.setName("editBook"); // NOI18N
+        editBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBookActionPerformed(evt);
+            }
+        });
+
+        Backbtn.setBackground(new java.awt.Color(159, 105, 50));
+        Backbtn.setFont(new java.awt.Font("Sitka Display", 1, 18)); // NOI18N
+        Backbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Return_Arrow-512(2).png"))); // NOI18N
+        Backbtn.setToolTipText("");
+        Backbtn.setBorderPainted(false);
+        Backbtn.setFocusPainted(false);
+        Backbtn.setFocusable(false);
+        Backbtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Backbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/back_icon.png"))); // NOI18N
+        Backbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackbtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bookBodyLayout = new javax.swing.GroupLayout(bookBody);
+        bookBody.setLayout(bookBodyLayout);
+        bookBodyLayout.setHorizontalGroup(
+            bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bookBodyLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bookBodyLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(261, 261, 261))
+                    .addGroup(bookBodyLayout.createSequentialGroup()
+                        .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addBook, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteBook, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(editBook, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(viewBooks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(130, 130, 130))))
+        );
+        bookBodyLayout.setVerticalGroup(
+            bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bookBodyLayout.createSequentialGroup()
+                .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bookBodyLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addGap(64, 64, 64))
+                    .addGroup(bookBodyLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(Backbtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBook, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBook, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
+                .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteBook, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(bookBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(bookBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new booksCRUD().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_addBookActionPerformed
+
+    private void deleteBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBookActionPerformed
+        
+    }//GEN-LAST:event_deleteBookActionPerformed
+
+    private void viewBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBooksActionPerformed
+        
+    }//GEN-LAST:event_viewBooksActionPerformed
+
+    private void editBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBookActionPerformed
+        
+    }//GEN-LAST:event_editBookActionPerformed
+
+    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new maindashboard().setVisible(true);
+                new booksCRUD().setVisible(false);
+            }
+        });
+    }//GEN-LAST:event_BackbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +269,13 @@ public class booksCRUD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Backbtn;
+    private javax.swing.JButton addBook;
+    private javax.swing.JPanel bookBody;
+    private javax.swing.JButton deleteBook;
+    private javax.swing.JButton editBook;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JButton viewBooks;
     // End of variables declaration//GEN-END:variables
 }

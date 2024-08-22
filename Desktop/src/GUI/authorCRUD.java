@@ -1,20 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUI;
 
-/**
- *
- * @author chanb
- */
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class authorCRUD extends javax.swing.JFrame {
 
-    /**
-     * Creates new form authorCRUD
-     */
     public authorCRUD() {
         initComponents();
+        addHoverEffect(addAuthor);
+        addHoverEffect(viewAuthors);
+        addHoverEffect(deleteAuthor);
+        addHoverEffect(editAuthor);
+    }
+    
+    private void addHoverEffect(javax.swing.JButton button) {
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent evt) {
+                button.setBackground(new Color(100, 80, 60));  // Hover color
+            }
+
+            @Override
+            public void mouseExited(MouseEvent evt) {
+                button.setBackground(new Color(78, 66, 52));  // Original color
+            }
+        });
     }
 
     /**
@@ -26,21 +37,192 @@ public class authorCRUD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        addAuthor = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        deleteAuthor = new javax.swing.JButton();
+        viewAuthors = new javax.swing.JButton();
+        editAuthor = new javax.swing.JButton();
+        Backbtn1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(38, 39, 43));
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 420));
+
+        addAuthor.setBackground(new java.awt.Color(78, 66, 52));
+        addAuthor.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        addAuthor.setForeground(new java.awt.Color(255, 255, 255));
+        addAuthor.setText("Add Author");
+        addAuthor.setAlignmentX(0.5F);
+        addAuthor.setBorderPainted(false);
+        addAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addAuthor.setFocusable(false);
+        addAuthor.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        addAuthor.setName("addAuthor"); // NOI18N
+        addAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAuthorActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setOpaque(false);
+
+        jTextPane1.setBackground(new java.awt.Color(38, 39, 43));
+        jTextPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
+        jTextPane1.setFont(new java.awt.Font("Sitka Heading", 1, 48)); // NOI18N
+        jTextPane1.setForeground(new java.awt.Color(159, 105, 50));
+        jTextPane1.setText("MANAGE AUTHORS");
+        jTextPane1.setAutoscrolls(false);
+        jTextPane1.setSelectedTextColor(new java.awt.Color(159, 105, 50));
+        jScrollPane1.setViewportView(jTextPane1);
+
+        deleteAuthor.setBackground(new java.awt.Color(78, 66, 52));
+        deleteAuthor.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        deleteAuthor.setForeground(new java.awt.Color(255, 255, 255));
+        deleteAuthor.setText("Delete Author");
+        deleteAuthor.setAlignmentY(0.0F);
+        deleteAuthor.setBorderPainted(false);
+        deleteAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteAuthor.setFocusable(false);
+        deleteAuthor.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        deleteAuthor.setName("deleteAuthor"); // NOI18N
+        deleteAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteAuthorActionPerformed(evt);
+            }
+        });
+
+        viewAuthors.setBackground(new java.awt.Color(78, 66, 52));
+        viewAuthors.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        viewAuthors.setForeground(new java.awt.Color(255, 255, 255));
+        viewAuthors.setText("View Authors");
+        viewAuthors.setAlignmentX(0.5F);
+        viewAuthors.setBorderPainted(false);
+        viewAuthors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewAuthors.setFocusable(false);
+        viewAuthors.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        viewAuthors.setName("viewAuthors"); // NOI18N
+        viewAuthors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAuthorsActionPerformed(evt);
+            }
+        });
+
+        editAuthor.setBackground(new java.awt.Color(78, 66, 52));
+        editAuthor.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        editAuthor.setForeground(new java.awt.Color(255, 255, 255));
+        editAuthor.setText("Edit Author");
+        editAuthor.setAlignmentX(0.5F);
+        editAuthor.setBorderPainted(false);
+        editAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editAuthor.setFocusable(false);
+        editAuthor.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        editAuthor.setName("editAuthor"); // NOI18N
+        editAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editAuthorActionPerformed(evt);
+            }
+        });
+
+        Backbtn1.setBackground(new java.awt.Color(159, 105, 50));
+        Backbtn1.setFont(new java.awt.Font("Sitka Display", 1, 18)); // NOI18N
+        Backbtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Return_Arrow-512(2).png"))); // NOI18N
+        Backbtn1.setToolTipText("");
+        Backbtn1.setBorderPainted(false);
+        Backbtn1.setFocusPainted(false);
+        Backbtn1.setFocusable(false);
+        Backbtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Backbtn1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/back_icon.png"))); // NOI18N
+        Backbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Backbtn1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(editAuthor, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(viewAuthors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(130, 130, 130))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(Backbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addGap(61, 61, 61))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(Backbtn1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewAuthors, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuthorActionPerformed
+
+    }//GEN-LAST:event_addAuthorActionPerformed
+
+    private void deleteAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAuthorActionPerformed
+ 
+    }//GEN-LAST:event_deleteAuthorActionPerformed
+
+    private void viewAuthorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAuthorsActionPerformed
+
+    }//GEN-LAST:event_viewAuthorsActionPerformed
+
+    private void editAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAuthorActionPerformed
+
+    }//GEN-LAST:event_editAuthorActionPerformed
+
+    private void Backbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Backbtn1ActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new maindashboard().setVisible(true);
+                new authorCRUD().setVisible(false);
+            }
+        });
+    }//GEN-LAST:event_Backbtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +260,13 @@ public class authorCRUD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Backbtn1;
+    private javax.swing.JButton addAuthor;
+    private javax.swing.JButton deleteAuthor;
+    private javax.swing.JButton editAuthor;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JButton viewAuthors;
     // End of variables declaration//GEN-END:variables
 }

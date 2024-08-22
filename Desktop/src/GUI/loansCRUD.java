@@ -1,20 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUI;
 
-/**
- *
- * @author chanb
- */
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class loansCRUD extends javax.swing.JFrame {
 
-    /**
-     * Creates new form loansCRUD
-     */
     public loansCRUD() {
         initComponents();
+        addHoverEffect(addLoan);
+        addHoverEffect(viewLoans);
+        addHoverEffect(deleteLoan);
+        addHoverEffect(editLoan);
+    }
+    
+    private void addHoverEffect(javax.swing.JButton button) {
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent evt) {
+                button.setBackground(new Color(100, 80, 60));  // Hover color
+            }
+
+            @Override
+            public void mouseExited(MouseEvent evt) {
+                button.setBackground(new Color(78, 66, 52));  // Original color
+            }
+        });
     }
 
     /**
@@ -26,21 +37,185 @@ public class loansCRUD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Backbtn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        addLoan = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        deleteLoan = new javax.swing.JButton();
+        viewLoans = new javax.swing.JButton();
+        editLoan = new javax.swing.JButton();
+
+        Backbtn.setBackground(new java.awt.Color(159, 105, 50));
+        Backbtn.setFont(new java.awt.Font("Sitka Display", 1, 18)); // NOI18N
+        Backbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Return_Arrow-512(2).png"))); // NOI18N
+        Backbtn.setToolTipText("");
+        Backbtn.setBorderPainted(false);
+        Backbtn.setFocusPainted(false);
+        Backbtn.setFocusable(false);
+        Backbtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Backbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/back_icon.png"))); // NOI18N
+        Backbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackbtnActionPerformed(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(38, 39, 43));
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 420));
+        jPanel1.setRequestFocusEnabled(false);
+
+        addLoan.setBackground(new java.awt.Color(78, 66, 52));
+        addLoan.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        addLoan.setForeground(new java.awt.Color(255, 255, 255));
+        addLoan.setText("Add Loan");
+        addLoan.setToolTipText("");
+        addLoan.setAlignmentX(0.5F);
+        addLoan.setBorderPainted(false);
+        addLoan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addLoan.setFocusable(false);
+        addLoan.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        addLoan.setName("addLoan"); // NOI18N
+        addLoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addLoanActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setOpaque(false);
+
+        jTextPane1.setBackground(new java.awt.Color(38, 39, 43));
+        jTextPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
+        jTextPane1.setFont(new java.awt.Font("Sitka Heading", 1, 48)); // NOI18N
+        jTextPane1.setForeground(new java.awt.Color(159, 105, 50));
+        jTextPane1.setText("MANAGE LOANS");
+        jTextPane1.setAutoscrolls(false);
+        jTextPane1.setSelectedTextColor(new java.awt.Color(159, 105, 50));
+        jScrollPane1.setViewportView(jTextPane1);
+
+        deleteLoan.setBackground(new java.awt.Color(78, 66, 52));
+        deleteLoan.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        deleteLoan.setForeground(new java.awt.Color(255, 255, 255));
+        deleteLoan.setText("Delete Loan");
+        deleteLoan.setAlignmentY(0.0F);
+        deleteLoan.setBorderPainted(false);
+        deleteLoan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteLoan.setFocusable(false);
+        deleteLoan.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        deleteLoan.setName("deleteLoan"); // NOI18N
+        deleteLoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteLoanActionPerformed(evt);
+            }
+        });
+
+        viewLoans.setBackground(new java.awt.Color(78, 66, 52));
+        viewLoans.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        viewLoans.setForeground(new java.awt.Color(255, 255, 255));
+        viewLoans.setText("View Loans");
+        viewLoans.setAlignmentX(0.5F);
+        viewLoans.setBorderPainted(false);
+        viewLoans.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewLoans.setFocusable(false);
+        viewLoans.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        viewLoans.setName("viewLoans"); // NOI18N
+        viewLoans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewLoansActionPerformed(evt);
+            }
+        });
+
+        editLoan.setBackground(new java.awt.Color(78, 66, 52));
+        editLoan.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        editLoan.setForeground(new java.awt.Color(255, 255, 255));
+        editLoan.setText("Edit Loan");
+        editLoan.setAlignmentX(0.5F);
+        editLoan.setBorderPainted(false);
+        editLoan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editLoan.setFocusable(false);
+        editLoan.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        editLoan.setName("editLoan"); // NOI18N
+        editLoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editLoanActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(editLoan, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(viewLoans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(130, 130, 130))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(261, 261, 261))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewLoans, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLoanActionPerformed
+       
+    }//GEN-LAST:event_addLoanActionPerformed
+
+    private void deleteLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteLoanActionPerformed
+    }//GEN-LAST:event_deleteLoanActionPerformed
+
+    private void viewLoansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLoansActionPerformed
+       
+    }//GEN-LAST:event_viewLoansActionPerformed
+
+    private void editLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLoanActionPerformed
+       
+    }//GEN-LAST:event_editLoanActionPerformed
+
+    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new maindashboard().setVisible(true);
+                new loansCRUD().setVisible(false);
+            }
+        });
+    }//GEN-LAST:event_BackbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +253,13 @@ public class loansCRUD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Backbtn;
+    private javax.swing.JButton addLoan;
+    private javax.swing.JButton deleteLoan;
+    private javax.swing.JButton editLoan;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JButton viewLoans;
     // End of variables declaration//GEN-END:variables
 }
