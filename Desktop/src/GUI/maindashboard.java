@@ -59,8 +59,7 @@ public class maindashboard extends javax.swing.JFrame {
         setTitle("MainDashboard");
         setBackground(new java.awt.Color(102, 0, 255));
         setBounds(new java.awt.Rectangle(0, 0, 600, 400));
-        setLocation(new java.awt.Point(200, 200));
-        setLocationByPlatform(true);
+        setLocation(new java.awt.Point(500, 500));
         setName("dash"); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
@@ -73,6 +72,7 @@ public class maindashboard extends javax.swing.JFrame {
         manageBooks.setAlignmentX(0.5F);
         manageBooks.setBorderPainted(false);
         manageBooks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageBooks.setFocusPainted(false);
         manageBooks.setMargin(new java.awt.Insets(2, 14, 2, 14));
         manageBooks.setName("manageBooks"); // NOI18N
         manageBooks.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +100,7 @@ public class maindashboard extends javax.swing.JFrame {
         manageBorrowers.setAlignmentY(0.0F);
         manageBorrowers.setBorderPainted(false);
         manageBorrowers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageBorrowers.setFocusPainted(false);
         manageBorrowers.setMargin(new java.awt.Insets(2, 14, 2, 14));
         manageBorrowers.setName("manageBorrowers"); // NOI18N
         manageBorrowers.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +116,7 @@ public class maindashboard extends javax.swing.JFrame {
         manageLoans.setAlignmentX(0.5F);
         manageLoans.setBorderPainted(false);
         manageLoans.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageLoans.setFocusPainted(false);
         manageLoans.setMargin(new java.awt.Insets(2, 14, 2, 14));
         manageLoans.setName("manageLoans"); // NOI18N
         manageLoans.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +132,7 @@ public class maindashboard extends javax.swing.JFrame {
         manageAuthors.setAlignmentX(0.5F);
         manageAuthors.setBorderPainted(false);
         manageAuthors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageAuthors.setFocusPainted(false);
         manageAuthors.setMargin(new java.awt.Insets(2, 14, 2, 14));
         manageAuthors.setName("manageAuthors"); // NOI18N
         manageAuthors.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +180,9 @@ public class maindashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,35 +193,23 @@ public class maindashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageBooksActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new booksCRUD().setVisible(true);
-            }
-        });
+        this.dispose();
+        new booksCRUD().setVisible(true);
     }//GEN-LAST:event_manageBooksActionPerformed
 
     private void manageAuthorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageAuthorsActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new authorCRUD().setVisible(true);
-            }
-        });
+        this.dispose();
+        new authorCRUD().setVisible(true);
     }//GEN-LAST:event_manageAuthorsActionPerformed
 
     private void manageBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageBorrowersActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new borrowersCRUD().setVisible(true);
-            }
-        });
+        this.dispose();
+        new borrowersCRUD().setVisible(true);
     }//GEN-LAST:event_manageBorrowersActionPerformed
 
     private void manageLoansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageLoansActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new loansCRUD().setVisible(true);
-            }
-        });
+        this.dispose();
+        new loansCRUD().setVisible(true);
     }//GEN-LAST:event_manageLoansActionPerformed
 
     /**

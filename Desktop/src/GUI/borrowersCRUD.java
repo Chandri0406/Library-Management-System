@@ -46,6 +46,9 @@ public class borrowersCRUD extends javax.swing.JFrame {
         Backbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Manage Borrowers");
+        setLocation(new java.awt.Point(500, 500));
+        setLocationByPlatform(true);
 
         borrowerBody.setBackground(new java.awt.Color(38, 39, 43));
         borrowerBody.setPreferredSize(new java.awt.Dimension(900, 420));
@@ -57,6 +60,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         addBorrower.setAlignmentX(0.5F);
         addBorrower.setBorderPainted(false);
         addBorrower.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addBorrower.setFocusPainted(false);
         addBorrower.setFocusable(false);
         addBorrower.setMargin(new java.awt.Insets(2, 14, 2, 14));
         addBorrower.setName("addBorrower"); // NOI18N
@@ -85,6 +89,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         deleteBorrower.setAlignmentY(0.0F);
         deleteBorrower.setBorderPainted(false);
         deleteBorrower.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteBorrower.setFocusPainted(false);
         deleteBorrower.setFocusable(false);
         deleteBorrower.setMargin(new java.awt.Insets(2, 14, 2, 14));
         deleteBorrower.setName("deleteBorrower"); // NOI18N
@@ -101,6 +106,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         viewBorrowers.setAlignmentX(0.5F);
         viewBorrowers.setBorderPainted(false);
         viewBorrowers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewBorrowers.setFocusPainted(false);
         viewBorrowers.setFocusable(false);
         viewBorrowers.setMargin(new java.awt.Insets(2, 14, 2, 14));
         viewBorrowers.setName("viewBorrowers"); // NOI18N
@@ -117,6 +123,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         editBorrower.setAlignmentX(0.5F);
         editBorrower.setBorderPainted(false);
         editBorrower.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editBorrower.setFocusPainted(false);
         editBorrower.setFocusable(false);
         editBorrower.setMargin(new java.awt.Insets(2, 14, 2, 14));
         editBorrower.setName("editBorrower"); // NOI18N
@@ -127,14 +134,14 @@ public class borrowersCRUD extends javax.swing.JFrame {
         });
 
         Backbtn.setBackground(new java.awt.Color(159, 105, 50));
-        Backbtn.setFont(new java.awt.Font("Sitka Display", 1, 18)); // NOI18N
-        Backbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Return_Arrow-512(2).png"))); // NOI18N
-        Backbtn.setToolTipText("");
+        Backbtn.setFont(new java.awt.Font("Sitka Display", 1, 24)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
+        Backbtn.setText("<");
         Backbtn.setBorderPainted(false);
-        Backbtn.setFocusPainted(false);
-        Backbtn.setFocusable(false);
         Backbtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Backbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/back_icon.png"))); // NOI18N
+        Backbtn.setIconTextGap(1);
+        Backbtn.setMargin(new java.awt.Insets(1, 5, 1, 5));
+        Backbtn.setPreferredSize(new java.awt.Dimension(40, 30));
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
@@ -157,9 +164,9 @@ public class borrowersCRUD extends javax.swing.JFrame {
                             .addComponent(editBorrower, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(viewBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(borrowerBodyLayout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(145, 145, 145)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
@@ -172,8 +179,8 @@ public class borrowersCRUD extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                         .addGap(66, 66, 66))
                     .addGroup(borrowerBodyLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(Backbtn)
+                        .addGap(49, 49, 49)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(borrowerBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBorrower, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,28 +207,24 @@ public class borrowersCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBorrowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBorrowerActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_addBorrowerActionPerformed
 
+    private void editBorrowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBorrowerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editBorrowerActionPerformed
+
     private void deleteBorrowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBorrowerActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_deleteBorrowerActionPerformed
 
     private void viewBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBorrowersActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_viewBorrowersActionPerformed
 
-    private void editBorrowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBorrowerActionPerformed
-    
-    }//GEN-LAST:event_editBorrowerActionPerformed
-
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new maindashboard().setVisible(true);
-                new borrowersCRUD().setVisible(false);
-            }
-        });
+        this.dispose();
+        new maindashboard().setVisible(true);
     }//GEN-LAST:event_BackbtnActionPerformed
 
     /**

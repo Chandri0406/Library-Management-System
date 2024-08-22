@@ -44,9 +44,12 @@ public class authorCRUD extends javax.swing.JFrame {
         deleteAuthor = new javax.swing.JButton();
         viewAuthors = new javax.swing.JButton();
         editAuthor = new javax.swing.JButton();
-        Backbtn1 = new javax.swing.JButton();
+        Backbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Manage Authors");
+        setLocation(new java.awt.Point(500, 500));
+        setLocationByPlatform(true);
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 420));
@@ -58,6 +61,7 @@ public class authorCRUD extends javax.swing.JFrame {
         addAuthor.setAlignmentX(0.5F);
         addAuthor.setBorderPainted(false);
         addAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addAuthor.setFocusPainted(false);
         addAuthor.setFocusable(false);
         addAuthor.setMargin(new java.awt.Insets(2, 14, 2, 14));
         addAuthor.setName("addAuthor"); // NOI18N
@@ -86,6 +90,7 @@ public class authorCRUD extends javax.swing.JFrame {
         deleteAuthor.setAlignmentY(0.0F);
         deleteAuthor.setBorderPainted(false);
         deleteAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteAuthor.setFocusPainted(false);
         deleteAuthor.setFocusable(false);
         deleteAuthor.setMargin(new java.awt.Insets(2, 14, 2, 14));
         deleteAuthor.setName("deleteAuthor"); // NOI18N
@@ -102,6 +107,7 @@ public class authorCRUD extends javax.swing.JFrame {
         viewAuthors.setAlignmentX(0.5F);
         viewAuthors.setBorderPainted(false);
         viewAuthors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewAuthors.setFocusPainted(false);
         viewAuthors.setFocusable(false);
         viewAuthors.setMargin(new java.awt.Insets(2, 14, 2, 14));
         viewAuthors.setName("viewAuthors"); // NOI18N
@@ -118,6 +124,7 @@ public class authorCRUD extends javax.swing.JFrame {
         editAuthor.setAlignmentX(0.5F);
         editAuthor.setBorderPainted(false);
         editAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editAuthor.setFocusPainted(false);
         editAuthor.setFocusable(false);
         editAuthor.setMargin(new java.awt.Insets(2, 14, 2, 14));
         editAuthor.setName("editAuthor"); // NOI18N
@@ -127,18 +134,18 @@ public class authorCRUD extends javax.swing.JFrame {
             }
         });
 
-        Backbtn1.setBackground(new java.awt.Color(159, 105, 50));
-        Backbtn1.setFont(new java.awt.Font("Sitka Display", 1, 18)); // NOI18N
-        Backbtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Return_Arrow-512(2).png"))); // NOI18N
-        Backbtn1.setToolTipText("");
-        Backbtn1.setBorderPainted(false);
-        Backbtn1.setFocusPainted(false);
-        Backbtn1.setFocusable(false);
-        Backbtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Backbtn1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/back_icon.png"))); // NOI18N
-        Backbtn1.addActionListener(new java.awt.event.ActionListener() {
+        Backbtn.setBackground(new java.awt.Color(159, 105, 50));
+        Backbtn.setFont(new java.awt.Font("Sitka Display", 1, 24)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
+        Backbtn.setText("<");
+        Backbtn.setBorderPainted(false);
+        Backbtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Backbtn.setIconTextGap(1);
+        Backbtn.setMargin(new java.awt.Insets(1, 5, 1, 5));
+        Backbtn.setPreferredSize(new java.awt.Dimension(40, 30));
+        Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Backbtn1ActionPerformed(evt);
+                BackbtnActionPerformed(evt);
             }
         });
 
@@ -157,8 +164,8 @@ public class authorCRUD extends javax.swing.JFrame {
                     .addComponent(viewAuthors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(130, 130, 130))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(Backbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185)
+                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -168,12 +175,12 @@ public class authorCRUD extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                        .addGap(61, 61, 61))
+                        .addContainerGap(31, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(Backbtn1)
+                        .addGap(53, 53, 53)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,29 +207,25 @@ public class authorCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuthorActionPerformed
-
+        // ADD add 
     }//GEN-LAST:event_addAuthorActionPerformed
 
+    private void editAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAuthorActionPerformed
+        // ADD edit 
+    }//GEN-LAST:event_editAuthorActionPerformed
+
     private void deleteAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAuthorActionPerformed
- 
+        // ADD delete 
     }//GEN-LAST:event_deleteAuthorActionPerformed
 
     private void viewAuthorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAuthorsActionPerformed
-
+        // ADD view 
     }//GEN-LAST:event_viewAuthorsActionPerformed
 
-    private void editAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAuthorActionPerformed
-
-    }//GEN-LAST:event_editAuthorActionPerformed
-
-    private void Backbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Backbtn1ActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new maindashboard().setVisible(true);
-                new authorCRUD().setVisible(false);
-            }
-        });
-    }//GEN-LAST:event_Backbtn1ActionPerformed
+    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+        this.dispose();
+        new maindashboard().setVisible(true);
+    }//GEN-LAST:event_BackbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,7 +263,7 @@ public class authorCRUD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Backbtn1;
+    private javax.swing.JButton Backbtn;
     private javax.swing.JButton addAuthor;
     private javax.swing.JButton deleteAuthor;
     private javax.swing.JButton editAuthor;

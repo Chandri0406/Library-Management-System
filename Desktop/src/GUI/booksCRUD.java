@@ -46,6 +46,9 @@ public class booksCRUD extends javax.swing.JFrame {
         Backbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Manage Books");
+        setLocation(new java.awt.Point(500, 500));
+        setLocationByPlatform(true);
 
         bookBody.setBackground(new java.awt.Color(38, 39, 43));
         bookBody.setPreferredSize(new java.awt.Dimension(900, 420));
@@ -58,6 +61,7 @@ public class booksCRUD extends javax.swing.JFrame {
         addBook.setAlignmentX(0.5F);
         addBook.setBorderPainted(false);
         addBook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addBook.setFocusPainted(false);
         addBook.setFocusable(false);
         addBook.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         addBook.setMargin(new java.awt.Insets(2, 14, 2, 14));
@@ -88,6 +92,7 @@ public class booksCRUD extends javax.swing.JFrame {
         deleteBook.setAlignmentY(0.0F);
         deleteBook.setBorderPainted(false);
         deleteBook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteBook.setFocusPainted(false);
         deleteBook.setFocusable(false);
         deleteBook.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         deleteBook.setMargin(new java.awt.Insets(2, 14, 2, 14));
@@ -105,6 +110,7 @@ public class booksCRUD extends javax.swing.JFrame {
         viewBooks.setAlignmentX(0.5F);
         viewBooks.setBorderPainted(false);
         viewBooks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewBooks.setFocusPainted(false);
         viewBooks.setFocusable(false);
         viewBooks.setMargin(new java.awt.Insets(2, 14, 2, 14));
         viewBooks.setName("viewBooks"); // NOI18N
@@ -121,6 +127,7 @@ public class booksCRUD extends javax.swing.JFrame {
         editBook.setAlignmentX(0.5F);
         editBook.setBorderPainted(false);
         editBook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editBook.setFocusPainted(false);
         editBook.setFocusable(false);
         editBook.setMargin(new java.awt.Insets(2, 14, 2, 14));
         editBook.setName("editBook"); // NOI18N
@@ -131,14 +138,14 @@ public class booksCRUD extends javax.swing.JFrame {
         });
 
         Backbtn.setBackground(new java.awt.Color(159, 105, 50));
-        Backbtn.setFont(new java.awt.Font("Sitka Display", 1, 18)); // NOI18N
-        Backbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Return_Arrow-512(2).png"))); // NOI18N
-        Backbtn.setToolTipText("");
+        Backbtn.setFont(new java.awt.Font("Sitka Display", 1, 24)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
+        Backbtn.setText("<");
         Backbtn.setBorderPainted(false);
-        Backbtn.setFocusPainted(false);
-        Backbtn.setFocusable(false);
         Backbtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Backbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/back_icon.png"))); // NOI18N
+        Backbtn.setIconTextGap(1);
+        Backbtn.setMargin(new java.awt.Insets(1, 5, 1, 5));
+        Backbtn.setPreferredSize(new java.awt.Dimension(40, 30));
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
@@ -154,7 +161,7 @@ public class booksCRUD extends javax.swing.JFrame {
                 .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bookBodyLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(261, 261, 261))
@@ -177,8 +184,8 @@ public class booksCRUD extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                         .addGap(64, 64, 64))
                     .addGroup(bookBodyLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(Backbtn)
+                        .addGap(53, 53, 53)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBook, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,32 +212,24 @@ public class booksCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new booksCRUD().setVisible(true);
-            }
-        });
+        // TODO add your handling code here:
     }//GEN-LAST:event_addBookActionPerformed
 
+    private void editBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBookActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editBookActionPerformed
+
     private void deleteBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBookActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_deleteBookActionPerformed
 
     private void viewBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBooksActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_viewBooksActionPerformed
 
-    private void editBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBookActionPerformed
-        
-    }//GEN-LAST:event_editBookActionPerformed
-
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new maindashboard().setVisible(true);
-                new booksCRUD().setVisible(false);
-            }
-        });
+        this.dispose();
+        new maindashboard().setVisible(true);
     }//GEN-LAST:event_BackbtnActionPerformed
 
     /**
