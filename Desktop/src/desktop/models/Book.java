@@ -2,42 +2,38 @@
 package desktop.models;
 
 public class Book {
-    private int BookID;
-    private String Title;
+    private String BookID;
     private String Genre;
     private int YearOfPublication;
+    private String Status;
     private String AuthorID;
 
-    public Book(int BookID, String Title, String Genre, int yearOfPublication, String AuthorID) {
+    public Book(String BookID, String Genre, int yearOfPublication, String status, String AuthorID) {
         this.BookID = BookID;
-        this.Title = Title;
         this.Genre = Genre;
         YearOfPublication = yearOfPublication;
+        Status = status;
         this.AuthorID = AuthorID;
     }
     
-    public Book(int BookID, String Title, String Genre, int yearOfPublication) {
+    public Book(String BookID, String Genre, int yearOfPublication, String status) {
         this.BookID = BookID;
-        this.Title = Title;
         this.Genre = Genre;
         YearOfPublication = yearOfPublication;
+        Status = status;
     }
 
-    public Book(String title, String genre, int yearOfPublication) {
-        Title = title;
+    public Book(String genre, int yearOfPublication, String status) {
         Genre = genre;
         YearOfPublication = yearOfPublication;
+        Status = status;
     }
 
     public Book() {
     }
 
-    public int getBookID() {
+    public String getBookID() {
         return BookID;
-    }
-
-    public String getTitle() {
-        return Title;
     }
 
     public String getGenre() {
@@ -48,16 +44,16 @@ public class Book {
         return YearOfPublication;
     }
 
+    public String getStatus() {
+        return Status;
+    }
+
     public String getAuthorID() {
         return AuthorID;
     }
 
-    public void setBookID(int BookID) {
+    public void setBookID(String BookID) {
         this.BookID = BookID;
-    }
-
-    public void setTitle(String Title) {
-        this.Title = Title;
     }
 
     public void setGenre(String Genre) {
@@ -66,6 +62,10 @@ public class Book {
 
     public void setYearOfPublication(int yearOfPublication) {
         YearOfPublication = yearOfPublication;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
     }
 
     public void setAuthorID(String AuthorID) {
