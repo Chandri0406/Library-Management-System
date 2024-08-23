@@ -3,27 +3,31 @@ package desktop.models;
 
 public class Book {
     private String BookID;
+    private String Title;
     private String Genre;
     private int YearOfPublication;
     private String Status;
     private String AuthorID;
 
-    public Book(String BookID, String Genre, int yearOfPublication, String status, String AuthorID) {
+    public Book(String BookID, String title, String Genre, int yearOfPublication, String status, String AuthorID) {
         this.BookID = BookID;
+        Title = title;
         this.Genre = Genre;
         YearOfPublication = yearOfPublication;
         Status = status;
         this.AuthorID = AuthorID;
     }
     
-    public Book(String BookID, String Genre, int yearOfPublication, String status) {
+    public Book(String BookID, String title, String Genre, int yearOfPublication, String status) {
         this.BookID = BookID;
+        Title = title;
         this.Genre = Genre;
         YearOfPublication = yearOfPublication;
         Status = status;
     }
 
-    public Book(String genre, int yearOfPublication, String status) {
+    public Book(String title, String genre, int yearOfPublication, String status) {
+        Title = title;
         Genre = genre;
         YearOfPublication = yearOfPublication;
         Status = status;
@@ -34,6 +38,10 @@ public class Book {
 
     public String getBookID() {
         return BookID;
+    }
+
+    public String getTitle() {
+        return Title;
     }
 
     public String getGenre() {
@@ -54,6 +62,10 @@ public class Book {
 
     public void setBookID(String BookID) {
         this.BookID = BookID;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
     }
 
     public void setGenre(String Genre) {
