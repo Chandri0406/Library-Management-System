@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class borrowersCRUD extends javax.swing.JFrame {
+    
     public borrowersCRUD() {
         initComponents();
         addHoverEffect(add_btn);
@@ -78,6 +79,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
 
+        jTextPane1.setEditable(false);
         jTextPane1.setBackground(new java.awt.Color(38, 39, 43));
         jTextPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         jTextPane1.setFont(new java.awt.Font("Sitka Heading", 1, 48)); // NOI18N
@@ -247,11 +249,13 @@ public class borrowersCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new borrowersAdd().setVisible(true);
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new borrowersEdit().setVisible(true);
     }//GEN-LAST:event_edit_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed

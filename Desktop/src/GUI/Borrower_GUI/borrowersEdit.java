@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class borrowersAdd extends javax.swing.JFrame {
+public class borrowersEdit extends javax.swing.JFrame {
 
-    public borrowersAdd() {
+    public borrowersEdit() {
         initComponents();
-        addHoverEffect(submit_btn);
+        addHoverEffect(edited_btn);
     }
     
     private void addHoverEffect(javax.swing.JButton button) {
@@ -37,18 +37,18 @@ public class borrowersAdd extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
-        back_btn = new javax.swing.JButton();
         name_lbl = new javax.swing.JLabel();
         surname_lbl = new javax.swing.JLabel();
         phone_lbl = new javax.swing.JLabel();
         name_txt = new javax.swing.JTextField();
         surname_txt = new javax.swing.JTextField();
         phone_txt = new javax.swing.JTextField();
-        submit_btn = new javax.swing.JButton();
+        edited_btn = new javax.swing.JButton();
         address_lbl1 = new javax.swing.JLabel();
         address_txt1 = new javax.swing.JTextField();
         email_lbl2 = new javax.swing.JLabel();
         email_txt2 = new javax.swing.JTextField();
+        back_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,22 +67,6 @@ public class borrowersAdd extends javax.swing.JFrame {
         jTextPane1.setAutoscrolls(false);
         jTextPane1.setSelectedTextColor(new java.awt.Color(159, 105, 50));
         jScrollPane1.setViewportView(jTextPane1);
-
-        back_btn.setBackground(new java.awt.Color(159, 105, 50));
-        back_btn.setFont(new java.awt.Font("Sitka Display", 1, 24)); // NOI18N
-        back_btn.setForeground(new java.awt.Color(255, 255, 255));
-        back_btn.setText("<");
-        back_btn.setBorderPainted(false);
-        back_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        back_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        back_btn.setIconTextGap(1);
-        back_btn.setMargin(new java.awt.Insets(1, 5, 1, 5));
-        back_btn.setPreferredSize(new java.awt.Dimension(40, 30));
-        back_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back_btnActionPerformed(evt);
-            }
-        });
 
         name_lbl.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
         name_lbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,17 +96,17 @@ public class borrowersAdd extends javax.swing.JFrame {
         phone_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         phone_txt.setPreferredSize(new java.awt.Dimension(225, 25));
 
-        submit_btn.setBackground(new java.awt.Color(159, 105, 50));
-        submit_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
-        submit_btn.setForeground(new java.awt.Color(255, 255, 255));
-        submit_btn.setText("SUBMIT");
-        submit_btn.setBorderPainted(false);
-        submit_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        submit_btn.setFocusPainted(false);
-        submit_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        submit_btn.addActionListener(new java.awt.event.ActionListener() {
+        edited_btn.setBackground(new java.awt.Color(159, 105, 50));
+        edited_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        edited_btn.setForeground(new java.awt.Color(255, 255, 255));
+        edited_btn.setText("EDIT");
+        edited_btn.setBorderPainted(false);
+        edited_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        edited_btn.setFocusPainted(false);
+        edited_btn.setFocusable(false);
+        edited_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submit_btnActionPerformed(evt);
+                edited_btnActionPerformed(evt);
             }
         });
 
@@ -142,6 +126,22 @@ public class borrowersAdd extends javax.swing.JFrame {
 
         email_txt2.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         email_txt2.setPreferredSize(new java.awt.Dimension(225, 25));
+
+        back_btn.setBackground(new java.awt.Color(159, 105, 50));
+        back_btn.setFont(new java.awt.Font("Sitka Display", 1, 24)); // NOI18N
+        back_btn.setForeground(new java.awt.Color(255, 255, 255));
+        back_btn.setText("<");
+        back_btn.setBorderPainted(false);
+        back_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        back_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        back_btn.setIconTextGap(1);
+        back_btn.setMargin(new java.awt.Insets(1, 5, 1, 5));
+        back_btn.setPreferredSize(new java.awt.Dimension(40, 30));
+        back_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -175,14 +175,14 @@ public class borrowersAdd extends javax.swing.JFrame {
                                 .addGap(58, 58, 58)
                                 .addComponent(name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
+                        .addGap(160, 160, 160)
                         .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(127, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(submit_btn)
+                .addComponent(edited_btn)
                 .addGap(257, 257, 257))
         );
         jPanel2Layout.setVerticalGroup(
@@ -216,7 +216,7 @@ public class borrowersAdd extends javax.swing.JFrame {
                     .addComponent(email_txt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(email_lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(submit_btn)
+                .addComponent(edited_btn)
                 .addGap(21, 21, 21))
         );
 
@@ -234,14 +234,14 @@ public class borrowersAdd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void edited_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edited_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edited_btnActionPerformed
+
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
         this.dispose();
         new borrowersCRUD().setVisible(true);
     }//GEN-LAST:event_back_btnActionPerformed
-
-    private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_submit_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,7 +273,7 @@ public class borrowersAdd extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new borrowersAdd().setVisible(true);
+                new borrowersEdit().setVisible(true);
             }
         });
     }
@@ -282,6 +282,7 @@ public class borrowersAdd extends javax.swing.JFrame {
     private javax.swing.JLabel address_lbl1;
     private javax.swing.JTextField address_txt1;
     private javax.swing.JButton back_btn;
+    private javax.swing.JButton edited_btn;
     private javax.swing.JLabel email_lbl2;
     private javax.swing.JTextField email_txt2;
     private javax.swing.JPanel jPanel2;
@@ -291,7 +292,6 @@ public class borrowersAdd extends javax.swing.JFrame {
     private javax.swing.JTextField name_txt;
     private javax.swing.JLabel phone_lbl;
     private javax.swing.JTextField phone_txt;
-    private javax.swing.JButton submit_btn;
     private javax.swing.JLabel surname_lbl;
     private javax.swing.JTextField surname_txt;
     // End of variables declaration//GEN-END:variables
