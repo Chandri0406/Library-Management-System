@@ -1,14 +1,14 @@
 package desktop.models;
 
 public class Borrower {
-    private int LibraryCardID;
+    private String LibraryCardID;
     private String Name;
     private String Surname;
     private String Address;
     private String Phone;
     private String Email;
 
-    public Borrower(int libraryCardID, String name, String surname, String address, String phone, String email) {
+    public Borrower(String libraryCardID, String name, String surname, String address, String phone, String email) {
         LibraryCardID = libraryCardID;
         Name = name;
         Surname = surname;
@@ -28,7 +28,7 @@ public class Borrower {
     public Borrower() {
     }
 
-    public int getLibraryCardID() {
+    public String getLibraryCardID() {
         return LibraryCardID;
     }
 
@@ -52,7 +52,7 @@ public class Borrower {
         return Email;
     }
 
-    public void setLibraryCardID(int libraryCardID) {
+    public void setLibraryCardID(String libraryCardID) {
         LibraryCardID = libraryCardID;
     }
 

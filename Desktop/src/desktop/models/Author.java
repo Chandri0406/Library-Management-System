@@ -1,30 +1,28 @@
 package desktop.models;
 
-import java.util.Date;
-
 public class Author {
-    private int AuthorID;
+    private String AuthorID;
     private String Name;
     private String Surname;
-    private Date DateOfBirth;
+    private String Publisher;
 
-    public Author(int authorID, String name, String surname, Date dateOfBirth) {
+    public Author(String authorID, String name, String surname, String publisher) {
         AuthorID = authorID;
         Name = name;
         Surname = surname;
-        DateOfBirth = dateOfBirth;
+        Publisher = publisher;
     }
 
-    public Author(String name, String surname, Date dateOfBirth) {
+    public Author(String name, String surname, String publisher) {
         Name = name;
         Surname = surname;
-        DateOfBirth = dateOfBirth;
+        Publisher = publisher;
     }
 
     public Author() {
     }
 
-    public int getAuthorID() {
+    public String getAuthorID() {
         return AuthorID;
     }
 
@@ -36,11 +34,11 @@ public class Author {
         return Surname;
     }
 
-    public Date getDateOfBirth() {
-        return DateOfBirth;
+    public String getPublisher() {
+        return Publisher;
     }
 
-    public void setAuthorID(int authorID) {
+    public void setAuthorID(String authorID) {
         AuthorID = authorID;
     }
 
@@ -52,7 +50,7 @@ public class Author {
         Surname = surname;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        DateOfBirth = dateOfBirth;
+    public void setPublisher(String publisher) {
+        Publisher = publisher;
     }
 }

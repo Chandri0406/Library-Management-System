@@ -5,28 +5,28 @@ public class Book {
     private int BookID;
     private String Title;
     private String Genre;
-    private double Price;
-    private int AuthorID;
+    private int YearOfPublication;
+    private String AuthorID;
 
-    public Book(int BookID, String Title, String Genre, double Price, int AuthorID) {
+    public Book(int BookID, String Title, String Genre, int yearOfPublication, String AuthorID) {
         this.BookID = BookID;
         this.Title = Title;
         this.Genre = Genre;
-        this.Price = Price;
+        YearOfPublication = yearOfPublication;
         this.AuthorID = AuthorID;
     }
     
-    public Book(int BookID, String Title, String Genre, double Price) {
+    public Book(int BookID, String Title, String Genre, int yearOfPublication) {
         this.BookID = BookID;
         this.Title = Title;
         this.Genre = Genre;
-        this.Price = Price;
+        YearOfPublication = yearOfPublication;
     }
 
-    public Book(String title, String genre, double price) {
+    public Book(String title, String genre, int yearOfPublication) {
         Title = title;
         Genre = genre;
-        Price = price;
+        YearOfPublication = yearOfPublication;
     }
 
     public Book() {
@@ -44,11 +44,11 @@ public class Book {
         return Genre;
     }
 
-    public double getPrice() {
-        return Price;
+    public int getYearOfPublication() {
+        return YearOfPublication;
     }
 
-    public int getAuthorID() {
+    public String getAuthorID() {
         return AuthorID;
     }
 
@@ -64,11 +64,11 @@ public class Book {
         this.Genre = Genre;
     }
 
-    public void setPrice(double Price) {
-        this.Price = Price;
+    public void setYearOfPublication(int yearOfPublication) {
+        YearOfPublication = yearOfPublication;
     }
 
-    public void setAuthorID(int AuthorID) {
+    public void setAuthorID(String AuthorID) {
         this.AuthorID = AuthorID;
     }
 }
