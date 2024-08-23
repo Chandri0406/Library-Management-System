@@ -210,12 +210,7 @@ public class authorCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuthorActionPerformed
-        DatabaseConnection db = new DatabaseConnection();
-        try {
-            Connection conn = db.connect();
-        } catch (ClassNotFoundException ex) {
-            System.out.println("ERROR: " + ex.getMessage());
-        }
+        // ADD add
     }//GEN-LAST:event_addAuthorActionPerformed
 
     private void editAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAuthorActionPerformed
