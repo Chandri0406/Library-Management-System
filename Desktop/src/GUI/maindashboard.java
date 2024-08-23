@@ -209,7 +209,7 @@ public class maindashboard extends javax.swing.JFrame {
 
     private void manageAuthorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageAuthorsActionPerformed
         this.dispose();
-        new loansCRUD().setVisible(true);
+        new authorCRUD().setVisible(true);
     }//GEN-LAST:event_manageAuthorsActionPerformed
 
     private void manageBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageBorrowersActionPerformed

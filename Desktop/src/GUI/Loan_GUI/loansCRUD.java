@@ -98,11 +98,11 @@ public class loansCRUD extends javax.swing.JFrame {
         search_txt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         search_txt.setText("Search by Name");
 
-        jScrollPane2.setBackground(new java.awt.Color(200, 195, 174));
+        jScrollPane2.setBackground(new java.awt.Color(204, 204, 204));
         jScrollPane2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         jScrollPane2.setPreferredSize(new java.awt.Dimension(100, 280));
 
-        author_tbl.setBackground(new java.awt.Color(183, 172, 162));
+        author_tbl.setBackground(new java.awt.Color(204, 204, 204));
         author_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -205,7 +205,7 @@ public class loansCRUD extends javax.swing.JFrame {
                         .addGap(205, 205, 205)
                         .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -249,7 +249,8 @@ public class loansCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
-        // ADD edit
+        this.dispose();
+        new loanEdit().setVisible(true);
     }//GEN-LAST:event_edit_btnActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
@@ -258,7 +259,8 @@ public class loansCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_back_btnActionPerformed
 
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
-        // ADD add
+        this.dispose();
+        new loanAdd().setVisible(true);
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed

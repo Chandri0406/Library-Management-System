@@ -248,7 +248,8 @@ public class authorCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
-        // ADD add
+        this.dispose();
+        new bookAdd().setVisible(true);
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
@@ -256,7 +257,8 @@ public class authorCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_delete_btnActionPerformed
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
-        // ADD edit
+        this.dispose();
+        new authorEdit().setVisible(true);
     }//GEN-LAST:event_edit_btnActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
