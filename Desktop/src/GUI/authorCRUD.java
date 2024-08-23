@@ -3,6 +3,9 @@ package GUI;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.*;
 
 public class authorCRUD extends javax.swing.JFrame {
 
@@ -207,7 +210,12 @@ public class authorCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuthorActionPerformed
-        // ADD add 
+        DatabaseConnection db = new DatabaseConnection();
+        try {
+            Connection conn = db.connect();
+        } catch (ClassNotFoundException ex) {
+            System.out.println("ERROR: " + ex.getMessage());
+        }
     }//GEN-LAST:event_addAuthorActionPerformed
 
     private void editAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAuthorActionPerformed
