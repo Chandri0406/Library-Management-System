@@ -1,4 +1,8 @@
 package GUI;
+import GUI.Borrower_GUI.borrowersCRUD;
+import GUI.Loan_GUI.loansCRUD;
+import GUI.Book_GUI.booksCRUD;
+import GUI.Author_GUI.authorCRUD;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -63,18 +67,20 @@ public class maindashboard extends javax.swing.JFrame {
         setName("dash"); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
-        jPanel1.setPreferredSize(new java.awt.Dimension(900, 420));
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
 
         manageBooks.setBackground(new java.awt.Color(78, 66, 52));
-        manageBooks.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        manageBooks.setFont(new java.awt.Font("Sitka Small", 0, 26)); // NOI18N
         manageBooks.setForeground(new java.awt.Color(255, 255, 255));
         manageBooks.setText("Manage Books");
         manageBooks.setAlignmentX(0.5F);
         manageBooks.setBorderPainted(false);
         manageBooks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageBooks.setFocusPainted(false);
+        manageBooks.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         manageBooks.setMargin(new java.awt.Insets(2, 14, 2, 14));
         manageBooks.setName("manageBooks"); // NOI18N
+        manageBooks.setPreferredSize(new java.awt.Dimension(290, 55));
         manageBooks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageBooksActionPerformed(evt);
@@ -82,7 +88,6 @@ public class maindashboard extends javax.swing.JFrame {
         });
 
         jScrollPane1.setBorder(null);
-        jScrollPane1.setOpaque(false);
 
         jTextPane1.setBackground(new java.awt.Color(38, 39, 43));
         jTextPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
@@ -94,15 +99,17 @@ public class maindashboard extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextPane1);
 
         manageBorrowers.setBackground(new java.awt.Color(78, 66, 52));
-        manageBorrowers.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        manageBorrowers.setFont(new java.awt.Font("Sitka Small", 0, 26)); // NOI18N
         manageBorrowers.setForeground(new java.awt.Color(255, 255, 255));
         manageBorrowers.setText("Manage Borrowers");
         manageBorrowers.setAlignmentY(0.0F);
         manageBorrowers.setBorderPainted(false);
         manageBorrowers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageBorrowers.setFocusPainted(false);
+        manageBorrowers.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         manageBorrowers.setMargin(new java.awt.Insets(2, 14, 2, 14));
         manageBorrowers.setName("manageBorrowers"); // NOI18N
+        manageBorrowers.setPreferredSize(new java.awt.Dimension(290, 55));
         manageBorrowers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageBorrowersActionPerformed(evt);
@@ -110,15 +117,17 @@ public class maindashboard extends javax.swing.JFrame {
         });
 
         manageLoans.setBackground(new java.awt.Color(78, 66, 52));
-        manageLoans.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        manageLoans.setFont(new java.awt.Font("Sitka Small", 0, 26)); // NOI18N
         manageLoans.setForeground(new java.awt.Color(255, 255, 255));
         manageLoans.setText("Manage Loans");
         manageLoans.setAlignmentX(0.5F);
         manageLoans.setBorderPainted(false);
         manageLoans.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageLoans.setFocusPainted(false);
+        manageLoans.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         manageLoans.setMargin(new java.awt.Insets(2, 14, 2, 14));
         manageLoans.setName("manageLoans"); // NOI18N
+        manageLoans.setPreferredSize(new java.awt.Dimension(290, 55));
         manageLoans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageLoansActionPerformed(evt);
@@ -126,15 +135,17 @@ public class maindashboard extends javax.swing.JFrame {
         });
 
         manageAuthors.setBackground(new java.awt.Color(78, 66, 52));
-        manageAuthors.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
+        manageAuthors.setFont(new java.awt.Font("Sitka Small", 0, 26)); // NOI18N
         manageAuthors.setForeground(new java.awt.Color(255, 255, 255));
         manageAuthors.setText("Manage Authors");
         manageAuthors.setAlignmentX(0.5F);
         manageAuthors.setBorderPainted(false);
         manageAuthors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageAuthors.setFocusPainted(false);
+        manageAuthors.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         manageAuthors.setMargin(new java.awt.Insets(2, 14, 2, 14));
         manageAuthors.setName("manageAuthors"); // NOI18N
+        manageAuthors.setPreferredSize(new java.awt.Dimension(290, 55));
         manageAuthors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageAuthorsActionPerformed(evt);
@@ -145,35 +156,34 @@ public class maindashboard extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 97, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(manageBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(manageAuthors, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                    .addComponent(manageLoans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(130, 130, 130))
+                .addGap(0, 97, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(manageBooks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manageBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(manageAuthors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manageLoans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                .addGap(70, 70, 70)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(manageBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageAuthors, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74)
+                    .addComponent(manageBooks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageAuthors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(99, 99, 99)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(manageBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageLoans, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
+                    .addComponent(manageBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageLoans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,7 +209,7 @@ public class maindashboard extends javax.swing.JFrame {
 
     private void manageAuthorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageAuthorsActionPerformed
         this.dispose();
-        new authorCRUD().setVisible(true);
+        new loansCRUD().setVisible(true);
     }//GEN-LAST:event_manageAuthorsActionPerformed
 
     private void manageBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageBorrowersActionPerformed
