@@ -1,58 +1,56 @@
 package desktop.models;
 
-import java.util.Date;
-
 public class Author {
-    private int AuthorID;
-    private String Name;
-    private String Surname;
-    private Date DateOfBirth;
+    private String AuthorID;
+    private String FirstName;
+    private String LastName;
+    private String Publisher;
 
-    public Author(int authorID, String name, String surname, Date dateOfBirth) {
+    public Author(String authorID, String name, String surname, String publisher) {
         AuthorID = authorID;
-        Name = name;
-        Surname = surname;
-        DateOfBirth = dateOfBirth;
+        FirstName = name;
+        LastName = surname;
+        Publisher = publisher;
     }
 
-    public Author(String name, String surname, Date dateOfBirth) {
-        Name = name;
-        Surname = surname;
-        DateOfBirth = dateOfBirth;
+    public Author(String name, String surname, String publisher) {
+        FirstName = name;
+        LastName = surname;
+        Publisher = publisher;
     }
 
     public Author() {
     }
 
-    public int getAuthorID() {
+    public String getAuthorID() {
         return AuthorID;
     }
 
-    public String getName() {
-        return Name;
+    public String getFirstName() {
+        return FirstName;
     }
 
-    public String getSurname() {
-        return Surname;
+    public String getLastName() {
+        return LastName;
     }
 
-    public Date getDateOfBirth() {
-        return DateOfBirth;
+    public String getPublisher() {
+        return Publisher;
     }
 
-    public void setAuthorID(int authorID) {
+    public void setAuthorID(String authorID) {
         AuthorID = authorID;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
     }
 
-    public void setSurname(String surname) {
-        Surname = surname;
+    public void setLastName(String lastName) {
+        LastName = lastName;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        DateOfBirth = dateOfBirth;
+    public void setPublisher(String publisher) {
+        Publisher = publisher;
     }
 }
