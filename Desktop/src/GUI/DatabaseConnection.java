@@ -272,13 +272,13 @@ public class DatabaseConnection
 
     }
 
-    public void DeleteAuthor(int id)
+    public void DeleteAuthor(String id)
     {
         PreparedStatement query;
 
         try{
             query = con.prepareStatement("DELETE FROM \"Author\" WHERE \"AuthorID\" = ?");
-            query.setInt(1, id);
+            query.setString(1, id);
 
             query.executeUpdate();
             System.out.println("Author sucessfully deleted");

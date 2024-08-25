@@ -26,6 +26,20 @@ public class authorCRUD extends javax.swing.JFrame {
     ArrayList<Author> authors = new ArrayList<Author>();
     int rowIndex = -1;
     
+    public void RefreshTable()
+    {
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(authorCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        authors = db.Authorview();
+        DefaultTableModel model = (DefaultTableModel) author_tbl.getModel();
+        model.setRowCount(0);
+        for(Author author : authors){
+            model.addRow(new Object[]{author.getAuthorID(), author.getFirstName(), author.getLastName(), author.getPublisher()});
+        }
+    }
     private void addHoverEffect(javax.swing.JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override
@@ -272,7 +286,18 @@ public class authorCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
-        // ADD delete
+        if(rowIndex != -1){
+            int option = JOptionPane.showConfirmDialog(null, "Are you sure you wish to delete '" + authors.get(rowIndex).getFirstName() + " " + authors.get(rowIndex).getLastName() + "'?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if(option == JOptionPane.YES_OPTION){
+                String selectedID = authors.get(rowIndex).getAuthorID();
+                db.DeleteAuthor(selectedID);
+            
+            RefreshTable();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please select an author you wish to delete", "Delete Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_delete_btnActionPerformed
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
@@ -294,17 +319,7 @@ public class authorCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_back_btnActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            db.connect();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(authorCRUD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        authors = db.Authorview();
-        DefaultTableModel model = (DefaultTableModel) author_tbl.getModel();
-        model.setRowCount(0);
-        for(Author author : authors){
-            model.addRow(new Object[]{author.getAuthorID(), author.getFirstName(), author.getLastName(), author.getPublisher()});
-        }
+        RefreshTable();
     }//GEN-LAST:event_formWindowOpened
 
     private void author_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_author_tblMouseClicked
