@@ -124,7 +124,7 @@
                           <Component id="publisher_lbl" min="-2" max="-2" attributes="0"/>
                           <Component id="publisher_txt" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <EmptySpace pref="52" max="32767" attributes="0"/>
                       <Component id="submit_btn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
@@ -256,6 +256,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="SUBMIT"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submit_btnActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

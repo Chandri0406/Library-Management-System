@@ -129,10 +129,10 @@ public class DatabaseConnection
     public void addAuthor(Author author) {
         PreparedStatement query;
         try {
-            query = con.prepareStatement("INSERT INTO \"Author\"(\"Name\", \"Surname\", \"Publisher\") VALUES(?, ?, ?, ?)");
-            query.setString(2, author.getFirstName());
-            query.setString(3, author.getLastName());
-            query.setString(4, author.getPublisher());
+            query = con.prepareStatement("INSERT INTO \"Author\"(\"FirstName\", \"LastName\", \"Publisher\") VALUES(?, ?, ?)");
+            query.setString(1, author.getFirstName());
+            query.setString(2, author.getLastName());
+            query.setString(3, author.getPublisher());
 
             query.executeUpdate();
             System.out.println("Author has been added");

@@ -1,15 +1,21 @@
 package GUI.Author_GUI;
 
+import GUI.DatabaseConnection;
+import desktop.models.Author;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
-public class bookAdd extends javax.swing.JFrame {
+public class authorAdd extends javax.swing.JFrame {
 
-    public bookAdd() {
+    public authorAdd() {
         initComponents();
         addHoverEffect(submit_btn);
     }
+    DatabaseConnection db = new DatabaseConnection();
     
     private void addHoverEffect(javax.swing.JButton button) {
         button.addMouseListener(new MouseAdapter() {
@@ -102,6 +108,11 @@ public class bookAdd extends javax.swing.JFrame {
         submit_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         submit_btn.setForeground(new java.awt.Color(255, 255, 255));
         submit_btn.setText("SUBMIT");
+        submit_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submit_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -151,7 +162,7 @@ public class bookAdd extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(publisher_lbl)
                     .addComponent(publisher_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(submit_btn)
                 .addGap(36, 36, 36))
         );
@@ -186,6 +197,30 @@ public class bookAdd extends javax.swing.JFrame {
         new authorCRUD().setVisible(true);
     }//GEN-LAST:event_back_btnActionPerformed
 
+    private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
+        if(name_txt.getText().equals("") || surname_txt.getText().equals("") || publisher_txt.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please fill in all the fields to add new author", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            String firstName = name_txt.getText();
+            String lastName = surname_txt.getText();
+            String publisher = publisher_txt.getText();
+            Author author = new Author(firstName, lastName, publisher);
+            
+            try {
+                db.connect();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(authorAdd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            db.addAuthor(author);
+            
+            name_txt.setText("");
+            surname_txt.setText("");
+            publisher_txt.setText("");
+        }
+    }//GEN-LAST:event_submit_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -203,21 +238,23 @@ public class bookAdd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(bookAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(authorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(bookAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(authorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(bookAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(authorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(bookAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(authorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new bookAdd().setVisible(true);
+                new authorAdd().setVisible(true);
             }
         });
     }
