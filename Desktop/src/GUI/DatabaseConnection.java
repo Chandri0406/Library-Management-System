@@ -40,7 +40,7 @@ public class DatabaseConnection
     public ArrayList<Author> Authorview() {
         ArrayList<Author> dataList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM Author";
+            String query = "SELECT * FROM \"Author\"";
             ResultSet table = this.con.createStatement().executeQuery(query);
 
             while (table.next())
@@ -61,7 +61,7 @@ public class DatabaseConnection
     public ArrayList<Book> Bookview() {
         ArrayList<Book> dataList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM Book";
+            String query = "SELECT * FROM \"Book\"";
             ResultSet table = this.con.createStatement().executeQuery(query);
 
             while (table.next())
@@ -82,7 +82,7 @@ public class DatabaseConnection
     public ArrayList<Borrower> Borrowerview() {
         ArrayList<Borrower> dataList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM Borrower";
+            String query = "SELECT * FROM \"Borrower\"";
             ResultSet table = this.con.createStatement().executeQuery(query);
 
             while (table.next())
@@ -106,7 +106,7 @@ public class DatabaseConnection
     public ArrayList<Loan> Loanview() {
         ArrayList<Loan> dataList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM Loan";
+            String query = "SELECT * FROM \"Loan\"";
             ResultSet table = this.con.createStatement().executeQuery(query);
 
             while (table.next())
@@ -129,8 +129,7 @@ public class DatabaseConnection
     public void addAuthor(Author author) {
         PreparedStatement query;
         try {
-            query = con.prepareStatement("INSERT INTO Author(AuthorID, Name, Surname, Publisher) VALUES(?, ?, ?, ?)");
-            query.setString(1, author.getAuthorID());
+            query = con.prepareStatement("INSERT INTO \"Author\"(\"Name\", \"Surname\", \"Publisher\") VALUES(?, ?, ?, ?)");
             query.setString(2, author.getFirstName());
             query.setString(3, author.getLastName());
             query.setString(4, author.getPublisher());
@@ -146,8 +145,7 @@ public class DatabaseConnection
         public void addBook(Book book) {
             PreparedStatement query;
             try {
-                query = con.prepareStatement("INSERT INTO Book(BookID, Title, Genre, YearOfPublication, Status, Author ID) VALUES(?, ?, ?, ?, ?, ?)");
-                query.setString(1, book.getBookID());
+                query = con.prepareStatement("INSERT INTO Book(\"Title\", \"Genre\", \"YearOfPublication\", \"Status\", \"Author ID\") VALUES(?, ?, ?, ?, ?, ?)");
                 query.setString(2, book.getTitle());
                 query.setString(3, book.getGenre());
                 query.setInt(4, book.getYearOfPublication());
@@ -166,12 +164,10 @@ public class DatabaseConnection
             public void addLoan(Loan loan) {
                 PreparedStatement query;
                 try {
-                    query = con.prepareStatement("INSERT INTO Loan(LoanID, BookId, StartDate, EndDate, LibraryCardID) VALUES(?, ?, ?, ?, ?)");
-                    query.setString(1, loan.getLoanID());
+                    query = con.prepareStatement("INSERT INTO \"Loan\"(\"BookId\", \"StartDate\", \"EndDate\") VALUES(?, ?, ?)");
                     query.setString(2, loan.getBookID());
                     query.setDate(3, loan.getStartDate());
                     query.setDate(4, loan.getEndDate());
-                    query.setString(5, loan.getLibraryCardID());
                     query.executeUpdate();
                     System.out.println("Loan has been added");
 
@@ -184,8 +180,7 @@ public class DatabaseConnection
                 public void addBorrower(Borrower borrower) {
                     PreparedStatement query;
                     try {
-                        query = con.prepareStatement("INSERT INTO Borrower(LibraryCardID, Name, Surname, Address, Phone, Email) VALUES(?, ?, ?, ?, ?, ?)");
-                        query.setString(1, borrower.getLibraryCardID());
+                        query = con.prepareStatement("INSERT INTO \"Borrower\"(\"Name\", \"Surname\", \"Address\", \"Phone\", \"Email\") VALUES(?, ?, ?, ?, ?, ?)");
                         query.setString(2, borrower.getName());
                         query.setString(3, borrower.getSurname());
                         query.setString(4, borrower.getAddress());
@@ -205,8 +200,7 @@ public class DatabaseConnection
                 {
                     PreparedStatement query;
                     try{
-                        query = con.prepareStatement("UPDATE Author SET AuthorID = ?, FirstName = ?, LastName = ?, Publisher = ?, WHERE AuthorID = ?");
-                        query.setString(1, author.getAuthorID());
+                        query = con.prepareStatement("UPDATE \"Author\" SET \"FirstName\" = ?, \"LastName\" = ?, \"Publisher\" = ?, WHERE \"AuthorID\" = ?");
                         query.setString(2, author.getFirstName());
                         query.setString(3, author.getLastName());
                         query.setString(4, author.getPublisher());
@@ -224,13 +218,11 @@ public class DatabaseConnection
     {
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE Author SET BookID = ?, Title = ?, Genre = ?, YearOfPublication = ?, Status = ?, AuthorID WHERE BookID = ?");
-            query.setString(1, book.getBookID());
+            query = con.prepareStatement("UPDATE \"Author\" SET \"Title\" = ?, \"Genre\" = ?, \"YearOfPublication\" = ?, \"Status\" = ?, \"AuthorID\" WHERE \"BookID\" = ?");
             query.setString(2, book.getTitle());
             query.setString(3, book.getGenre());
             query.setInt(4, book.getYearOfPublication());
             query.setString(5, book.getStatus());
-            query.setString(6, book.getAuthorID());
             query.setString(7, book.getBookID());
 
             query.executeUpdate();
@@ -245,14 +237,13 @@ public class DatabaseConnection
     {
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE Borrower SET LibraryCardID = ?, Name = ?, Surname = ?, Address = ?, Phone = ?, Email = ?, WHERE LibraryCardID = ?");
-            query.setString(1, borrower.getLibraryCardID());
-            query.setString(2, borrower.getName());
-            query.setString(3, borrower.getSurname());
-            query.setString(4, borrower.getAddress());
-            query.setString(5, borrower.getPhone());
-            query.setString(6, borrower.getEmail());
-            query.setString(7, borrower.getLibraryCardID());
+            query = con.prepareStatement("UPDATE \"Borrower\" SET \"Name\" = ?, \"Surname\" = ?, \"Address\" = ?, \"Phone\" = ?, \"Email\" = ?, WHERE \"LibraryCardID\" = ?");
+            query.setString(1, borrower.getName());
+            query.setString(2, borrower.getSurname());
+            query.setString(3, borrower.getAddress());
+            query.setString(4, borrower.getPhone());
+            query.setString(5, borrower.getEmail());
+            query.setString(6, borrower.getLibraryCardID());
 
             query.executeUpdate();
             System.out.println("Borrower successfully updated");
@@ -261,23 +252,17 @@ public class DatabaseConnection
         }
 
     }
-    private String LoanID;
-    private String BookID;
-    private Date StartDate;
-    private Date EndDate;
-    private String LibraryCardID;
+
 
     public void UpdateLoan(Loan loan)
     {
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE Loan SET LoanID = ?, BookID = ?, StartDate = ?, EndDate = ?, LibraryCardID = ?, WHERE LoanID = ?");
-            query.setString(1, loan.getLoanID());
-            query.setString(2, loan.getBookID());
-            query.setDate(3, loan.getStartDate());
-            query.setDate(4, loan.getEndDate());
-            query.setString(5, loan.getLibraryCardID());
-            query.setString(6, loan.getLoanID());
+            query = con.prepareStatement("UPDATE \"Loan\" SET \"BookID\" = ?, \"StartDate\" = ?, \"LibraryCardID\" = ?, WHERE \"LoanID\" = ?");
+            query.setString(1, loan.getBookID());
+            query.setDate(2, loan.getStartDate());
+            query.setString(3, loan.getLibraryCardID());
+            query.setString(4, loan.getLoanID());
 
             query.executeUpdate();
             System.out.println("Borrower successfully updated");
@@ -292,7 +277,7 @@ public class DatabaseConnection
         PreparedStatement query;
 
         try{
-            query = con.prepareStatement("DELETE FROM Author WHERE AuthorID = ?");
+            query = con.prepareStatement("DELETE FROM \"Author\" WHERE \"AuthorID\" = ?");
             query.setInt(1, id);
 
             query.executeUpdate();
@@ -307,7 +292,7 @@ public class DatabaseConnection
         PreparedStatement query;
 
         try{
-            query = con.prepareStatement("DELETE FROM Book WHERE BookID = ?");
+            query = con.prepareStatement("DELETE FROM \"Book\" WHERE \"BookID\" = ?");
             query.setInt(1, id);
 
             query.executeUpdate();
@@ -323,7 +308,7 @@ public class DatabaseConnection
         PreparedStatement query;
 
         try{
-            query = con.prepareStatement("DELETE FROM Borrower WHERE LibraryCardID = ?");
+            query = con.prepareStatement("DELETE FROM \"Borrower\" WHERE \"LibraryCardID\" = ?");
             query.setInt(1, id);
 
             query.executeUpdate();
@@ -339,7 +324,7 @@ public class DatabaseConnection
         PreparedStatement query;
 
         try{
-            query = con.prepareStatement("DELETE FROM Loan WHERE LoanID = ?");
+            query = con.prepareStatement("DELETE FROM \"Loan\" WHERE \"LoanID\" = ?");
             query.setInt(1, id);
 
             query.executeUpdate();
@@ -349,7 +334,9 @@ public class DatabaseConnection
         }
 
     }
-}
+
+
+    }
 
 
 
