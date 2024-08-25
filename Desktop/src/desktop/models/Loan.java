@@ -3,13 +3,13 @@ package desktop.models;
 import java.util.Date;
 
 public class Loan {
-    private int LoanID;
-    private int BookID;
+    private String LoanID;
+    private String BookID;
     private Date StartDate;
     private Date EndDate;
-    private int LibraryCardID;
+    private String LibraryCardID;
 
-    public Loan(int loanID, int bookID, Date startDate, Date endDate, int libraryCardID) {
+    public Loan(String loanID, String bookID, Date startDate, Date endDate, String libraryCardID) {
         LoanID = loanID;
         BookID = bookID;
         StartDate = startDate;
@@ -17,14 +17,14 @@ public class Loan {
         LibraryCardID = libraryCardID;
     }
 
-    public Loan(int loanID, int bookID, Date startDate, Date endDate) {
+    public Loan(String loanID, String bookID, Date startDate, Date endDate) {
         LoanID = loanID;
         BookID = bookID;
         StartDate = startDate;
         EndDate = endDate;
     }
 
-    public Loan(int bookID, Date startDate, Date endDate) {
+    public Loan(String bookID, Date startDate, Date endDate) {
         BookID = bookID;
         StartDate = startDate;
         EndDate = endDate;
@@ -33,31 +33,31 @@ public class Loan {
     public Loan() {
     }
 
-    public int getLoanID() {
+    public String getLoanID() {
         return LoanID;
     }
 
-    public int getBookID() {
+    public String getBookID() {
         return BookID;
     }
 
-    public Date getStartDate() {
-        return StartDate;
+    public java.sql.Date getStartDate() {
+        return (java.sql.Date) StartDate;
     }
 
-    public Date getEndDate() {
-        return EndDate;
+    public java.sql.Date getEndDate() {
+        return (java.sql.Date) EndDate;
     }
 
-    public int getLibraryCardID() {
+    public String getLibraryCardID() {
         return LibraryCardID;
     }
 
-    public void setLoanID(int loanID) {
+    public void setLoanID(String loanID) {
         LoanID = loanID;
     }
 
-    public void setBookID(int bookID) {
+    public void setBookID(String bookID) {
         BookID = bookID;
     }
 
@@ -69,7 +69,7 @@ public class Loan {
         EndDate = endDate;
     }
 
-    public void setLibraryCardID(int libraryCardID) {
+    public void setLibraryCardID(String libraryCardID) {
         LibraryCardID = libraryCardID;
     }
 }
