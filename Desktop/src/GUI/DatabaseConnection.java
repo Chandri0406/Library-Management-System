@@ -200,11 +200,11 @@ public class DatabaseConnection
                 {
                     PreparedStatement query;
                     try{
-                        query = con.prepareStatement("UPDATE \"Author\" SET \"FirstName\" = ?, \"LastName\" = ?, \"Publisher\" = ?, WHERE \"AuthorID\" = ?");
-                        query.setString(2, author.getFirstName());
-                        query.setString(3, author.getLastName());
-                        query.setString(4, author.getPublisher());
-                        query.setString(6, author.getAuthorID());
+                        query = con.prepareStatement("UPDATE \"Author\" SET \"FirstName\" = ?, \"LastName\" = ?, \"Publisher\" = ? WHERE \"AuthorID\" = ?");
+                        query.setString(1, author.getFirstName());
+                        query.setString(2, author.getLastName());
+                        query.setString(3, author.getPublisher());
+                        query.setString(4, author.getAuthorID());
 
                         query.executeUpdate();
                         System.out.println("Student successfully updated");

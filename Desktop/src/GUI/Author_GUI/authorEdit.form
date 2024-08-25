@@ -129,7 +129,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="edited_btn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

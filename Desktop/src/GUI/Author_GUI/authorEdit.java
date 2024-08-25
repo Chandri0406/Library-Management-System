@@ -1,14 +1,28 @@
 package GUI.Author_GUI;
 
+import GUI.DatabaseConnection;
+import desktop.models.Author;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class authorEdit extends javax.swing.JFrame {
 
     public authorEdit() {
         initComponents();
         addHoverEffect(edited_btn);
+    }
+    DatabaseConnection db = new DatabaseConnection();
+    Author selectedAuthor = new Author();
+    
+    public void SetAuthor(Author author){
+        selectedAuthor = author;
+        name_txt.setText(author.getFirstName());
+        surname_txt.setText(author.getLastName());
+        publisher_txt.setText(author.getPublisher());
     }
     
     private void addHoverEffect(javax.swing.JButton button) {
@@ -199,7 +213,26 @@ public class authorEdit extends javax.swing.JFrame {
     }//GEN-LAST:event_back_btnActionPerformed
 
     private void edited_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edited_btnActionPerformed
-        // TODO add your handling code here:
+        if(name_txt.getText().equals("") || surname_txt.getText().equals("") || publisher_txt.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please fill in all the fields to update author", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            selectedAuthor.setFirstName(name_txt.getText());
+            selectedAuthor.setLastName(surname_txt.getText());
+            selectedAuthor.setPublisher(publisher_txt.getText());
+            
+            
+            try {
+                db.connect();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(authorAdd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            db.UpdateAuthor(selectedAuthor);
+            
+            this.dispose();
+            new authorCRUD().setVisible(true);
+        }
     }//GEN-LAST:event_edited_btnActionPerformed
 
     /**
