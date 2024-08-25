@@ -1,14 +1,21 @@
 package GUI;
 
+import desktop.models.Author;
+import desktop.models.Book;
+import desktop.models.Borrower;
+import desktop.models.Loan;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class DatabaseConnection
 {
     private static final String Username = "Tester";
     private static final String Password = "5432";
-    
+
     private  static final String DRIVER = "org.postgresql.Driver";
     private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/LibraryDB";
     Connection con;
@@ -29,4 +36,328 @@ public class DatabaseConnection
         }
         return con;
     }
+
+    public ArrayList<Author> Authorview() {
+        ArrayList<Author> dataList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM Author";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String id = table.getString("AuthorID");
+                String n = table.getString("Name");
+                String s = table.getString("Surname");
+                String p = table.getString("Publisher");
+                Author row = new Author(id, n, s, p);
+                dataList.add(row);
+            }
+            return  dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public ArrayList<Book> Bookview() {
+        ArrayList<Book> dataList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM Book";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String bid = table.getString("BookID");
+                String t = table.getString("Title");
+                int g = table.getInt("Genre");
+                String p = table.getString("price");
+                Book row = new Book( bid, t, g, p);
+                dataList.add(row);
+            }
+            return dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public ArrayList<Borrower> Borrowerview() {
+        ArrayList<Borrower> dataList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM Borrower";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String lcid = table.getString("LibraryCardID");
+                String lcn = table.getString("Name");
+                String lcs = table.getString("Surname");
+                String lcadress = table.getString("Address");
+                String lcphone = table.getString("Phone");
+                String lcemail = table.getString("Email");
+                Borrower row = new Borrower(lcid, lcn, lcs, lcadress, lcphone, lcemail);
+                dataList.add(row);
+            }
+            return  dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
+
+    }
+    public ArrayList<Loan> Loanview() {
+        ArrayList<Loan> dataList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM Loan";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String lid = table.getString("LoanID");
+                String lbid = table.getString("BookID");
+                Date lsd = table.getDate("StartDate");
+                Date led = table.getDate("EndDate");
+                String lcid = table.getString("LibraryCardInfo");
+                Loan row = new Loan(lid, lbid, lsd, led, lcid);
+                dataList.add(row);
+            }
+            return dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void addAuthor(Author author) {
+        PreparedStatement query;
+        try {
+            query = con.prepareStatement("INSERT INTO Author(AuthorID, Name, Surname, Publisher) VALUES(?, ?, ?, ?)");
+            query.setString(1, author.getAuthorID());
+            query.setString(2, author.getFirstName());
+            query.setString(3, author.getLastName());
+            query.setString(4, author.getPublisher());
+
+            query.executeUpdate();
+            System.out.println("Author has been added");
+
+        } catch (SQLException e) {
+            System.out.println("Could not add author: " + e.getMessage());
+
+        }
+    }
+        public void addBook(Book book) {
+            PreparedStatement query;
+            try {
+                query = con.prepareStatement("INSERT INTO Book(BookID, Title, Genre, YearOfPublication, Status, Author ID) VALUES(?, ?, ?, ?, ?, ?)");
+                query.setString(1, book.getBookID());
+                query.setString(2, book.getTitle());
+                query.setString(3, book.getGenre());
+                query.setInt(4, book.getYearOfPublication());
+                query.setString(5, book.getStatus());
+                query.setString(6, book.getAuthorID());
+
+                query.executeUpdate();
+                System.out.println("Book has been added");
+
+            } catch (SQLException e) {
+                System.out.println("Could not add book: " + e.getMessage());
+
+            }
+        }
+
+            public void addLoan(Loan loan) {
+                PreparedStatement query;
+                try {
+                    query = con.prepareStatement("INSERT INTO Loan(LoanID, BookId, StartDate, EndDate, LibraryCardID) VALUES(?, ?, ?, ?, ?)");
+                    query.setString(1, loan.getLoanID());
+                    query.setString(2, loan.getBookID());
+                    query.setDate(3, loan.getStartDate());
+                    query.setDate(4, loan.getEndDate());
+                    query.setString(5, loan.getLibraryCardID());
+                    query.executeUpdate();
+                    System.out.println("Loan has been added");
+
+                } catch (SQLException e) {
+                    System.out.println("Could not add Loan: " + e.getMessage());
+
+                }
+            }
+
+                public void addBorrower(Borrower borrower) {
+                    PreparedStatement query;
+                    try {
+                        query = con.prepareStatement("INSERT INTO Borrower(LibraryCardID, Name, Surname, Address, Phone, Email) VALUES(?, ?, ?, ?, ?, ?)");
+                        query.setString(1, borrower.getLibraryCardID());
+                        query.setString(2, borrower.getName());
+                        query.setString(3, borrower.getSurname());
+                        query.setString(4, borrower.getAddress());
+                        query.setString(5, borrower.getPhone());
+                        query.setString(6, borrower.getEmail());
+
+                        query.executeUpdate();
+                        System.out.println("Borrower has been added");
+
+                    } catch (SQLException e) {
+                        System.out.println("Could not add Borrower: " + e.getMessage());
+
+                    }
+                }
+
+                public void UpdateAuthor(Author author)
+                {
+                    PreparedStatement query;
+                    try{
+                        query = con.prepareStatement("UPDATE Author SET AuthorID = ?, FirstName = ?, LastName = ?, Publisher = ?, WHERE AuthorID = ?");
+                        query.setString(1, author.getAuthorID());
+                        query.setString(2, author.getFirstName());
+                        query.setString(3, author.getLastName());
+                        query.setString(4, author.getPublisher());
+                        query.setString(6, author.getAuthorID());
+
+                        query.executeUpdate();
+                        System.out.println("Student successfully updated");
+                    } catch (SQLException e) {
+                        System.out.println("Could not update author: " + e.getMessage());
+                    }
+
+                }
+
+    public void UpdateBook(Book book)
+    {
+        PreparedStatement query;
+        try{
+            query = con.prepareStatement("UPDATE Author SET BookID = ?, Title = ?, Genre = ?, YearOfPublication = ?, Status = ?, AuthorID WHERE BookID = ?");
+            query.setString(1, book.getBookID());
+            query.setString(2, book.getTitle());
+            query.setString(3, book.getGenre());
+            query.setInt(4, book.getYearOfPublication());
+            query.setString(5, book.getStatus());
+            query.setString(6, book.getAuthorID());
+            query.setString(7, book.getBookID());
+
+            query.executeUpdate();
+            System.out.println("Book successfully updated");
+        } catch (SQLException e) {
+            System.out.println("Could not update Book: " + e.getMessage());
+        }
+
+    }
+
+    public void UpdateBorrower(Borrower borrower)
+    {
+        PreparedStatement query;
+        try{
+            query = con.prepareStatement("UPDATE Borrower SET LibraryCardID = ?, Name = ?, Surname = ?, Address = ?, Phone = ?, Email = ?, WHERE LibraryCardID = ?");
+            query.setString(1, borrower.getLibraryCardID());
+            query.setString(2, borrower.getName());
+            query.setString(3, borrower.getSurname());
+            query.setString(4, borrower.getAddress());
+            query.setString(5, borrower.getPhone());
+            query.setString(6, borrower.getEmail());
+            query.setString(7, borrower.getLibraryCardID());
+
+            query.executeUpdate();
+            System.out.println("Borrower successfully updated");
+        } catch (SQLException e) {
+            System.out.println("Could not update Borrower: " + e.getMessage());
+        }
+
+    }
+    private String LoanID;
+    private String BookID;
+    private Date StartDate;
+    private Date EndDate;
+    private String LibraryCardID;
+
+    public void UpdateLoan(Loan loan)
+    {
+        PreparedStatement query;
+        try{
+            query = con.prepareStatement("UPDATE Loan SET LoanID = ?, BookID = ?, StartDate = ?, EndDate = ?, LibraryCardID = ?, WHERE LoanID = ?");
+            query.setString(1, loan.getLoanID());
+            query.setString(2, loan.getBookID());
+            query.setDate(3, loan.getStartDate());
+            query.setDate(4, loan.getEndDate());
+            query.setString(5, loan.getLibraryCardID());
+            query.setString(6, loan.getLoanID());
+
+            query.executeUpdate();
+            System.out.println("Borrower successfully updated");
+        } catch (SQLException e) {
+            System.out.println("Could not update Borrower: " + e.getMessage());
+        }
+
+    }
+
+    public void DeleteAuthor(int id)
+    {
+        PreparedStatement query;
+
+        try{
+            query = con.prepareStatement("DELETE FROM Author WHERE AuthorID = ?");
+            query.setInt(1, id);
+
+            query.executeUpdate();
+            System.out.println("Author sucessfully deleted");
+        } catch (SQLException e) {
+            System.out.println("Could not delete Author: " + e.getMessage());
+        }
+
+    }
+    public void DeleteBook(int id)
+    {
+        PreparedStatement query;
+
+        try{
+            query = con.prepareStatement("DELETE FROM Book WHERE BookID = ?");
+            query.setInt(1, id);
+
+            query.executeUpdate();
+            System.out.println("Book sucessfully deleted");
+        } catch (SQLException e) {
+            System.out.println("Could not delete Book: " + e.getMessage());
+        }
+
+    }
+
+    public void DeleteBorrower(int id)
+    {
+        PreparedStatement query;
+
+        try{
+            query = con.prepareStatement("DELETE FROM Borrower WHERE LibraryCardID = ?");
+            query.setInt(1, id);
+
+            query.executeUpdate();
+            System.out.println("Borrower sucessfully deleted");
+        } catch (SQLException e) {
+            System.out.println("Could not delete Borrower: " + e.getMessage());
+        }
+
+    }
+
+    public void DeleteLoan(int id)
+    {
+        PreparedStatement query;
+
+        try{
+            query = con.prepareStatement("DELETE FROM Loan WHERE LoanID = ?");
+            query.setInt(1, id);
+
+            query.executeUpdate();
+            System.out.println("Loan sucessfully deleted");
+        } catch (SQLException e) {
+            System.out.println("Could not delete Loan: " + e.getMessage());
+        }
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
