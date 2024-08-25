@@ -1,9 +1,15 @@
 package GUI.Author_GUI;
 
+import GUI.DatabaseConnection;
 import GUI.maindashboard;
+import desktop.models.Author;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 
 public class authorCRUD extends javax.swing.JFrame {
@@ -15,6 +21,8 @@ public class authorCRUD extends javax.swing.JFrame {
         addHoverEffect(delete_btn);
         addHoverEffect(edit_btn);
     }
+    DatabaseConnection db = new DatabaseConnection();
+    ArrayList<Author> authors = new ArrayList<Author>();
     
     private void addHoverEffect(javax.swing.JButton button) {
         button.addMouseListener(new MouseAdapter() {
@@ -53,8 +61,12 @@ public class authorCRUD extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 500));
-        setPreferredSize(new java.awt.Dimension(900, 500));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
@@ -178,7 +190,7 @@ public class authorCRUD extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "AuthorID", "FirstName", "LastName", "Publisher"
             }
         ));
         jScrollPane2.setViewportView(author_tbl);
@@ -265,6 +277,20 @@ public class authorCRUD extends javax.swing.JFrame {
         this.dispose();
         new maindashboard().setVisible(true);
     }//GEN-LAST:event_back_btnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(authorCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        authors = db.Authorview();
+        DefaultTableModel model = (DefaultTableModel) author_tbl.getModel();
+        model.setRowCount(0);
+        for(Author author : authors){
+            model.addRow(new Object[]{author.getAuthorID(), author.getFirstName(), author.getLastName(), author.getPublisher()});
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

@@ -46,8 +46,8 @@ public class DatabaseConnection
             while (table.next())
             {
                 String id = table.getString("AuthorID");
-                String n = table.getString("Name");
-                String s = table.getString("Surname");
+                String n = table.getString("FirstName");
+                String s = table.getString("LastName");
                 String p = table.getString("Publisher");
                 Author row = new Author(id, n, s, p);
                 dataList.add(row);
