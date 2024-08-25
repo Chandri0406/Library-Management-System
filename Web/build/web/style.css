@@ -1,5 +1,65 @@
 body{
-    opacity: 0.3;
-    background-image: url("./classic-library-shelves.jpg");
+    background-image: url('classic-library-shelves.jpg');
+    color: white;
+}
+
+form{
+    border: 2px solid black;
+}
+
+.title{
+    color: #9F6932;
+    font-size: 40px;
+    text-align: center;
+}
+
+#indexbox{
+    background-color: #262630;
+    position: absolute;
+    width: 460px;
+    height: 265px;
+}
+
+#welcomebox{
+    background-color: #262630;
+    position: absolute;
+    width: 460px;
+    height: 265px;
+}
+
+#registerForm{
+    background-color: #262630;
+    position: absolute;
+    width: 327px;
+    height: 444px;
+    border-radius: 16px;
+}
+
+#loginForm{
+    background-color: #262630;
+    position: absolute;
+    width: 327px;
+    height: 363px;
+    border-radius: 16px;
+    font-family: 'Stika';
+}
+
+.btn{
+    width: 120px;
+    height: 28px;
+    background: #9F6932;
+    border-radius: 50px;
+    border-bottom-color: #9F6932;
+}
+
+.lbl{
+    width: 135px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FFFFFF;
 }
 

@@ -97,14 +97,17 @@ public class authorEdit extends javax.swing.JFrame {
         publisher_lbl.setText("Publisher :");
 
         name_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        name_txt.setForeground(new java.awt.Color(255, 255, 255));
         name_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         surname_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        surname_txt.setForeground(new java.awt.Color(255, 255, 255));
 
         publisher_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        publisher_txt.setForeground(new java.awt.Color(255, 255, 255));
 
         edited_btn.setBackground(new java.awt.Color(159, 105, 50));
-        edited_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
         edited_btn.setForeground(new java.awt.Color(255, 255, 255));
         edited_btn.setText("EDIT");
         edited_btn.setBorderPainted(false);
@@ -169,7 +172,7 @@ public class authorEdit extends javax.swing.JFrame {
                     .addComponent(publisher_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(edited_btn)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

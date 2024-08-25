@@ -85,7 +85,7 @@ public class bookEdit extends javax.swing.JFrame {
         yearpub_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         edit_btn4.setBackground(new java.awt.Color(159, 105, 50));
-        edit_btn4.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        edit_btn4.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
         edit_btn4.setForeground(new java.awt.Color(255, 255, 255));
         edit_btn4.setText("EDIT");
         edit_btn4.addActionListener(new java.awt.event.ActionListener() {
@@ -101,16 +101,19 @@ public class bookEdit extends javax.swing.JFrame {
 
         author_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         author_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        author_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         author_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         author_ComboBox.setEnabled(false);
 
         genre_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         genre_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        genre_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         genre_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         genre_ComboBox.setEnabled(false);
 
         status_btn.setBackground(new java.awt.Color(78, 66, 52));
-        status_btn.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        status_btn.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        status_btn.setForeground(new java.awt.Color(255, 255, 255));
         status_btn.setSelected(true);
         status_btn.setText("Available");
         status_btn.setToolTipText("");

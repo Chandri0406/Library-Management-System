@@ -92,14 +92,17 @@ public class authorAdd extends javax.swing.JFrame {
         publisher_lbl.setText("Publisher :");
 
         name_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        name_txt.setForeground(new java.awt.Color(255, 255, 255));
         name_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         surname_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        surname_txt.setForeground(new java.awt.Color(255, 255, 255));
 
         publisher_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        publisher_txt.setForeground(new java.awt.Color(255, 255, 255));
 
         submit_btn.setBackground(new java.awt.Color(159, 105, 50));
-        submit_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        submit_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
         submit_btn.setForeground(new java.awt.Color(255, 255, 255));
         submit_btn.setText("SUBMIT");
         submit_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

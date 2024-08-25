@@ -76,19 +76,24 @@ public class bookAdd extends javax.swing.JFrame {
         });
 
         title_lbl4.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        title_lbl4.setForeground(new java.awt.Color(255, 255, 255));
         title_lbl4.setText("Title :");
         title_lbl4.setToolTipText("");
 
         genre_lbl4.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        genre_lbl4.setForeground(new java.awt.Color(255, 255, 255));
         genre_lbl4.setText("Genre :");
 
         author_lbl.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        author_lbl.setForeground(new java.awt.Color(255, 255, 255));
         author_lbl.setText("Author :");
 
         title_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        title_txt4.setForeground(new java.awt.Color(255, 255, 255));
         title_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         yearpub_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        yearpub_txt4.setForeground(new java.awt.Color(255, 255, 255));
 
         submit_btn4.setBackground(new java.awt.Color(159, 105, 50));
         submit_btn4.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
@@ -101,27 +106,32 @@ public class bookAdd extends javax.swing.JFrame {
         });
 
         yearpub_lbl1.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        yearpub_lbl1.setForeground(new java.awt.Color(255, 255, 255));
         yearpub_lbl1.setText("Year of publication :");
         yearpub_lbl1.setToolTipText("");
 
         author_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         author_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        author_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         author_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         author_ComboBox.setEnabled(false);
 
         genre_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         genre_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        genre_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         genre_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         genre_ComboBox.setEnabled(false);
 
         status_btn.setBackground(new java.awt.Color(78, 66, 52));
-        status_btn.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        status_btn.setSelected(true);
+        status_btn.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        status_btn.setForeground(new java.awt.Color(255, 255, 255));
         status_btn.setText("Available");
         status_btn.setToolTipText("");
         status_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        status_btn.setPreferredSize(new java.awt.Dimension(115, 29));
 
         status_lbl2.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        status_lbl2.setForeground(new java.awt.Color(255, 255, 255));
         status_lbl2.setText("Status :");
         status_lbl2.setToolTipText("");
 
@@ -144,7 +154,7 @@ public class bookAdd extends javax.swing.JFrame {
                                 .addGap(5, 5, 5)))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(status_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(status_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(author_ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(title_txt4)
@@ -193,7 +203,7 @@ public class bookAdd extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(status_lbl2)
-                            .addComponent(status_btn))
+                            .addComponent(status_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(yearpub_lbl1))
