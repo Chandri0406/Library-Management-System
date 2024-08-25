@@ -51,6 +51,7 @@ public class borrowersAdd extends javax.swing.JFrame {
         email_txt2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel2.setBackground(new java.awt.Color(38, 39, 43));
         jPanel2.setPreferredSize(new java.awt.Dimension(900, 500));

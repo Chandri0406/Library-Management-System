@@ -31,6 +31,7 @@ public class bookEdit extends javax.swing.JFrame {
         status_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 490));
@@ -132,14 +133,14 @@ public class bookEdit extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(48, 48, 48)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(yearpub_lbl1)
                             .addComponent(author_lbl)
                             .addComponent(status_lbl2)
                             .addComponent(title_lbl4)
                             .addComponent(genre_lbl4))
-                        .addGap(18, 18, 18)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(status_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -148,7 +149,7 @@ public class bookEdit extends javax.swing.JFrame {
                                 .addComponent(genre_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(edit_btn4))))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,9 +181,9 @@ public class bookEdit extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(yearpub_lbl1)
                     .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(edit_btn4)
-                .addGap(32, 32, 32))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,14 +200,14 @@ public class bookEdit extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void edit_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btn4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_btn4ActionPerformed
+
     private void back_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btn4ActionPerformed
         this.dispose();
         new booksCRUD().setVisible(true);
     }//GEN-LAST:event_back_btn4ActionPerformed
-
-    private void edit_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btn4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edit_btn4ActionPerformed
 
     /**
      * @param args the command line arguments

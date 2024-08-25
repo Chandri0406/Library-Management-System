@@ -43,6 +43,7 @@ public class bookAdd extends javax.swing.JFrame {
         status_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 490));
@@ -155,15 +156,14 @@ public class bookAdd extends javax.swing.JFrame {
                             .addComponent(back_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(248, 248, 248)
-                        .addComponent(submit_btn4)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                                .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(submit_btn4)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(103, 103, 103))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,16 +197,16 @@ public class bookAdd extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(yearpub_lbl1))
-                .addGap(39, 39, 39)
+                .addGap(27, 27, 27)
                 .addComponent(submit_btn4)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,14 +216,14 @@ public class bookAdd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void submit_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btn4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submit_btn4ActionPerformed
+
     private void back_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btn4ActionPerformed
         this.dispose();
         new booksCRUD().setVisible(true);
     }//GEN-LAST:event_back_btn4ActionPerformed
-
-    private void submit_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btn4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_submit_btn4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,77 +261,17 @@ public class bookAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel address_lbl1;
-    private javax.swing.JLabel address_lbl2;
-    private javax.swing.JLabel address_lbl3;
-    private javax.swing.JLabel address_lbl4;
-    private javax.swing.JTextField address_txt1;
-    private javax.swing.JTextField address_txt2;
-    private javax.swing.JTextField address_txt3;
-    private javax.swing.JTextField address_txt4;
     private javax.swing.JComboBox<String> author_ComboBox;
     private javax.swing.JLabel author_lbl;
-    private javax.swing.JButton back_btn;
-    private javax.swing.JButton back_btn1;
-    private javax.swing.JButton back_btn2;
-    private javax.swing.JButton back_btn3;
     private javax.swing.JButton back_btn4;
-    private javax.swing.JLabel email_lbl2;
-    private javax.swing.JLabel email_lbl3;
-    private javax.swing.JLabel email_lbl4;
-    private javax.swing.JLabel email_lbl5;
-    private javax.swing.JTextField email_txt2;
-    private javax.swing.JTextField email_txt3;
-    private javax.swing.JTextField email_txt4;
-    private javax.swing.JTextField email_txt5;
     private javax.swing.JComboBox<String> genre_ComboBox;
     private javax.swing.JLabel genre_lbl4;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JLabel name_lbl;
-    private javax.swing.JLabel name_lbl1;
-    private javax.swing.JLabel name_lbl2;
-    private javax.swing.JLabel name_lbl3;
-    private javax.swing.JTextField name_txt;
-    private javax.swing.JTextField name_txt1;
-    private javax.swing.JTextField name_txt2;
-    private javax.swing.JTextField name_txt3;
-    private javax.swing.JLabel phone_lbl;
-    private javax.swing.JLabel phone_lbl1;
-    private javax.swing.JLabel phone_lbl2;
-    private javax.swing.JLabel phone_lbl3;
-    private javax.swing.JTextField phone_txt;
-    private javax.swing.JTextField phone_txt1;
-    private javax.swing.JTextField phone_txt2;
-    private javax.swing.JTextField phone_txt3;
     private javax.swing.JToggleButton status_btn;
     private javax.swing.JLabel status_lbl2;
-    private javax.swing.JButton submit_btn;
-    private javax.swing.JButton submit_btn1;
-    private javax.swing.JButton submit_btn2;
-    private javax.swing.JButton submit_btn3;
     private javax.swing.JButton submit_btn4;
-    private javax.swing.JLabel surname_lbl;
-    private javax.swing.JLabel surname_lbl1;
-    private javax.swing.JLabel surname_lbl2;
-    private javax.swing.JLabel surname_lbl3;
-    private javax.swing.JTextField surname_txt;
-    private javax.swing.JTextField surname_txt1;
-    private javax.swing.JTextField surname_txt2;
-    private javax.swing.JTextField surname_txt3;
     private javax.swing.JLabel title_lbl4;
     private javax.swing.JTextField title_txt4;
     private javax.swing.JLabel yearpub_lbl1;

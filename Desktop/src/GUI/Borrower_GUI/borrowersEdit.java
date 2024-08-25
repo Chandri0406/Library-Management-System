@@ -51,6 +51,7 @@ public class borrowersEdit extends javax.swing.JFrame {
         back_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel2.setBackground(new java.awt.Color(38, 39, 43));
         jPanel2.setPreferredSize(new java.awt.Dimension(900, 500));

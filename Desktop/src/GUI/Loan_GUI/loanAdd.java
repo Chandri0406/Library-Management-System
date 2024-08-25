@@ -46,6 +46,7 @@ public class loanAdd extends javax.swing.JFrame {
         startDate_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setForeground(new java.awt.Color(255, 255, 255));

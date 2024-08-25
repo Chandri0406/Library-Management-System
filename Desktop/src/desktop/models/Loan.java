@@ -41,12 +41,12 @@ public class Loan {
         return BookID;
     }
 
-    public Date getStartDate() {
-        return StartDate;
+   public java.sql.Date getStartDate() {
+        return (java.sql.Date) StartDate;
     }
 
-    public Date getEndDate() {
-        return EndDate;
+    public java.sql.Date getEndDate() {
+        return (java.sql.Date) EndDate;
     }
 
     public String getLibraryCardID() {
