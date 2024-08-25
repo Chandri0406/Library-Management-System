@@ -261,7 +261,7 @@ public class authorCRUD extends javax.swing.JFrame {
 
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
         this.dispose();
-        new bookAdd().setVisible(true);
+        new authorAdd().setVisible(true);
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
