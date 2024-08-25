@@ -41,7 +41,7 @@ public class Loan {
         return BookID;
     }
 
-   public java.sql.Date getStartDate() {
+    public java.sql.Date getStartDate() {
         return (java.sql.Date) StartDate;
     }
 
