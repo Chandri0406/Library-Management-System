@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -23,6 +24,7 @@ public class authorCRUD extends javax.swing.JFrame {
     }
     DatabaseConnection db = new DatabaseConnection();
     ArrayList<Author> authors = new ArrayList<Author>();
+    int rowIndex = -1;
     
     private void addHoverEffect(javax.swing.JButton button) {
         button.addMouseListener(new MouseAdapter() {
@@ -193,6 +195,11 @@ public class authorCRUD extends javax.swing.JFrame {
                 "AuthorID", "FirstName", "LastName", "Publisher"
             }
         ));
+        author_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                author_tblMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(author_tbl);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -269,8 +276,16 @@ public class authorCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_delete_btnActionPerformed
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
-        this.dispose();
-        new authorEdit().setVisible(true);
+        if(rowIndex != -1){
+            authorEdit editDialog = new authorEdit();
+            editDialog.SetAuthor(authors.get(rowIndex));
+            editDialog.setVisible(true);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please select an author you wish to edit", "Update Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_edit_btnActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
@@ -291,6 +306,10 @@ public class authorCRUD extends javax.swing.JFrame {
             model.addRow(new Object[]{author.getAuthorID(), author.getFirstName(), author.getLastName(), author.getPublisher()});
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void author_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_author_tblMouseClicked
+        rowIndex = author_tbl.getSelectedRow();
+    }//GEN-LAST:event_author_tblMouseClicked
 
     /**
      * @param args the command line arguments
