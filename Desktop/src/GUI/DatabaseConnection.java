@@ -334,6 +334,154 @@ public class DatabaseConnection
         }
 
     }
+    public void searchAuthor(Author author) {
+        PreparedStatement query;
+        try {
+            query = con.prepareStatement("SELECT * FROM \"Author\" WHERE \"Name\" = ? ");
+            query.setString(1, author.getFirstName());
+            query.executeUpdate();
+            System.out.println("Author has been added");
+
+        } catch (SQLException e) {
+            System.out.println("Could not add author: " + e.getMessage());
+
+        }
+    }
+    public void searchBook(Book book) {
+        PreparedStatement query;
+        try {
+            query = con.prepareStatement("SELECT \"Title\", \"Genre\", \"YearOfPublication\", \"Status\", \"Author ID\" FROM \"Book\" WHERE \"Title\" = ?");
+            query.setString(2, book.getTitle());
+            query.executeUpdate();
+            System.out.println("Book has been added");
+
+        } catch (SQLException e) {
+            System.out.println("Could not add book: " + e.getMessage());
+
+        }
+    }
+
+    public void seacrhLoan(Loan loan) {
+        PreparedStatement query;
+        try {
+            query = con.prepareStatement("SELECT \"BookId\", \"StartDate\", \"EndDate\"  FROM \"Loan\" WHERE \"LoanID\" = ?");
+            query.setString(1, loan.getLoanID());
+            query.executeUpdate();
+            System.out.println("Loan has been added");
+
+        } catch (SQLException e) {
+            System.out.println("Could not add Loan: " + e.getMessage());
+
+        }
+    }
+
+    public void searchBorrower(Borrower borrower) {
+        PreparedStatement query;
+        try {
+            query = con.prepareStatement("SELECT \"Name\", \"Surname\", \"Address\", \"Phone\", \"Email\" FROM \"Borrower\" WHERE \"Name\" = ?");
+            query.setString(1, borrower.getName());
+
+            query.execute();
+            System.out.println("Borrower has been added");
+
+        } catch (SQLException e) {
+            System.out.println("Could not add Borrower: " + e.getMessage());
+
+        }
+    }
+
+
+    public ArrayList<Author> searchAuthor() {
+        ArrayList<Author> dataList = new ArrayList<>();
+        Author author = new Author();
+        try {
+            String query = "SELECT * FROM \"Author\" WHERE \"Name\" = " +"\"" +author.getFirstName() +"\"";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String id = table.getString("AuthorID");
+                String n = table.getString("Name");
+                String s = table.getString("Surname");
+                String p = table.getString("Publisher");
+                Author row = new Author(id, n, s, p);
+                dataList.add(row);
+            }
+            return  dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public ArrayList<Book> searchBook() {
+        ArrayList<Book> dataList = new ArrayList<>();
+        Book book = new Book();
+        try {
+            String query = "SELECT * FROM \"Book\" WHERE \"Title\" =  " + "\"" + book.getTitle() + "\"";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String bid = table.getString("BookID");
+                String t = table.getString("Title");
+                int g = table.getInt("Genre");
+                String p = table.getString("price");
+                Book row = new Book( bid, t, g, p);
+                dataList.add(row);
+            }
+            return dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public ArrayList<Borrower> searchBorrower() {
+        ArrayList<Borrower> dataList = new ArrayList<>();
+        Borrower borrower = new Borrower();
+        try {
+            String query = "SELECT * FROM \"Borrower\" WHERE \"Name\" =  " +"\"" +borrower.getName()  +"\"";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String lcid = table.getString("LibraryCardID");
+                String lcn = table.getString("Name");
+                String lcs = table.getString("Surname");
+                String lcadress = table.getString("Address");
+                String lcphone = table.getString("Phone");
+                String lcemail = table.getString("Email");
+                Borrower row = new Borrower(lcid, lcn, lcs, lcadress, lcphone, lcemail);
+                dataList.add(row);
+            }
+            return  dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
+
+    }
+    public ArrayList<Loan> searchLoan() {
+        ArrayList<Loan> dataList = new ArrayList<>();
+        Loan loan = new Loan();
+        try {
+            String query = "SELECT * FROM \"Loan\" WHERE \"LoanID\" =  " +"\""+ loan.getLoanID()+"\"";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+            while (table.next())
+            {
+                String lid = table.getString("LoanID");
+                String lbid = table.getString("BookID");
+                Date lsd = table.getDate("StartDate");
+                Date led = table.getDate("EndDate");
+                String lcid = table.getString("LibraryCardInfo");
+                Loan row = new Loan(lid, lbid, lsd, led, lcid);
+                dataList.add(row);
+            }
+            return dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 
     }
