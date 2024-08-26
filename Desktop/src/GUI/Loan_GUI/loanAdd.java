@@ -46,6 +46,7 @@ public class loanAdd extends javax.swing.JFrame {
         startDate_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,7 +88,7 @@ public class loanAdd extends javax.swing.JFrame {
         book_lbl.setText("Book :");
 
         submit_btn.setBackground(new java.awt.Color(159, 105, 50));
-        submit_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        submit_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
         submit_btn.setForeground(new java.awt.Color(255, 255, 255));
         submit_btn.setText("SUBMIT");
         submit_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -97,11 +98,11 @@ public class loanAdd extends javax.swing.JFrame {
         });
 
         book_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        book_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        book_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         book_ComboBox.setEnabled(false);
 
         borrower_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        borrower_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        borrower_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         borrower_ComboBox.setEnabled(false);
 
         startDate_lbl2.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
@@ -131,7 +132,7 @@ public class loanAdd extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
+                        .addGap(246, 246, 246)
                         .addComponent(submit_btn)))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
@@ -156,9 +157,9 @@ public class loanAdd extends javax.swing.JFrame {
                         .addComponent(back_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
                 .addComponent(startDate_lbl2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(submit_btn)
-                .addGap(78, 78, 78))
+                .addGap(79, 79, 79))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

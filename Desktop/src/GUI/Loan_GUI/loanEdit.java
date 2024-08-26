@@ -48,6 +48,7 @@ public class loanEdit extends javax.swing.JFrame {
         startDate_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 490));
@@ -94,7 +95,7 @@ public class loanEdit extends javax.swing.JFrame {
         book_lbl.setText("Book :");
 
         edited_btn.setBackground(new java.awt.Color(159, 105, 50));
-        edited_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
         edited_btn.setForeground(new java.awt.Color(255, 255, 255));
         edited_btn.setText("EDIT");
         edited_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -104,10 +105,12 @@ public class loanEdit extends javax.swing.JFrame {
         });
 
         book_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        book_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         book_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         book_ComboBox.setEnabled(false);
 
         borrower_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        borrower_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         borrower_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         borrower_ComboBox.setEnabled(false);
 
