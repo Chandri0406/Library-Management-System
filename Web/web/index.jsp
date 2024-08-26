@@ -8,10 +8,10 @@
     </head>
     <body id="bg">
         <h1>Hello World!</h1>
-        <button><a href="/login.jsp">Login</a></button>
-        <button><a href="/index.jsp">Index</a></button>
-        <button><a href="/register.jsp">Register</a></button>
-        <button><a href="/welcome.jsp">Welcome</a></button>
-        <button><a href="index.jsp">Back</a></button>
+        <button><a href="/login.jsp" class="button">Login</a></button>
+        <button><a href="/index.jsp" class="button">Index</a></button>
+        <button><a href="/register.jsp" class="button">Register</a></button>
+        <button><a href="/welcome.jsp" class="button">Welcome</a></button>
+        <button><a href="index.jsp" class="button">Back</a></button>
     </body>
 </html>
