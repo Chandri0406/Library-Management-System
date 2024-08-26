@@ -52,8 +52,7 @@ public class authorCRUD extends javax.swing.JFrame {
         author_tbl = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 500));
-        setPreferredSize(new java.awt.Dimension(900, 500));
+        setLocation(new java.awt.Point(300, 150));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
@@ -62,7 +61,7 @@ public class authorCRUD extends javax.swing.JFrame {
         add_btn.setBackground(new java.awt.Color(78, 66, 52));
         add_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         add_btn.setForeground(new java.awt.Color(255, 255, 255));
-        add_btn.setText("Add Author");
+        add_btn.setText("Add");
         add_btn.setAlignmentX(0.5F);
         add_btn.setBorderPainted(false);
         add_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -94,7 +93,7 @@ public class authorCRUD extends javax.swing.JFrame {
         delete_btn.setBackground(new java.awt.Color(78, 66, 52));
         delete_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         delete_btn.setForeground(new java.awt.Color(255, 255, 255));
-        delete_btn.setText("Delete Author");
+        delete_btn.setText("Delete");
         delete_btn.setAlignmentY(0.0F);
         delete_btn.setBorderPainted(false);
         delete_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -128,7 +127,7 @@ public class authorCRUD extends javax.swing.JFrame {
         edit_btn.setBackground(new java.awt.Color(78, 66, 52));
         edit_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         edit_btn.setForeground(new java.awt.Color(255, 255, 255));
-        edit_btn.setText("Edit Author");
+        edit_btn.setText("Edit");
         edit_btn.setAlignmentX(0.5F);
         edit_btn.setBorderPainted(false);
         edit_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -164,6 +163,7 @@ public class authorCRUD extends javax.swing.JFrame {
         search_txt.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         search_txt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         search_txt.setText("Search by Name");
+        search_txt.setPreferredSize(new java.awt.Dimension(188, 27));
 
         jScrollPane2.setBackground(new java.awt.Color(200, 195, 174));
         jScrollPane2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
@@ -188,9 +188,9 @@ public class authorCRUD extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,7 +198,7 @@ public class authorCRUD extends javax.swing.JFrame {
                 .addComponent(edit_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(25, 25, 25))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -209,7 +209,7 @@ public class authorCRUD extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +229,7 @@ public class authorCRUD extends javax.swing.JFrame {
                     .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
@@ -237,7 +237,7 @@ public class authorCRUD extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +249,7 @@ public class authorCRUD extends javax.swing.JFrame {
 
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
         this.dispose();
-        new bookAdd().setVisible(true);
+        new authorAdd().setVisible(true);
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed

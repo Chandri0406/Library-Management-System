@@ -48,11 +48,12 @@ public class authorEdit extends javax.swing.JFrame {
         edited_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 170));
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
 
         jPanel2.setBackground(new java.awt.Color(38, 39, 43));
-        jPanel2.setPreferredSize(new java.awt.Dimension(900, 500));
+        jPanel2.setPreferredSize(new java.awt.Dimension(550, 340));
 
         jScrollPane1.setBorder(null);
 
@@ -83,24 +84,30 @@ public class authorEdit extends javax.swing.JFrame {
         });
 
         name_lbl.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
+        name_lbl.setForeground(new java.awt.Color(255, 255, 255));
         name_lbl.setText(" Name :");
         name_lbl.setToolTipText("");
 
         surname_lbl.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
+        surname_lbl.setForeground(new java.awt.Color(255, 255, 255));
         surname_lbl.setText("Last Name :");
 
         publisher_lbl.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
+        publisher_lbl.setForeground(new java.awt.Color(255, 255, 255));
         publisher_lbl.setText("Publisher :");
 
         name_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        name_txt.setForeground(new java.awt.Color(255, 255, 255));
         name_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         surname_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        surname_txt.setForeground(new java.awt.Color(255, 255, 255));
 
         publisher_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        publisher_txt.setForeground(new java.awt.Color(255, 255, 255));
 
         edited_btn.setBackground(new java.awt.Color(159, 105, 50));
-        edited_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
         edited_btn.setForeground(new java.awt.Color(255, 255, 255));
         edited_btn.setText("EDIT");
         edited_btn.setBorderPainted(false);
@@ -120,36 +127,36 @@ public class authorEdit extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
+                        .addGap(90, 90, 90)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(name_lbl)
-                            .addComponent(surname_lbl)
-                            .addComponent(publisher_lbl))
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(name_txt)
-                        .addComponent(surname_txt)
-                        .addComponent(publisher_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(name_lbl)
+                                    .addComponent(surname_lbl)
+                                    .addComponent(publisher_lbl))
+                                .addGap(25, 25, 25))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(name_txt)
+                                .addComponent(surname_txt)
+                                .addComponent(publisher_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(236, 236, 236)
                         .addComponent(edited_btn)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(19, 19, 19)
                         .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,18 +172,18 @@ public class authorEdit extends javax.swing.JFrame {
                     .addComponent(publisher_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(edited_btn)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,20 +226,20 @@ public class authorEdit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(bookAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(authorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(bookAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(authorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(bookAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(authorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(bookAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(authorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new bookAdd().setVisible(true);
+                new authorAdd().setVisible(true);
             }
         });
     }
