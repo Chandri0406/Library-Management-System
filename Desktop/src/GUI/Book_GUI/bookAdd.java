@@ -4,6 +4,15 @@
  */
 package GUI.Book_GUI;
 
+import GUI.DatabaseConnection;
+import desktop.models.Author;
+import desktop.models.Book;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author chanb
@@ -15,7 +24,11 @@ public class bookAdd extends javax.swing.JFrame {
      */
     public bookAdd() {
         initComponents();
+        GenreOptions = new ArrayList<>(Arrays.asList("Romance", "Fantasy", "Science", "Fiction", "Paranormal", "Mystery", "Horror", "Thriller/Suspense", "Action Adventure", "Historical Fiction", "Contemporary Fiction"));
     }
+    DatabaseConnection db = new DatabaseConnection();
+    ArrayList<Author> authors = new ArrayList<>();
+    ArrayList<String> GenreOptions;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,6 +56,11 @@ public class bookAdd extends javax.swing.JFrame {
         status_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 490));
@@ -106,12 +124,10 @@ public class bookAdd extends javax.swing.JFrame {
         author_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         author_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         author_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        author_ComboBox.setEnabled(false);
 
         genre_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         genre_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         genre_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        genre_ComboBox.setEnabled(false);
 
         status_btn.setBackground(new java.awt.Color(78, 66, 52));
         status_btn.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
@@ -199,7 +215,7 @@ public class bookAdd extends javax.swing.JFrame {
                     .addComponent(yearpub_lbl1))
                 .addGap(39, 39, 39)
                 .addComponent(submit_btn4)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,9 +238,57 @@ public class bookAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_back_btn4ActionPerformed
 
     private void submit_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btn4ActionPerformed
-        // TODO add your handling code here:
+        if(title_txt4.getText() == " " || author_ComboBox.getSelectedIndex() == 0 || genre_ComboBox.getSelectedIndex() == 0 || yearpub_txt4.getText() == " "){
+            JOptionPane.showMessageDialog(this, "Please fill in all fields and choose an author and a genre please");
+        }
+        else{
+            String title = title_txt4.getText();
+            int authorIndex = author_ComboBox.getSelectedIndex() - 1;
+            Author author = authors.get(authorIndex);
+            int genreIndex = genre_ComboBox.getSelectedIndex() - 1;
+            String genre = GenreOptions.get(genreIndex);
+            String status = "";
+            if(status_btn.isSelected()){
+                status = "Available";
+            }
+            else{
+                status = "Unavailable";
+            }
+            int yearOfPublication = Integer.parseInt(yearpub_txt4.getText());
+            Book book = new Book(title, genre, yearOfPublication, status, author.getAuthorID());
+            db.addBook(book);
+            
+            title_txt4.setText("");
+            author_ComboBox.setSelectedIndex(0);
+            genre_ComboBox.setSelectedIndex(0);
+            status_btn.setSelected(true);
+            yearpub_txt4.setText("");
+        }
     }//GEN-LAST:event_submit_btn4ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        author_ComboBox.removeAllItems();
+        author_ComboBox.addItem("Select Author");
+        
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(bookAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        authors = db.Authorview();
+        for(Author auth : authors){
+            author_ComboBox.addItem(auth.getFirstName() + " " + auth.getLastName());
+        }
+        
+        genre_ComboBox.removeAllItems();
+        genre_ComboBox.addItem("Select Genre");
+        for(String genre : GenreOptions){
+            genre_ComboBox.addItem(genre);
+        }
+    }//GEN-LAST:event_formWindowOpened
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -261,77 +325,17 @@ public class bookAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel address_lbl1;
-    private javax.swing.JLabel address_lbl2;
-    private javax.swing.JLabel address_lbl3;
-    private javax.swing.JLabel address_lbl4;
-    private javax.swing.JTextField address_txt1;
-    private javax.swing.JTextField address_txt2;
-    private javax.swing.JTextField address_txt3;
-    private javax.swing.JTextField address_txt4;
     private javax.swing.JComboBox<String> author_ComboBox;
     private javax.swing.JLabel author_lbl;
-    private javax.swing.JButton back_btn;
-    private javax.swing.JButton back_btn1;
-    private javax.swing.JButton back_btn2;
-    private javax.swing.JButton back_btn3;
     private javax.swing.JButton back_btn4;
-    private javax.swing.JLabel email_lbl2;
-    private javax.swing.JLabel email_lbl3;
-    private javax.swing.JLabel email_lbl4;
-    private javax.swing.JLabel email_lbl5;
-    private javax.swing.JTextField email_txt2;
-    private javax.swing.JTextField email_txt3;
-    private javax.swing.JTextField email_txt4;
-    private javax.swing.JTextField email_txt5;
     private javax.swing.JComboBox<String> genre_ComboBox;
     private javax.swing.JLabel genre_lbl4;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JLabel name_lbl;
-    private javax.swing.JLabel name_lbl1;
-    private javax.swing.JLabel name_lbl2;
-    private javax.swing.JLabel name_lbl3;
-    private javax.swing.JTextField name_txt;
-    private javax.swing.JTextField name_txt1;
-    private javax.swing.JTextField name_txt2;
-    private javax.swing.JTextField name_txt3;
-    private javax.swing.JLabel phone_lbl;
-    private javax.swing.JLabel phone_lbl1;
-    private javax.swing.JLabel phone_lbl2;
-    private javax.swing.JLabel phone_lbl3;
-    private javax.swing.JTextField phone_txt;
-    private javax.swing.JTextField phone_txt1;
-    private javax.swing.JTextField phone_txt2;
-    private javax.swing.JTextField phone_txt3;
     private javax.swing.JToggleButton status_btn;
     private javax.swing.JLabel status_lbl2;
-    private javax.swing.JButton submit_btn;
-    private javax.swing.JButton submit_btn1;
-    private javax.swing.JButton submit_btn2;
-    private javax.swing.JButton submit_btn3;
     private javax.swing.JButton submit_btn4;
-    private javax.swing.JLabel surname_lbl;
-    private javax.swing.JLabel surname_lbl1;
-    private javax.swing.JLabel surname_lbl2;
-    private javax.swing.JLabel surname_lbl3;
-    private javax.swing.JTextField surname_txt;
-    private javax.swing.JTextField surname_txt1;
-    private javax.swing.JTextField surname_txt2;
-    private javax.swing.JTextField surname_txt3;
     private javax.swing.JLabel title_lbl4;
     private javax.swing.JTextField title_txt4;
     private javax.swing.JLabel yearpub_lbl1;
