@@ -243,12 +243,13 @@ public class DatabaseConnection
     {
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE \"Author\" SET \"Title\" = ?, \"Genre\" = ?, \"YearOfPublication\" = ?, \"Status\" = ?, \"AuthorID\" WHERE \"BookID\" = ?");
-            query.setString(2, book.getTitle());
-            query.setString(3, book.getGenre());
-            query.setInt(4, book.getYearOfPublication());
-            query.setString(5, book.getStatus());
-            query.setString(7, book.getBookID());
+            query = con.prepareStatement("UPDATE \"Book\" SET \"Title\" = ?, \"Genre\" = ?, \"YearOfPublication\" = ?, \"Status\" = ?, \"AuthorID\" = ? WHERE \"BookID\" = ?");
+            query.setString(1, book.getTitle());
+            query.setString(2, book.getGenre());
+            query.setInt(3, book.getYearOfPublication());
+            query.setString(4, book.getStatus());
+            query.setString(5, book.getAuthorID());
+            query.setString(6, book.getBookID());
 
             query.executeUpdate();
             System.out.println("Book successfully updated");

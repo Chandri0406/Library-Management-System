@@ -1,8 +1,70 @@
 package GUI.Book_GUI;
 
+import GUI.DatabaseConnection;
+import desktop.models.Author;
+import desktop.models.Book;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 public class bookEdit extends javax.swing.JFrame {
     public bookEdit() {
         initComponents();
+        GenreOptions = new ArrayList<>(Arrays.asList("Romance", "Fantasy", "Science", "Fiction", "Paranormal", "Mystery", "Horror", "Thriller/Suspense", "Action Adventure", "Historical Fiction", "Contemporary Fiction", "Young Adult"));
+    }
+    DatabaseConnection db = new DatabaseConnection();
+    Book selectedBook = new Book();
+    ArrayList<Author> authors = new ArrayList<>();
+    ArrayList<String> GenreOptions;
+    
+    public void SetBook(Book book){
+        selectedBook = book;
+        title_txt4.setText(book.getTitle());
+        
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(bookEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        authors = db.Authorview();
+        author_ComboBox.removeAllItems();
+        author_ComboBox.addItem("Select Author");
+        for(Author auth : authors){
+            author_ComboBox.addItem(auth.getFirstName() + " " + auth.getLastName());
+        }
+        
+        Author author = db.findAuthorOfBook(book.getAuthorID());
+        for(int i = 0; i < authors.size(); i++){
+           String item = (String) author_ComboBox.getItemAt(i + 1);
+           if(item.equals(author.getFirstName() + " " + author.getLastName())){
+               author_ComboBox.setSelectedIndex(i + 1);
+           }
+        }
+        
+        genre_ComboBox.removeAllItems();
+        genre_ComboBox.addItem("Select Genre");
+        for(String genre : GenreOptions){
+            genre_ComboBox.addItem(genre);
+        }
+        
+        for(int i = 0; i < GenreOptions.size(); i++){
+            String item = (String) genre_ComboBox.getItemAt(i + 1);
+            if(selectedBook.getGenre().equals(item)){
+                genre_ComboBox.setSelectedIndex(i + 1);
+            }
+        }
+        
+        if(selectedBook.getStatus().toLowerCase().equals("available")){
+            status_btn.setSelected(true);
+        }
+        else{
+            status_btn.setSelected(false);
+        }
+        
+        yearpub_txt4.setText(Integer.toString(selectedBook.getYearOfPublication()));
     }
 
     /**
@@ -76,11 +138,9 @@ public class bookEdit extends javax.swing.JFrame {
         author_lbl.setText("Author :");
 
         title_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        title_txt4.setForeground(new java.awt.Color(255, 255, 255));
         title_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         yearpub_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        yearpub_txt4.setForeground(new java.awt.Color(255, 255, 255));
         yearpub_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         edit_btn4.setBackground(new java.awt.Color(159, 105, 50));
@@ -101,12 +161,10 @@ public class bookEdit extends javax.swing.JFrame {
         author_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         author_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         author_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        author_ComboBox.setEnabled(false);
 
         genre_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         genre_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         genre_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        genre_ComboBox.setEnabled(false);
 
         status_btn.setBackground(new java.awt.Color(78, 66, 52));
         status_btn.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
@@ -180,7 +238,7 @@ public class bookEdit extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(yearpub_lbl1)
                     .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(edit_btn4)
                 .addGap(32, 32, 32))
         );
@@ -205,7 +263,35 @@ public class bookEdit extends javax.swing.JFrame {
     }//GEN-LAST:event_back_btn4ActionPerformed
 
     private void edit_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btn4ActionPerformed
-        // TODO add your handling code here:
+        if(title_txt4.getText() == " " || author_ComboBox.getSelectedIndex() == 0 || genre_ComboBox.getSelectedIndex() == 0 || yearpub_txt4.getText() == " "){
+            JOptionPane.showMessageDialog(this, "Please fill in all fields to update an existing book");
+        }
+        else{
+            selectedBook.setTitle(title_txt4.getText());
+            
+            int authorIndex = author_ComboBox.getSelectedIndex();
+            Author author = authors.get(authorIndex - 1);
+            selectedBook.setAuthorID(author.getAuthorID());
+            
+            int genreIndex = genre_ComboBox.getSelectedIndex();
+            selectedBook.setGenre((String)genre_ComboBox.getItemAt(genreIndex));
+            
+            String status = "";
+            if(status_btn.isSelected()){
+                status = "Available";
+            }
+            else{
+                status = "Unavailable";
+            }
+            selectedBook.setStatus(status);
+            
+            selectedBook.setYearOfPublication(Integer.parseInt(yearpub_txt4.getText()));
+            
+            db.UpdateBook(selectedBook);
+            
+            this.dispose();
+            new booksCRUD().setVisible(true);
+        }
     }//GEN-LAST:event_edit_btn4ActionPerformed
 
     /**

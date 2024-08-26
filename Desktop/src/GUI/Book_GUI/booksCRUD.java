@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class booksCRUD extends javax.swing.JFrame {
@@ -24,6 +25,7 @@ public class booksCRUD extends javax.swing.JFrame {
     }
     DatabaseConnection db = new DatabaseConnection();
     ArrayList<Book> books = new ArrayList<>();
+    int rowIndex = -1;
     
     public void RefreshTable(){
         try {
@@ -210,6 +212,11 @@ public class booksCRUD extends javax.swing.JFrame {
                 "BookID", "Title", "Genre", "YearOfPublication", "Status", "Author"
             }
         ));
+        books_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                books_tblMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(books_tbl);
 
         javax.swing.GroupLayout bookBodyLayout = new javax.swing.GroupLayout(bookBody);
@@ -281,8 +288,15 @@ public class booksCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
-        this.dispose();
-        new bookEdit().setVisible(true);
+        if(rowIndex != -1){
+            bookEdit editDialog = new bookEdit();
+            editDialog.SetBook(books.get(rowIndex));
+            editDialog.setVisible(true);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please select a book you wish to edit", "Update Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_edit_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
@@ -301,6 +315,10 @@ public class booksCRUD extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         RefreshTable();
     }//GEN-LAST:event_formWindowOpened
+
+    private void books_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_books_tblMouseClicked
+        rowIndex = books_tbl.getSelectedRow();
+    }//GEN-LAST:event_books_tblMouseClicked
 
     /**
      * @param args the command line arguments

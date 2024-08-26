@@ -24,7 +24,7 @@ public class bookAdd extends javax.swing.JFrame {
      */
     public bookAdd() {
         initComponents();
-        GenreOptions = new ArrayList<>(Arrays.asList("Romance", "Fantasy", "Science", "Fiction", "Paranormal", "Mystery", "Horror", "Thriller/Suspense", "Action Adventure", "Historical Fiction", "Contemporary Fiction"));
+        GenreOptions = new ArrayList<>(Arrays.asList("Romance", "Fantasy", "Science", "Fiction", "Paranormal", "Mystery", "Horror", "Thriller/Suspense", "Action Adventure", "Historical Fiction", "Contemporary Fiction", "Young Adult"));
     }
     DatabaseConnection db = new DatabaseConnection();
     ArrayList<Author> authors = new ArrayList<>();
