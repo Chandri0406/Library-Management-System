@@ -315,7 +315,20 @@ public class booksCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_delete_btnActionPerformed
 
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
-        // TODO add your handling code here:
+        if(search_txt.getText() == " "){
+            JOptionPane.showMessageDialog(this, "Please enter a book title to search for", "Search Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            String title = search_txt.getText();
+            books = db.searchBook(title);
+            
+            DefaultTableModel model = (DefaultTableModel) books_tbl.getModel();
+            model.setRowCount(0);
+            for(Book book : books){
+            Author author = db.findAuthorOfBook(book.getAuthorID());
+            model.addRow(new Object[]{book.getBookID(), book.getTitle(), book.getGenre(), book.getYearOfPublication(), book.getStatus(), author.getFirstName() + " " + author.getLastName()});
+        }
+        }
     }//GEN-LAST:event_search_btnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed

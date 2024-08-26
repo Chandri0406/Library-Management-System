@@ -391,9 +391,11 @@ public class DatabaseConnection
             {
                 String bid = table.getString("BookID");
                 String t = table.getString("Title");
-                int g = table.getInt("Genre");
-                String p = table.getString("price");
-                Book row = new Book( bid, t, g, p);
+                String g = table.getString("Genre");
+                int yop = table.getInt("YearOfPublication");
+                String status = table.getString("Status");
+                String authorid = table.getString("AuthorID");
+                Book row = new Book(bid, t, g, yop, status, authorid);
                 dataList.add(row);
             }
             return dataList;
