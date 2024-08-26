@@ -170,12 +170,12 @@ public class DatabaseConnection
         public void addBook(Book book) {
             PreparedStatement query;
             try {
-                query = con.prepareStatement("INSERT INTO Book(\"Title\", \"Genre\", \"YearOfPublication\", \"Status\", \"Author ID\") VALUES(?, ?, ?, ?, ?, ?)");
-                query.setString(2, book.getTitle());
-                query.setString(3, book.getGenre());
-                query.setInt(4, book.getYearOfPublication());
-                query.setString(5, book.getStatus());
-                query.setString(6, book.getAuthorID());
+                query = con.prepareStatement("INSERT INTO \"Book\"(\"Title\", \"Genre\", \"YearOfPublication\", \"Status\", \"AuthorID\") VALUES(?, ?, ?, ?, ?)");
+                query.setString(1, book.getTitle());
+                query.setString(2, book.getGenre());
+                query.setInt(3, book.getYearOfPublication());
+                query.setString(4, book.getStatus());
+                query.setString(5, book.getAuthorID());
 
                 query.executeUpdate();
                 System.out.println("Book has been added");
