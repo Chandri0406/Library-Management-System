@@ -1,9 +1,17 @@
 package GUI.Book_GUI;
 
+import GUI.Author_GUI.authorCRUD;
+import GUI.DatabaseConnection;
 import GUI.maindashboard;
+import desktop.models.Author;
+import desktop.models.Book;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 public class booksCRUD extends javax.swing.JFrame {
     
@@ -13,6 +21,26 @@ public class booksCRUD extends javax.swing.JFrame {
         addHoverEffect(search_btn);
         addHoverEffect(delete_btn);
         addHoverEffect(edit_btn);
+    }
+    DatabaseConnection db = new DatabaseConnection();
+    ArrayList<Book> books = new ArrayList<>();
+    
+    public void RefreshTable(){
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(authorCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        books = db.Bookview();
+        
+        DefaultTableModel model = (DefaultTableModel) books_tbl.getModel();
+        model.setRowCount(0);
+        
+        for(Book book : books){
+            Author author = db.findAuthorOfBook(book.getAuthorID());
+            model.addRow(new Object[]{book.getBookID(), book.getTitle(), book.getGenre(), book.getYearOfPublication(), book.getStatus(), author.getFirstName() + " " + author.getLastName()});
+        }
     }
     
     private void addHoverEffect(javax.swing.JButton button) {
@@ -54,6 +82,11 @@ public class booksCRUD extends javax.swing.JFrame {
         setTitle("Manage Books");
         setLocation(new java.awt.Point(500, 500));
         setLocationByPlatform(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         bookBody.setBackground(new java.awt.Color(38, 39, 43));
         bookBody.setPreferredSize(new java.awt.Dimension(900, 500));
@@ -171,13 +204,10 @@ public class booksCRUD extends javax.swing.JFrame {
         books_tbl.setBackground(new java.awt.Color(183, 172, 162));
         books_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "BookID", "Title", "Genre", "YearOfPublication", "Status", "Author"
             }
         ));
         jScrollPane2.setViewportView(books_tbl);
@@ -227,7 +257,7 @@ public class booksCRUD extends javax.swing.JFrame {
                     .addComponent(edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -267,6 +297,10 @@ public class booksCRUD extends javax.swing.JFrame {
         this.dispose();
         new maindashboard().setVisible(true);
     }//GEN-LAST:event_BackbtnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        RefreshTable();
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

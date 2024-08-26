@@ -68,17 +68,42 @@ public class DatabaseConnection
             {
                 String bid = table.getString("BookID");
                 String t = table.getString("Title");
-                int g = table.getInt("Genre");
-                String p = table.getString("price");
-                Book row = new Book( bid, t, g, p);
+                String g = table.getString("Genre");
+                int yop = table.getInt("YearOfPublication");
+                String status = table.getString("Status");
+                String authorid = table.getString("AuthorID");
+                Book row = new Book(bid, t, g, yop, status, authorid);
                 dataList.add(row);
             }
             return dataList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
+    
+    public Author findAuthorOfBook(String authorid){
+        Author author = new Author();
+        try{
+            //String query = "SELECT * FROM Author WHERE AuthorID = ?";
+            PreparedStatement query = con.prepareStatement("SELECT * FROM \"Author\" WHERE \"AuthorID\" = ?");
+            query.setString(1, authorid);
+            
+            
+            ResultSet rs = query.executeQuery();
+            
+            while(rs.next()){
+                String id = rs.getString("AuthorID");
+                String n = rs.getString("FirstName");
+                String s = rs.getString("LastName");
+                String p = rs.getString("Publisher");
+                author = new Author(id, n, s, p);
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return author;
+    }
+    
     public ArrayList<Borrower> Borrowerview() {
         ArrayList<Borrower> dataList = new ArrayList<>();
         try {
