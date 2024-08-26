@@ -313,13 +313,13 @@ public class DatabaseConnection
         }
 
     }
-    public void DeleteBook(int id)
+    public void DeleteBook(String id)
     {
         PreparedStatement query;
 
         try{
             query = con.prepareStatement("DELETE FROM \"Book\" WHERE \"BookID\" = ?");
-            query.setInt(1, id);
+            query.setString(1, id);
 
             query.executeUpdate();
             System.out.println("Book sucessfully deleted");

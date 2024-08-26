@@ -300,7 +300,18 @@ public class booksCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_edit_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
-        // TODO add your handling code here:
+        if(rowIndex != -1){
+            int option = JOptionPane.showConfirmDialog(null, "Are you sure you wish to delete '" + books.get(rowIndex).getTitle() + "'?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if(option == JOptionPane.YES_OPTION){
+                String selectedID = books.get(rowIndex).getBookID();
+                db.DeleteBook(selectedID);
+            
+            RefreshTable();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please select a book you wish to delete", "Delete Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_delete_btnActionPerformed
 
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
