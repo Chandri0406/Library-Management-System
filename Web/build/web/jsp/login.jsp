@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="style.css" >
+        <link rel="stylesheet" href="/css/style.css" >
         <title>Login</title>
     </head>
     <body>
@@ -16,5 +16,10 @@
                 </form>
         </div>
        
+        <button><a href="/login.jsp">Login</a></button>
+        <button><a href="/index.jsp">Index</a></button>
+        <button><a href="/register.jsp">Register</a></button>
+        <button><a href="/welcome.jsp">Welcome</a></button>
+        <button><a href="/index.jsp">Back</a></button>
     </body>
 </html>
