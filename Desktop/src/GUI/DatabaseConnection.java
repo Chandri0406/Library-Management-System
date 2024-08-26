@@ -361,8 +361,49 @@ public class DatabaseConnection
 
     }
 
+    public ArrayList<Author> searchAuthor(String name) {
+        ArrayList<Author> dataList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM \"Author\" WHERE \"FirstName\" = " + "'" + name + "'";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next()) {
+                String id = table.getString("AuthorID");
+                String n = table.getString("FirstName");
+                String s = table.getString("LastName");
+                String p = table.getString("Publisher");
+                Author row = new Author(id, n, s, p);
+                dataList.add(row);
+            }
+            return dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Book> searchBook(String title) {
+        ArrayList<Book> dataList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM \"Book\" WHERE \"Title\" =  " + "'" + title + "'";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String bid = table.getString("BookID");
+                String t = table.getString("Title");
+                int g = table.getInt("Genre");
+                String p = table.getString("price");
+                Book row = new Book( bid, t, g, p);
+                dataList.add(row);
+            }
+            return dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
+
+}
 
 
 
