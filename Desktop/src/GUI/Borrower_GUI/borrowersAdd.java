@@ -1,8 +1,13 @@
 package GUI.Borrower_GUI;
 
+import GUI.DatabaseConnection;
+import desktop.models.Borrower;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class borrowersAdd extends javax.swing.JFrame {
 
@@ -10,7 +15,7 @@ public class borrowersAdd extends javax.swing.JFrame {
         initComponents();
         addHoverEffect(submit_btn);
     }
-    
+    DatabaseConnection db = new DatabaseConnection();
     private void addHoverEffect(javax.swing.JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override
@@ -247,6 +252,33 @@ public class borrowersAdd extends javax.swing.JFrame {
 
     private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
         // TODO add your handling code here:
+        if(name_txt.getText().equals("") || surname_txt.getText().equals("") || address_txt1.getText().equals("") || phone_txt.getText().equals("") || email_txt2.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Please fill in all the fields to add a new borrower", "Error", JOptionPane.ERROR_MESSAGE);
+                    
+        }
+        else{
+            String name = name_txt.getText();
+            String surname = surname_txt.getText();
+            String address = address_txt1.getText();
+            String phone = phone_txt.getText();
+            String email = email_txt2.getText();
+            Borrower borrower = new Borrower(name, surname, address, phone, email);
+            
+            try{
+                db.connect();
+            }
+            catch(ClassNotFoundException ex)
+            {
+                Logger.getLogger(borrowersAdd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            db.addBorrower(borrower);
+            name_txt.setText("");
+            surname_txt.setText("");
+            address_txt1.setText("");
+            phone_txt.setText("");
+            email_txt2.setText("");
+        }
     }//GEN-LAST:event_submit_btnActionPerformed
 
     /**
