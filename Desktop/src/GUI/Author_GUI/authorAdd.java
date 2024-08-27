@@ -88,26 +88,36 @@ public class authorAdd extends javax.swing.JFrame {
         });
 
         name_lbl.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
+        name_lbl.setForeground(new java.awt.Color(255, 255, 255));
         name_lbl.setText(" Name :");
         name_lbl.setToolTipText("");
 
         surname_lbl.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
+        surname_lbl.setForeground(new java.awt.Color(255, 255, 255));
         surname_lbl.setText("Last Name :");
 
         publisher_lbl.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
+        publisher_lbl.setForeground(new java.awt.Color(255, 255, 255));
         publisher_lbl.setText("Publisher :");
 
         name_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        name_txt.setForeground(new java.awt.Color(255, 255, 255));
         name_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         surname_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        surname_txt.setForeground(new java.awt.Color(255, 255, 255));
+        surname_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         publisher_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        publisher_txt.setForeground(new java.awt.Color(255, 255, 255));
+        publisher_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         submit_btn.setBackground(new java.awt.Color(159, 105, 50));
-        submit_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        submit_btn.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         submit_btn.setForeground(new java.awt.Color(255, 255, 255));
         submit_btn.setText("SUBMIT");
+        submit_btn.setAlignmentX(0.5F);
+        submit_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         submit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submit_btnActionPerformed(evt);
@@ -162,7 +172,7 @@ public class authorAdd extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(publisher_lbl)
                     .addComponent(publisher_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(submit_btn)
                 .addGap(36, 36, 36))
         );
