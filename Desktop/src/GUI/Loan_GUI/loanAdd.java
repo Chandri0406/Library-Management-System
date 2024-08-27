@@ -50,6 +50,8 @@ public class loanAdd extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.setMaximumSize(new java.awt.Dimension(620, 490));
+        jPanel6.setMinimumSize(new java.awt.Dimension(620, 490));
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 490));
 
         jScrollPane5.setBorder(null);
@@ -88,7 +90,7 @@ public class loanAdd extends javax.swing.JFrame {
         book_lbl.setText("Book :");
 
         submit_btn.setBackground(new java.awt.Color(159, 105, 50));
-        submit_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
+        submit_btn.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         submit_btn.setForeground(new java.awt.Color(255, 255, 255));
         submit_btn.setText("SUBMIT");
         submit_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +159,7 @@ public class loanAdd extends javax.swing.JFrame {
                         .addComponent(back_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
                 .addComponent(startDate_lbl2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addComponent(submit_btn)
                 .addGap(33, 33, 33))
         );

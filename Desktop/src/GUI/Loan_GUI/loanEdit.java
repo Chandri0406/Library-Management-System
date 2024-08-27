@@ -57,6 +57,8 @@ public class loanEdit extends javax.swing.JFrame {
         jPanel7.setPreferredSize(new java.awt.Dimension(620, 490));
 
         jPanel8.setBackground(new java.awt.Color(38, 39, 43));
+        jPanel8.setMaximumSize(new java.awt.Dimension(620, 490));
+        jPanel8.setMinimumSize(new java.awt.Dimension(620, 490));
         jPanel8.setPreferredSize(new java.awt.Dimension(620, 490));
 
         jScrollPane5.setBorder(null);
@@ -95,7 +97,7 @@ public class loanEdit extends javax.swing.JFrame {
         book_lbl.setText("Book :");
 
         edited_btn.setBackground(new java.awt.Color(159, 105, 50));
-        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
+        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         edited_btn.setForeground(new java.awt.Color(255, 255, 255));
         edited_btn.setText("EDIT");
         edited_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +168,7 @@ public class loanEdit extends javax.swing.JFrame {
                         .addComponent(back_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
                 .addComponent(startDate_lbl2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(edited_btn)
                 .addGap(73, 73, 73))
         );

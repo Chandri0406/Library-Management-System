@@ -56,8 +56,7 @@ public class bookAdd extends javax.swing.JFrame {
         status_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(300, 150));
-        setLocationByPlatform(true);
+        setLocation(new java.awt.Point(350, 150));
         setMaximumSize(getMaximumSize());
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {

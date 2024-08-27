@@ -73,7 +73,9 @@ public class borrowersEdit extends javax.swing.JFrame {
         setLocation(new java.awt.Point(350, 150));
 
         jPanel2.setBackground(new java.awt.Color(38, 39, 43));
-        jPanel2.setPreferredSize(new java.awt.Dimension(900, 500));
+        jPanel2.setMaximumSize(new java.awt.Dimension(620, 400));
+        jPanel2.setMinimumSize(new java.awt.Dimension(620, 400));
+        jPanel2.setPreferredSize(new java.awt.Dimension(620, 400));
 
         jScrollPane1.setBorder(null);
 
@@ -120,7 +122,7 @@ public class borrowersEdit extends javax.swing.JFrame {
         phone_txt.setPreferredSize(new java.awt.Dimension(225, 25));
 
         edited_btn.setBackground(new java.awt.Color(159, 105, 50));
-        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
+        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         edited_btn.setForeground(new java.awt.Color(255, 255, 255));
         edited_btn.setText("EDIT");
         edited_btn.setBorderPainted(false);
@@ -249,11 +251,11 @@ public class borrowersEdit extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

@@ -62,8 +62,7 @@ public class authorEdit extends javax.swing.JFrame {
         edited_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(300, 150));
-        setLocationByPlatform(true);
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
 

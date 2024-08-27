@@ -54,7 +54,7 @@ public class authorAdd extends javax.swing.JFrame {
         submit_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(300, 150));
+        setLocation(new java.awt.Point(350, 150));
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
 
@@ -144,7 +144,6 @@ public class authorAdd extends javax.swing.JFrame {
                             .addComponent(publisher_lbl))
                         .addGap(25, 25, 25))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
