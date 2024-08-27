@@ -46,8 +46,8 @@ public class DatabaseConnection
             while (table.next())
             {
                 String id = table.getString("AuthorID");
-                String n = table.getString("Name");
-                String s = table.getString("Surname");
+                String n = table.getString("FirstName");
+                String s = table.getString("LastName");
                 String p = table.getString("Publisher");
                 Author row = new Author(id, n, s, p);
                 dataList.add(row);
@@ -68,17 +68,42 @@ public class DatabaseConnection
             {
                 String bid = table.getString("BookID");
                 String t = table.getString("Title");
-                int g = table.getInt("Genre");
-                String p = table.getString("price");
-                Book row = new Book( bid, t, g, p);
+                String g = table.getString("Genre");
+                int yop = table.getInt("YearOfPublication");
+                String status = table.getString("Status");
+                String authorid = table.getString("AuthorID");
+                Book row = new Book(bid, t, g, yop, status, authorid);
                 dataList.add(row);
             }
             return dataList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
+    
+    public Author findAuthorOfBook(String authorid){
+        Author author = new Author();
+        try{
+            //String query = "SELECT * FROM Author WHERE AuthorID = ?";
+            PreparedStatement query = con.prepareStatement("SELECT * FROM \"Author\" WHERE \"AuthorID\" = ?");
+            query.setString(1, authorid);
+            
+            
+            ResultSet rs = query.executeQuery();
+            
+            while(rs.next()){
+                String id = rs.getString("AuthorID");
+                String n = rs.getString("FirstName");
+                String s = rs.getString("LastName");
+                String p = rs.getString("Publisher");
+                author = new Author(id, n, s, p);
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return author;
+    }
+    
     public ArrayList<Borrower> Borrowerview() {
         ArrayList<Borrower> dataList = new ArrayList<>();
         try {
@@ -129,10 +154,10 @@ public class DatabaseConnection
     public void addAuthor(Author author) {
         PreparedStatement query;
         try {
-            query = con.prepareStatement("INSERT INTO \"Author\"(\"Name\", \"Surname\", \"Publisher\") VALUES(?, ?, ?, ?)");
-            query.setString(2, author.getFirstName());
-            query.setString(3, author.getLastName());
-            query.setString(4, author.getPublisher());
+            query = con.prepareStatement("INSERT INTO \"Author\"(\"FirstName\", \"LastName\", \"Publisher\") VALUES(?, ?, ?)");
+            query.setString(1, author.getFirstName());
+            query.setString(2, author.getLastName());
+            query.setString(3, author.getPublisher());
 
             query.executeUpdate();
             System.out.println("Author has been added");
@@ -145,12 +170,12 @@ public class DatabaseConnection
         public void addBook(Book book) {
             PreparedStatement query;
             try {
-                query = con.prepareStatement("INSERT INTO Book(\"Title\", \"Genre\", \"YearOfPublication\", \"Status\", \"Author ID\") VALUES(?, ?, ?, ?, ?, ?)");
-                query.setString(2, book.getTitle());
-                query.setString(3, book.getGenre());
-                query.setInt(4, book.getYearOfPublication());
-                query.setString(5, book.getStatus());
-                query.setString(6, book.getAuthorID());
+                query = con.prepareStatement("INSERT INTO \"Book\"(\"Title\", \"Genre\", \"YearOfPublication\", \"Status\", \"AuthorID\") VALUES(?, ?, ?, ?, ?)");
+                query.setString(1, book.getTitle());
+                query.setString(2, book.getGenre());
+                query.setInt(3, book.getYearOfPublication());
+                query.setString(4, book.getStatus());
+                query.setString(5, book.getAuthorID());
 
                 query.executeUpdate();
                 System.out.println("Book has been added");
@@ -200,11 +225,11 @@ public class DatabaseConnection
                 {
                     PreparedStatement query;
                     try{
-                        query = con.prepareStatement("UPDATE \"Author\" SET \"FirstName\" = ?, \"LastName\" = ?, \"Publisher\" = ?, WHERE \"AuthorID\" = ?");
-                        query.setString(2, author.getFirstName());
-                        query.setString(3, author.getLastName());
-                        query.setString(4, author.getPublisher());
-                        query.setString(6, author.getAuthorID());
+                        query = con.prepareStatement("UPDATE \"Author\" SET \"FirstName\" = ?, \"LastName\" = ?, \"Publisher\" = ? WHERE \"AuthorID\" = ?");
+                        query.setString(1, author.getFirstName());
+                        query.setString(2, author.getLastName());
+                        query.setString(3, author.getPublisher());
+                        query.setString(4, author.getAuthorID());
 
                         query.executeUpdate();
                         System.out.println("Student successfully updated");
@@ -218,12 +243,13 @@ public class DatabaseConnection
     {
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE \"Author\" SET \"Title\" = ?, \"Genre\" = ?, \"YearOfPublication\" = ?, \"Status\" = ?, \"AuthorID\" WHERE \"BookID\" = ?");
-            query.setString(2, book.getTitle());
-            query.setString(3, book.getGenre());
-            query.setInt(4, book.getYearOfPublication());
-            query.setString(5, book.getStatus());
-            query.setString(7, book.getBookID());
+            query = con.prepareStatement("UPDATE \"Book\" SET \"Title\" = ?, \"Genre\" = ?, \"YearOfPublication\" = ?, \"Status\" = ?, \"AuthorID\" = ? WHERE \"BookID\" = ?");
+            query.setString(1, book.getTitle());
+            query.setString(2, book.getGenre());
+            query.setInt(3, book.getYearOfPublication());
+            query.setString(4, book.getStatus());
+            query.setString(5, book.getAuthorID());
+            query.setString(6, book.getBookID());
 
             query.executeUpdate();
             System.out.println("Book successfully updated");
@@ -272,13 +298,13 @@ public class DatabaseConnection
 
     }
 
-    public void DeleteAuthor(int id)
+    public void DeleteAuthor(String id)
     {
         PreparedStatement query;
 
         try{
             query = con.prepareStatement("DELETE FROM \"Author\" WHERE \"AuthorID\" = ?");
-            query.setInt(1, id);
+            query.setString(1, id);
 
             query.executeUpdate();
             System.out.println("Author sucessfully deleted");
@@ -287,13 +313,13 @@ public class DatabaseConnection
         }
 
     }
-    public void DeleteBook(int id)
+    public void DeleteBook(String id)
     {
         PreparedStatement query;
 
         try{
             query = con.prepareStatement("DELETE FROM \"Book\" WHERE \"BookID\" = ?");
-            query.setInt(1, id);
+            query.setString(1, id);
 
             query.executeUpdate();
             System.out.println("Book sucessfully deleted");
@@ -335,8 +361,51 @@ public class DatabaseConnection
 
     }
 
+    public ArrayList<Author> searchAuthor(String name) {
+        ArrayList<Author> dataList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM \"Author\" WHERE \"FirstName\" = " + "'" + name + "'";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next()) {
+                String id = table.getString("AuthorID");
+                String n = table.getString("FirstName");
+                String s = table.getString("LastName");
+                String p = table.getString("Publisher");
+                Author row = new Author(id, n, s, p);
+                dataList.add(row);
+            }
+            return dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Book> searchBook(String title) {
+        ArrayList<Book> dataList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM \"Book\" WHERE \"Title\" =  " + "'" + title + "'";
+            ResultSet table = this.con.createStatement().executeQuery(query);
+
+            while (table.next())
+            {
+                String bid = table.getString("BookID");
+                String t = table.getString("Title");
+                String g = table.getString("Genre");
+                int yop = table.getInt("YearOfPublication");
+                String status = table.getString("Status");
+                String authorid = table.getString("AuthorID");
+                Book row = new Book(bid, t, g, yop, status, authorid);
+                dataList.add(row);
+            }
+            return dataList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
+
+}
 
 
 
