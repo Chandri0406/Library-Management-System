@@ -7,11 +7,17 @@
         <title>JSP Page</title>
     </head>
     <body id="bg">
-        <h1>Hello World!</h1>
-        <button><a href="/login.jsp">Login</a></button>
-        <button><a href="/index.jsp">Index</a></button>
-        <button><a href="/register.jsp">Register</a></button>
-        <button><a href="/welcome.jsp">Welcome</a></button>
-        <button><a href="index.jsp">Back</a></button>
+
+        
+        <div class="container">
+            <div class="header">
+                <h1>Welcome to the Library Management System</h1>
+            </div>
+            
+            <div class="button-container">
+                <a href="jsp/login.jsp" class="button">Login</a>
+                <a href="jsp/register.jsp" class="button">Register</a>
+            </div>
+        </div>
     </body>
 </html>

@@ -56,6 +56,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage Borrowers");
         setLocation(new java.awt.Point(300, 150));
+        setPreferredSize(new java.awt.Dimension(900, 500));
 
         borrowerBody.setBackground(new java.awt.Color(38, 39, 43));
         borrowerBody.setPreferredSize(new java.awt.Dimension(900, 500));
@@ -72,7 +73,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         add_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         add_btn.setName("add_btn"); // NOI18N
-        add_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        add_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         add_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_btnActionPerformed(evt);
@@ -103,7 +104,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         delete_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         delete_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         delete_btn.setName("delete_btn"); // NOI18N
-        delete_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        delete_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         delete_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete_btnActionPerformed(evt);
@@ -124,7 +125,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         search_btn.setMaximumSize(new java.awt.Dimension(66, 31));
         search_btn.setMinimumSize(new java.awt.Dimension(66, 31));
         search_btn.setName("search_btn"); // NOI18N
-        search_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        search_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         search_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search_btnActionPerformed(evt);
@@ -143,7 +144,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         edit_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         edit_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         edit_btn.setName("edit_btn"); // NOI18N
-        edit_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        edit_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         edit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_btnActionPerformed(evt);
@@ -167,9 +168,17 @@ public class borrowersCRUD extends javax.swing.JFrame {
 
         search_txt.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         search_txt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        search_txt.setText("Search by Title");
+        search_txt.setText("Search by Name");
         search_txt.setMinimumSize(new java.awt.Dimension(188, 27));
-        search_txt.setPreferredSize(new java.awt.Dimension(188, 27));
+        search_txt.setPreferredSize(new java.awt.Dimension(188, 30));
+        search_txt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                search_txtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                search_txtFocusLost(evt);
+            }
+        });
 
         jScrollPane2.setBackground(new java.awt.Color(200, 195, 174));
         jScrollPane2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
@@ -196,7 +205,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borrowerBodyLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,7 +256,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(borrowerBody, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+            .addComponent(borrowerBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -275,6 +284,20 @@ public class borrowersCRUD extends javax.swing.JFrame {
         this.dispose();
         new maindashboard().setVisible(true);
     }//GEN-LAST:event_BackbtnActionPerformed
+
+    private void search_txtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusGained
+        if (search_txt.getText().equals("Search by Name")) 
+        {
+            search_txt.setText("");
+        }
+    }//GEN-LAST:event_search_txtFocusGained
+
+    private void search_txtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusLost
+        if (search_txt.getText().isEmpty()) 
+        {
+            search_txt.setText("Search by Name");
+        }
+    }//GEN-LAST:event_search_txtFocusLost
 
     /**
      * @param args the command line arguments
