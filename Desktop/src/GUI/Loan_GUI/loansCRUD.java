@@ -1,9 +1,16 @@
 package GUI.Loan_GUI;
 
+import GUI.DatabaseConnection;
 import GUI.maindashboard;
+import desktop.models.Loan;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class loansCRUD extends javax.swing.JFrame {
 
@@ -13,6 +20,26 @@ public class loansCRUD extends javax.swing.JFrame {
         addHoverEffect(search_btn);
         addHoverEffect(delete_btn);
         addHoverEffect(edit_btn);
+    }
+    
+     public static DatabaseConnection db = new DatabaseConnection();
+    
+    ArrayList<Loan> loans = new ArrayList<Loan>();
+    int rowIndex = -1;
+    
+    public void RefreshTable()
+    {
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(loansCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        loans = db.Loanview();
+        DefaultTableModel model = (DefaultTableModel) loan_tbl.getModel();
+        model.setRowCount(0);
+        for(Loan loan : loans){
+            model.addRow(new Object[]{loan.getLoanID(), loan.getBookID(), loan.getStartDate(), loan.getEndDate(), loan.getLibraryCardID()});
+        }
     }
     
     private void addHoverEffect(javax.swing.JButton button) {
@@ -43,7 +70,7 @@ public class loansCRUD extends javax.swing.JFrame {
         back_btn = new javax.swing.JButton();
         search_txt = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        author_tbl = new javax.swing.JTable();
+        loan_tbl = new javax.swing.JTable();
         add_btn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
@@ -53,6 +80,11 @@ public class loansCRUD extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage Authors");
         setLocation(new java.awt.Point(300, 150));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
@@ -67,7 +99,6 @@ public class loansCRUD extends javax.swing.JFrame {
         edit_btn.setFocusPainted(false);
         edit_btn.setFocusable(false);
         edit_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        edit_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         edit_btn.setMaximumSize(new java.awt.Dimension(141, 27));
         edit_btn.setMinimumSize(new java.awt.Dimension(141, 27));
         edit_btn.setName("edit_btn"); // NOI18N
@@ -102,8 +133,8 @@ public class loansCRUD extends javax.swing.JFrame {
         jScrollPane2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         jScrollPane2.setPreferredSize(new java.awt.Dimension(100, 280));
 
-        author_tbl.setBackground(new java.awt.Color(183, 172, 162));
-        author_tbl.setModel(new javax.swing.table.DefaultTableModel(
+        loan_tbl.setBackground(new java.awt.Color(183, 172, 162));
+        loan_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -114,7 +145,12 @@ public class loansCRUD extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(author_tbl);
+        loan_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loan_tblMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(loan_tbl);
 
         add_btn.setBackground(new java.awt.Color(78, 66, 52));
         add_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
@@ -126,7 +162,6 @@ public class loansCRUD extends javax.swing.JFrame {
         add_btn.setFocusPainted(false);
         add_btn.setFocusable(false);
         add_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        add_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         add_btn.setMaximumSize(new java.awt.Dimension(141, 27));
         add_btn.setMinimumSize(new java.awt.Dimension(141, 27));
         add_btn.setName("add_btn"); // NOI18N
@@ -160,7 +195,6 @@ public class loansCRUD extends javax.swing.JFrame {
         delete_btn.setFocusPainted(false);
         delete_btn.setFocusable(false);
         delete_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        delete_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         delete_btn.setName("delete_btn"); // NOI18N
         delete_btn.setPreferredSize(new java.awt.Dimension(152, 27));
         delete_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -178,11 +212,15 @@ public class loansCRUD extends javax.swing.JFrame {
         search_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         search_btn.setFocusPainted(false);
         search_btn.setFocusable(false);
-        search_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         search_btn.setMaximumSize(new java.awt.Dimension(141, 27));
         search_btn.setMinimumSize(new java.awt.Dimension(141, 27));
         search_btn.setName("search_btn"); // NOI18N
         search_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        search_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -231,7 +269,7 @@ public class loansCRUD extends javax.swing.JFrame {
                     .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
@@ -266,7 +304,47 @@ public class loansCRUD extends javax.swing.JFrame {
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
         // ADD delete
+        if(rowIndex != -1){
+            int option = JOptionPane.showConfirmDialog(null, "Are you sure you wish to delete '" +
+                    loans.get(rowIndex).getLoanID()+ " " + loans.get(rowIndex).getLibraryCardID()+ "'?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                   if(option == JOptionPane.YES_OPTION)
+                   {
+                       String selectedID = loans.get(rowIndex).getLoanID();
+                       db.DeleteBorrower(selectedID);
+                       RefreshTable();
+                   }
+        }
+        else{JOptionPane.showMessageDialog(this, "Please select borrower you wish to delete", "Delete Error", JOptionPane.ERROR_MESSAGE);
+    }  
     }//GEN-LAST:event_delete_btnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        RefreshTable();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
+        // TODO add your handling code here:
+         if(search_txt.getText() == " "){
+            JOptionPane.showMessageDialog(this, "Please enter the Borrower's name to search for", "Search Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            String loanid = search_txt.getText();
+            loans = db.searchLoan(loanid);
+            
+            DefaultTableModel model = (DefaultTableModel) loan_tbl.getModel();
+            model.setRowCount(0);
+            for(Loan loan: loans)
+            {
+                model.addRow(new Object[]{loan.getLoanID(), loan.getBookID(), loan.getStartDate(), loan.getEndDate(), loan.getLibraryCardID()});
+            }
+        }
+    }//GEN-LAST:event_search_btnActionPerformed
+
+    private void loan_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loan_tblMouseClicked
+        // TODO add your handling code here:
+        rowIndex = loan_tbl.getSelectedRow();
+    }//GEN-LAST:event_loan_tblMouseClicked
 
     /**
      * @param args the command line arguments
@@ -305,7 +383,6 @@ public class loansCRUD extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_btn;
-    private javax.swing.JTable author_tbl;
     private javax.swing.JButton back_btn;
     private javax.swing.JButton delete_btn;
     private javax.swing.JButton edit_btn;
@@ -313,6 +390,7 @@ public class loansCRUD extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTable loan_tbl;
     private javax.swing.JButton search_btn;
     private javax.swing.JTextField search_txt;
     // End of variables declaration//GEN-END:variables
