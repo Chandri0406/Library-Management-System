@@ -16,10 +16,6 @@
                 </form>
         </div>
        
-        <button><a href="/login.jsp">Login</a></button>
-        <button><a href="/index.jsp">Index</a></button>
-        <button><a href="/register.jsp">Register</a></button>
-        <button><a href="/welcome.jsp">Welcome</a></button>
-        <button><a href="/index.jsp">Back</a></button>
+        <button><a href="register.jsp">Register</a></button>
     </body>
 </html>
