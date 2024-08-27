@@ -17,6 +17,14 @@ public class Book {
         Status = status;
         this.AuthorID = AuthorID;
     }
+
+    public Book(String title, String Genre, int yearOfPublication, String status, String AuthorID) {
+        Title = title;
+        this.Genre = Genre;
+        YearOfPublication = yearOfPublication;
+        Status = status;
+        this.AuthorID = AuthorID;
+    }
     
     public Book(String BookID, String title, String Genre, int yearOfPublication, String status) {
         this.BookID = BookID;
