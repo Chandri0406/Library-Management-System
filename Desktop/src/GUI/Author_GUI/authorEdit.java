@@ -1,14 +1,28 @@
 package GUI.Author_GUI;
 
+import GUI.DatabaseConnection;
+import desktop.models.Author;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class authorEdit extends javax.swing.JFrame {
 
     public authorEdit() {
         initComponents();
         addHoverEffect(edited_btn);
+    }
+    DatabaseConnection db = new DatabaseConnection();
+    Author selectedAuthor = new Author();
+    
+    public void SetAuthor(Author author){
+        selectedAuthor = author;
+        name_txt.setText(author.getFirstName());
+        surname_txt.setText(author.getLastName());
+        publisher_txt.setText(author.getPublisher());
     }
     
     private void addHoverEffect(javax.swing.JButton button) {
@@ -97,14 +111,17 @@ public class authorEdit extends javax.swing.JFrame {
         publisher_lbl.setText("Publisher :");
 
         name_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        name_txt.setForeground(new java.awt.Color(255, 255, 255));
         name_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         surname_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        surname_txt.setForeground(new java.awt.Color(255, 255, 255));
 
         publisher_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        publisher_txt.setForeground(new java.awt.Color(255, 255, 255));
 
         edited_btn.setBackground(new java.awt.Color(159, 105, 50));
-        edited_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
         edited_btn.setForeground(new java.awt.Color(255, 255, 255));
         edited_btn.setText("EDIT");
         edited_btn.setBorderPainted(false);
@@ -169,7 +186,7 @@ public class authorEdit extends javax.swing.JFrame {
                     .addComponent(publisher_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(edited_btn)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -203,7 +220,26 @@ public class authorEdit extends javax.swing.JFrame {
     }//GEN-LAST:event_back_btnActionPerformed
 
     private void edited_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edited_btnActionPerformed
-        // TODO add your handling code here:
+        if(name_txt.getText().equals("") || surname_txt.getText().equals("") || publisher_txt.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please fill in all the fields to update author", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            selectedAuthor.setFirstName(name_txt.getText());
+            selectedAuthor.setLastName(surname_txt.getText());
+            selectedAuthor.setPublisher(publisher_txt.getText());
+            
+            
+            try {
+                db.connect();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(authorAdd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            db.UpdateAuthor(selectedAuthor);
+            
+            this.dispose();
+            new authorCRUD().setVisible(true);
+        }
     }//GEN-LAST:event_edited_btnActionPerformed
 
     /**

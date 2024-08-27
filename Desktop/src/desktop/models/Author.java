@@ -6,16 +6,16 @@ public class Author {
     private String LastName;
     private String Publisher;
 
-    public Author(String authorID, String name, String surname, String publisher) {
+    public Author(String authorID, String firstName, String lastName, String publisher) {
         AuthorID = authorID;
-        FirstName = name;
-        LastName = surname;
+        FirstName = firstName;
+        LastName = lastName;
         Publisher = publisher;
     }
 
-    public Author(String name, String surname, String publisher) {
-        FirstName = name;
-        LastName = surname;
+    public Author(String firstName, String lastName, String publisher) {
+        FirstName = firstName;
+        LastName = lastName;
         Publisher = publisher;
     }
 

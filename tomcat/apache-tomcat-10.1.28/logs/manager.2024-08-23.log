@@ -1,0 +1,13 @@
+23-Aug-2024 18:15:55.717 INFO [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationContext.log Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+23-Aug-2024 18:15:55.717 INFO [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationContext.log Manager: init: Global resources are available
+23-Aug-2024 18:15:55.845 INFO [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+23-Aug-2024 18:15:55.892 INFO [http-nio-8080-exec-9] org.apache.catalina.core.ApplicationContext.log Manager: undeploy: Undeploying web application at '/Web'
+23-Aug-2024 18:15:56.424 INFO [http-nio-8080-exec-7] org.apache.catalina.core.ApplicationContext.log Manager: install: Installing context configuration at 'file:/C:/Users/chanb/AppData/Local/Temp/context13434996228705228104.xml'
+23-Aug-2024 18:15:56.548 INFO [http-nio-8080-exec-10] org.apache.catalina.core.ApplicationContext.log Manager: start: Starting web application '/Web'
+23-Aug-2024 18:18:50.686 INFO [http-nio-8080-exec-12] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+23-Aug-2024 18:18:52.370 INFO [http-nio-8080-exec-18] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+23-Aug-2024 18:18:52.879 INFO [http-nio-8080-exec-15] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+23-Aug-2024 18:18:52.888 INFO [http-nio-8080-exec-14] org.apache.catalina.core.ApplicationContext.log Manager: list: Listing contexts for virtual host 'localhost'
+23-Aug-2024 18:18:52.903 INFO [http-nio-8080-exec-18] org.apache.catalina.core.ApplicationContext.log Manager: undeploy: Undeploying web application at '/Web'
+23-Aug-2024 18:18:53.470 INFO [http-nio-8080-exec-13] org.apache.catalina.core.ApplicationContext.log Manager: install: Installing context configuration at 'file:/C:/Users/chanb/AppData/Local/Temp/context17627457464567302269.xml'
+23-Aug-2024 18:18:53.615 INFO [http-nio-8080-exec-12] org.apache.catalina.core.ApplicationContext.log Manager: start: Starting web application '/Web'

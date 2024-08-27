@@ -88,17 +88,20 @@ public class borrowersEdit extends javax.swing.JFrame {
         phone_lbl.setPreferredSize(new java.awt.Dimension(61, 23));
 
         name_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        name_txt.setForeground(new java.awt.Color(255, 255, 255));
         name_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         name_txt.setPreferredSize(new java.awt.Dimension(225, 25));
 
         surname_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        surname_txt.setForeground(new java.awt.Color(255, 255, 255));
         surname_txt.setPreferredSize(new java.awt.Dimension(225, 25));
 
         phone_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        phone_txt.setForeground(new java.awt.Color(255, 255, 255));
         phone_txt.setPreferredSize(new java.awt.Dimension(225, 25));
 
         edited_btn.setBackground(new java.awt.Color(159, 105, 50));
-        edited_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        edited_btn.setFont(new java.awt.Font("Sitka Small", 1, 16)); // NOI18N
         edited_btn.setForeground(new java.awt.Color(255, 255, 255));
         edited_btn.setText("EDIT");
         edited_btn.setBorderPainted(false);
@@ -117,6 +120,7 @@ public class borrowersEdit extends javax.swing.JFrame {
         address_lbl1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         address_txt1.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        address_txt1.setForeground(new java.awt.Color(255, 255, 255));
         address_txt1.setPreferredSize(new java.awt.Dimension(225, 25));
 
         email_lbl2.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
@@ -126,6 +130,7 @@ public class borrowersEdit extends javax.swing.JFrame {
         email_lbl2.setPreferredSize(new java.awt.Dimension(59, 23));
 
         email_txt2.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        email_txt2.setForeground(new java.awt.Color(255, 255, 255));
         email_txt2.setPreferredSize(new java.awt.Dimension(225, 25));
 
         back_btn.setBackground(new java.awt.Color(159, 105, 50));
