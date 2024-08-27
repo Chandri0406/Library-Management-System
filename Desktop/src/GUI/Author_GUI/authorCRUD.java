@@ -124,7 +124,7 @@ public class authorCRUD extends javax.swing.JFrame {
         delete_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         delete_btn.setForeground(new java.awt.Color(255, 255, 255));
         delete_btn.setText("Delete");
-        delete_btn.setAlignmentY(0.0F);
+        delete_btn.setAlignmentX(0.5F);
         delete_btn.setBorderPainted(false);
         delete_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         delete_btn.setFocusPainted(false);
@@ -190,6 +190,8 @@ public class authorCRUD extends javax.swing.JFrame {
         back_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         back_btn.setIconTextGap(1);
         back_btn.setMargin(new java.awt.Insets(1, 5, 1, 5));
+        back_btn.setMaximumSize(new java.awt.Dimension(40, 30));
+        back_btn.setMinimumSize(new java.awt.Dimension(40, 30));
         back_btn.setPreferredSize(new java.awt.Dimension(40, 30));
         back_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +220,8 @@ public class authorCRUD extends javax.swing.JFrame {
         jScrollPane2.setPreferredSize(new java.awt.Dimension(880, 340));
 
         author_tbl.setBackground(new java.awt.Color(183, 172, 162));
+        author_tbl.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        author_tbl.setForeground(new java.awt.Color(0, 0, 0));
         author_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -228,7 +232,16 @@ public class authorCRUD extends javax.swing.JFrame {
             new String [] {
                 "AuthorID", "FirstName", "LastName", "Publisher"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        author_tbl.getTableHeader().setReorderingAllowed(false);
         author_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 author_tblMouseClicked(evt);

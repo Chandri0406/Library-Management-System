@@ -77,9 +77,9 @@ public class booksCRUD extends javax.swing.JFrame {
         edit_btn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
         search_txt = new javax.swing.JTextField();
+        refresh_btn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         books_tbl = new javax.swing.JTable();
-        refresh_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage Books");
@@ -132,7 +132,7 @@ public class booksCRUD extends javax.swing.JFrame {
         delete_btn.setForeground(new java.awt.Color(255, 255, 255));
         delete_btn.setText("Delete");
         delete_btn.setToolTipText("");
-        delete_btn.setAlignmentY(0.0F);
+        delete_btn.setAlignmentX(0.5F);
         delete_btn.setBorderPainted(false);
         delete_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         delete_btn.setFocusPainted(false);
@@ -192,6 +192,8 @@ public class booksCRUD extends javax.swing.JFrame {
         Backbtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Backbtn.setIconTextGap(1);
         Backbtn.setMargin(new java.awt.Insets(1, 5, 1, 5));
+        Backbtn.setMaximumSize(new java.awt.Dimension(40, 30));
+        Backbtn.setMinimumSize(new java.awt.Dimension(40, 30));
         Backbtn.setPreferredSize(new java.awt.Dimension(40, 30));
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +213,25 @@ public class booksCRUD extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 search_txtFocusLost(evt);
+            }
+        });
+
+        refresh_btn.setBackground(new java.awt.Color(78, 66, 52));
+        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        refresh_btn.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_btn.setAlignmentX(0.5F);
+        refresh_btn.setBorderPainted(false);
+        refresh_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        refresh_btn.setFocusPainted(false);
+        refresh_btn.setFocusable(false);
+        refresh_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        refresh_btn.setMaximumSize(new java.awt.Dimension(50, 30));
+        refresh_btn.setMinimumSize(new java.awt.Dimension(50, 30));
+        refresh_btn.setName("search_btn"); // NOI18N
+        refresh_btn.setPreferredSize(new java.awt.Dimension(50, 30));
+        refresh_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refresh_btnActionPerformed(evt);
             }
         });
 
@@ -234,25 +255,6 @@ public class booksCRUD extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(books_tbl);
 
-        refresh_btn.setBackground(new java.awt.Color(78, 66, 52));
-        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
-        refresh_btn.setForeground(new java.awt.Color(255, 255, 255));
-        refresh_btn.setAlignmentX(0.5F);
-        refresh_btn.setBorderPainted(false);
-        refresh_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        refresh_btn.setFocusPainted(false);
-        refresh_btn.setFocusable(false);
-        refresh_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
-        refresh_btn.setMaximumSize(new java.awt.Dimension(50, 30));
-        refresh_btn.setMinimumSize(new java.awt.Dimension(50, 30));
-        refresh_btn.setName("search_btn"); // NOI18N
-        refresh_btn.setPreferredSize(new java.awt.Dimension(50, 30));
-        refresh_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refresh_btnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout bookBodyLayout = new javax.swing.GroupLayout(bookBody);
         bookBody.setLayout(bookBodyLayout);
         bookBodyLayout.setHorizontalGroup(
@@ -265,7 +267,7 @@ public class booksCRUD extends javax.swing.JFrame {
                         .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(274, 274, 274))
+                        .addGap(266, 266, 266))
                     .addGroup(bookBodyLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 14, Short.MAX_VALUE))))
@@ -294,7 +296,7 @@ public class booksCRUD extends javax.swing.JFrame {
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bookBodyLayout.createSequentialGroup()
                         .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)))
+                        .addGap(29, 29, 29)))
                 .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(refresh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -396,7 +398,7 @@ public class booksCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_search_txtFocusGained
 
     private void search_txtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusLost
-        if (search_txt.getText().isEmpty()) 
+         if (search_txt.getText().isEmpty()) 
         {
             search_txt.setText("Search by Title");
         }
