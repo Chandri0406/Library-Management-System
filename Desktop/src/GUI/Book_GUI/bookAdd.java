@@ -56,6 +56,9 @@ public class bookAdd extends javax.swing.JFrame {
         status_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 150));
+        setLocationByPlatform(true);
+        setMaximumSize(getMaximumSize());
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -63,6 +66,8 @@ public class bookAdd extends javax.swing.JFrame {
         });
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
+        jPanel6.setMaximumSize(new java.awt.Dimension(620, 490));
+        jPanel6.setMinimumSize(new java.awt.Dimension(620, 490));
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 490));
 
         jScrollPane5.setBorder(null);
@@ -93,22 +98,28 @@ public class bookAdd extends javax.swing.JFrame {
         });
 
         title_lbl4.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        title_lbl4.setForeground(new java.awt.Color(255, 255, 255));
         title_lbl4.setText("Title :");
         title_lbl4.setToolTipText("");
 
         genre_lbl4.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        genre_lbl4.setForeground(new java.awt.Color(255, 255, 255));
         genre_lbl4.setText("Genre :");
 
         author_lbl.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        author_lbl.setForeground(new java.awt.Color(255, 255, 255));
         author_lbl.setText("Author :");
 
         title_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        title_txt4.setForeground(new java.awt.Color(255, 255, 255));
         title_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         yearpub_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        yearpub_txt4.setForeground(new java.awt.Color(255, 255, 255));
+        yearpub_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         submit_btn4.setBackground(new java.awt.Color(159, 105, 50));
-        submit_btn4.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        submit_btn4.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         submit_btn4.setForeground(new java.awt.Color(255, 255, 255));
         submit_btn4.setText("SUBMIT");
         submit_btn4.addActionListener(new java.awt.event.ActionListener() {
@@ -118,25 +129,30 @@ public class bookAdd extends javax.swing.JFrame {
         });
 
         yearpub_lbl1.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        yearpub_lbl1.setForeground(new java.awt.Color(255, 255, 255));
         yearpub_lbl1.setText("Year of publication :");
         yearpub_lbl1.setToolTipText("");
 
         author_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         author_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        author_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         author_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         genre_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         genre_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        genre_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         genre_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         status_btn.setBackground(new java.awt.Color(78, 66, 52));
         status_btn.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        status_btn.setForeground(new java.awt.Color(255, 255, 255));
         status_btn.setSelected(true);
         status_btn.setText("Available");
         status_btn.setToolTipText("");
         status_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         status_lbl2.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        status_lbl2.setForeground(new java.awt.Color(255, 255, 255));
         status_lbl2.setText("Status :");
         status_lbl2.setToolTipText("");
 
@@ -215,7 +231,7 @@ public class bookAdd extends javax.swing.JFrame {
                     .addComponent(yearpub_lbl1))
                 .addGap(39, 39, 39)
                 .addComponent(submit_btn4)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

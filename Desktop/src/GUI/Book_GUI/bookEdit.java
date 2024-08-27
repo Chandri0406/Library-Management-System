@@ -93,8 +93,11 @@ public class bookEdit extends javax.swing.JFrame {
         status_lbl2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 150));
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
+        jPanel6.setMaximumSize(new java.awt.Dimension(620, 490));
+        jPanel6.setMinimumSize(new java.awt.Dimension(620, 490));
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 490));
 
         jScrollPane5.setBorder(null);
@@ -138,13 +141,15 @@ public class bookEdit extends javax.swing.JFrame {
         author_lbl.setText("Author :");
 
         title_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        title_txt4.setForeground(new java.awt.Color(255, 255, 255));
         title_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         yearpub_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        yearpub_txt4.setForeground(new java.awt.Color(255, 255, 255));
         yearpub_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         edit_btn4.setBackground(new java.awt.Color(159, 105, 50));
-        edit_btn4.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        edit_btn4.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         edit_btn4.setForeground(new java.awt.Color(255, 255, 255));
         edit_btn4.setText("EDIT");
         edit_btn4.addActionListener(new java.awt.event.ActionListener() {
@@ -160,10 +165,12 @@ public class bookEdit extends javax.swing.JFrame {
 
         author_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         author_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        author_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         author_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         genre_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
         genre_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        genre_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         genre_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         status_btn.setBackground(new java.awt.Color(78, 66, 52));
@@ -197,7 +204,7 @@ public class bookEdit extends javax.swing.JFrame {
                             .addComponent(status_lbl2)
                             .addComponent(title_lbl4)
                             .addComponent(genre_lbl4))
-                        .addGap(18, 18, 18)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(status_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -206,7 +213,7 @@ public class bookEdit extends javax.swing.JFrame {
                                 .addComponent(genre_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(edit_btn4))))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +245,7 @@ public class bookEdit extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(yearpub_lbl1)
                     .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(edit_btn4)
                 .addGap(32, 32, 32))
         );
@@ -251,7 +258,10 @@ public class bookEdit extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
