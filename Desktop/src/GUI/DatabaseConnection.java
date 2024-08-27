@@ -18,11 +18,11 @@ public class DatabaseConnection
 
     private  static final String DRIVER = "org.postgresql.Driver";
     private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/LibraryDB";
+    
     Connection con;
-    public DatabaseConnection()
-    {
-
-    }
+    
+    public DatabaseConnection(){}
+    
     public Connection connect() throws ClassNotFoundException{
         try{
             Class.forName(DRIVER);
@@ -37,6 +37,7 @@ public class DatabaseConnection
         return con;
     }
 
+    // View Methods
     public ArrayList<Author> Authorview() {
         ArrayList<Author> dataList = new ArrayList<>();
         try {
@@ -58,6 +59,7 @@ public class DatabaseConnection
         }
 
     }
+    
     public ArrayList<Book> Bookview() {
         ArrayList<Book> dataList = new ArrayList<>();
         try {
@@ -126,8 +128,8 @@ public class DatabaseConnection
             throw new RuntimeException(e);
 
         }
-
     }
+    
     public ArrayList<Loan> Loanview() {
         ArrayList<Loan> dataList = new ArrayList<>();
         try {
@@ -151,6 +153,7 @@ public class DatabaseConnection
 
     }
 
+    // Add Methods
     public void addAuthor(Author author) {
         PreparedStatement query;
         try {
@@ -167,7 +170,8 @@ public class DatabaseConnection
 
         }
     }
-        public void addBook(Book book) {
+    
+    public void addBook(Book book) {
             PreparedStatement query;
             try {
                 query = con.prepareStatement("INSERT INTO \"Book\"(\"Title\", \"Genre\", \"YearOfPublication\", \"Status\", \"AuthorID\") VALUES(?, ?, ?, ?, ?)");
@@ -186,7 +190,7 @@ public class DatabaseConnection
             }
         }
 
-            public void addLoan(Loan loan) {
+    public void addLoan(Loan loan) {
                 PreparedStatement query;
                 try {
                     query = con.prepareStatement("INSERT INTO \"Loan\"(\"BookId\", \"StartDate\", \"EndDate\") VALUES(?, ?, ?)");
@@ -202,7 +206,7 @@ public class DatabaseConnection
                 }
             }
 
-                public void addBorrower(Borrower borrower) {
+    public void addBorrower(Borrower borrower) {
                     PreparedStatement query;
                     try {
                         query = con.prepareStatement("INSERT INTO \"Borrower\"(\"Name\", \"Surname\", \"Address\", \"Phone\", \"Email\") VALUES(?, ?, ?, ?, ?, ?)");
@@ -221,8 +225,8 @@ public class DatabaseConnection
                     }
                 }
 
-                public void UpdateAuthor(Author author)
-                {
+    // Update Methods
+    public void UpdateAuthor(Author author){
                     PreparedStatement query;
                     try{
                         query = con.prepareStatement("UPDATE \"Author\" SET \"FirstName\" = ?, \"LastName\" = ?, \"Publisher\" = ? WHERE \"AuthorID\" = ?");
@@ -236,11 +240,9 @@ public class DatabaseConnection
                     } catch (SQLException e) {
                         System.out.println("Could not update author: " + e.getMessage());
                     }
-
                 }
 
-    public void UpdateBook(Book book)
-    {
+    public void UpdateBook(Book book){
         PreparedStatement query;
         try{
             query = con.prepareStatement("UPDATE \"Book\" SET \"Title\" = ?, \"Genre\" = ?, \"YearOfPublication\" = ?, \"Status\" = ?, \"AuthorID\" = ? WHERE \"BookID\" = ?");
@@ -256,11 +258,9 @@ public class DatabaseConnection
         } catch (SQLException e) {
             System.out.println("Could not update Book: " + e.getMessage());
         }
-
     }
 
-    public void UpdateBorrower(Borrower borrower)
-    {
+    public void UpdateBorrower(Borrower borrower){
         PreparedStatement query;
         try{
             query = con.prepareStatement("UPDATE \"Borrower\" SET \"Name\" = ?, \"Surname\" = ?, \"Address\" = ?, \"Phone\" = ?, \"Email\" = ?, WHERE \"LibraryCardID\" = ?");
@@ -276,12 +276,9 @@ public class DatabaseConnection
         } catch (SQLException e) {
             System.out.println("Could not update Borrower: " + e.getMessage());
         }
-
     }
 
-
-    public void UpdateLoan(Loan loan)
-    {
+    public void UpdateLoan(Loan loan){
         PreparedStatement query;
         try{
             query = con.prepareStatement("UPDATE \"Loan\" SET \"BookID\" = ?, \"StartDate\" = ?, \"LibraryCardID\" = ?, WHERE \"LoanID\" = ?");
@@ -295,11 +292,10 @@ public class DatabaseConnection
         } catch (SQLException e) {
             System.out.println("Could not update Borrower: " + e.getMessage());
         }
-
     }
 
-    public void DeleteAuthor(String id)
-    {
+    // Delete methods
+    public void DeleteAuthor(String id){
         PreparedStatement query;
 
         try{
@@ -311,10 +307,9 @@ public class DatabaseConnection
         } catch (SQLException e) {
             System.out.println("Could not delete Author: " + e.getMessage());
         }
-
     }
-    public void DeleteBook(String id)
-    {
+    
+    public void DeleteBook(String id){
         PreparedStatement query;
 
         try{
@@ -326,11 +321,9 @@ public class DatabaseConnection
         } catch (SQLException e) {
             System.out.println("Could not delete Book: " + e.getMessage());
         }
-
     }
 
-    public void DeleteBorrower(String id)
-    {
+    public void DeleteBorrower(String id){
         PreparedStatement query;
 
         try{
@@ -342,11 +335,9 @@ public class DatabaseConnection
         } catch (SQLException e) {
             System.out.println("Could not delete Borrower: " + e.getMessage());
         }
-
     }
 
-    public void DeleteLoan(String id)
-    {
+    public void DeleteLoan(String id){
         PreparedStatement query;
 
         try{
@@ -361,6 +352,7 @@ public class DatabaseConnection
 
     }
 
+    // Search Methods
     public ArrayList<Author> searchAuthor(String name) {
         ArrayList<Author> dataList = new ArrayList<>();
         try {
@@ -381,8 +373,7 @@ public class DatabaseConnection
         }
     }
 
-    public ArrayList<Book> searchBook(String title) 
-    {
+    public ArrayList<Book> searchBook(String title) {
         ArrayList<Book> dataList = new ArrayList<>();
         try {
             String query = "SELECT * FROM \"Book\" WHERE \"Title\" =  " + "'" + title + "'";
@@ -405,6 +396,7 @@ public class DatabaseConnection
         }
         
     }
+    
     public ArrayList<Borrower> searchBorrower(String bname) {
         ArrayList<Borrower> dataList = new ArrayList<>();
         try {
@@ -425,10 +417,9 @@ public class DatabaseConnection
             return  dataList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
-
         }
-
     }
+    
     public ArrayList<Loan> searchLoan(String loanId) {
         ArrayList<Loan> dataList = new ArrayList<>();
         try {
@@ -449,59 +440,4 @@ public class DatabaseConnection
             throw new RuntimeException(e);
         }
     }
-     public ArrayList<Borrower> searchBorrower(String bname) {
-        ArrayList<Borrower> dataList = new ArrayList<>();
-        try {
-            String query = "SELECT * FROM \"Borrower\" WHERE \"Name\" =  " +"'" + bname  +"'";
-            ResultSet table = this.con.createStatement().executeQuery(query);
-
-            while (table.next())
-            {
-                String lcid = table.getString("LibraryCardID");
-                String lcn = table.getString("Name");
-                String lcs = table.getString("Surname");
-                String lcadress = table.getString("Address");
-                String lcphone = table.getString("Phone");
-                String lcemail = table.getString("Email");
-                Borrower row = new Borrower(lcid, lcn, lcs, lcadress, lcphone, lcemail);
-                dataList.add(row);
-            }
-            return  dataList;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-
-        }
-
-    }
-    public ArrayList<Loan> searchLoan(String loanId) {
-        ArrayList<Loan> dataList = new ArrayList<>();
-        try {
-            String query = "SELECT * FROM \"Loan\" WHERE \"LoanID\" =  " +"'"+ loanId +"'";
-            ResultSet table = this.con.createStatement().executeQuery(query);
-            while (table.next())
-            {
-                String lid = table.getString("LoanID");
-                String lbid = table.getString("BookID");
-                Date lsd = table.getDate("StartDate");
-                Date led = table.getDate("EndDate");
-                String lcid = table.getString("LibraryCardID");
-                Loan row = new Loan(lid, lbid, lsd, led, lcid);
-                dataList.add(row);
-            }
-            return dataList;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 }
-
-
-
-
-
-
-
-
-
-

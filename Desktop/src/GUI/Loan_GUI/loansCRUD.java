@@ -27,8 +27,7 @@ public class loansCRUD extends javax.swing.JFrame {
     ArrayList<Loan> loans = new ArrayList<Loan>();
     int rowIndex = -1;
     
-    public void RefreshTable()
-    {
+    public void RefreshTable(){
         try {
             db.connect();
         } catch (ClassNotFoundException ex) {
@@ -76,6 +75,7 @@ public class loansCRUD extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         delete_btn = new javax.swing.JButton();
         search_btn = new javax.swing.JButton();
+        refresh_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage Authors");
@@ -87,6 +87,7 @@ public class loansCRUD extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(38, 39, 43));
+        jPanel1.setMaximumSize(new java.awt.Dimension(900, 500));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
 
         edit_btn.setBackground(new java.awt.Color(78, 66, 52));
@@ -102,7 +103,7 @@ public class loansCRUD extends javax.swing.JFrame {
         edit_btn.setMaximumSize(new java.awt.Dimension(141, 27));
         edit_btn.setMinimumSize(new java.awt.Dimension(141, 27));
         edit_btn.setName("edit_btn"); // NOI18N
-        edit_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        edit_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         edit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_btnActionPerformed(evt);
@@ -117,6 +118,8 @@ public class loansCRUD extends javax.swing.JFrame {
         back_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         back_btn.setIconTextGap(1);
         back_btn.setMargin(new java.awt.Insets(1, 5, 1, 5));
+        back_btn.setMaximumSize(new java.awt.Dimension(40, 30));
+        back_btn.setMinimumSize(new java.awt.Dimension(40, 30));
         back_btn.setPreferredSize(new java.awt.Dimension(40, 30));
         back_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,25 +129,46 @@ public class loansCRUD extends javax.swing.JFrame {
 
         search_txt.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         search_txt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        search_txt.setText("Search by ");
-        search_txt.setPreferredSize(new java.awt.Dimension(188, 27));
+        search_txt.setText("Search by Name");
+        search_txt.setMaximumSize(new java.awt.Dimension(188, 30));
+        search_txt.setMinimumSize(new java.awt.Dimension(188, 30));
+        search_txt.setPreferredSize(new java.awt.Dimension(188, 30));
+        search_txt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                search_txtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                search_txtFocusLost(evt);
+            }
+        });
 
         jScrollPane2.setBackground(new java.awt.Color(204, 204, 204));
         jScrollPane2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(100, 280));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(880, 340));
 
         loan_tbl.setBackground(new java.awt.Color(183, 172, 162));
+        loan_tbl.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        loan_tbl.setForeground(new java.awt.Color(0, 0, 0));
         loan_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "LoanID", "BookID", "StartDate", "EndDate", "LibraryCardID"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        loan_tbl.getTableHeader().setReorderingAllowed(false);
         loan_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loan_tblMouseClicked(evt);
@@ -165,7 +189,7 @@ public class loansCRUD extends javax.swing.JFrame {
         add_btn.setMaximumSize(new java.awt.Dimension(141, 27));
         add_btn.setMinimumSize(new java.awt.Dimension(141, 27));
         add_btn.setName("add_btn"); // NOI18N
-        add_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        add_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         add_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_btnActionPerformed(evt);
@@ -196,7 +220,7 @@ public class loansCRUD extends javax.swing.JFrame {
         delete_btn.setFocusable(false);
         delete_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         delete_btn.setName("delete_btn"); // NOI18N
-        delete_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        delete_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         delete_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete_btnActionPerformed(evt);
@@ -215,10 +239,28 @@ public class loansCRUD extends javax.swing.JFrame {
         search_btn.setMaximumSize(new java.awt.Dimension(141, 27));
         search_btn.setMinimumSize(new java.awt.Dimension(141, 27));
         search_btn.setName("search_btn"); // NOI18N
-        search_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        search_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         search_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search_btnActionPerformed(evt);
+            }
+        });
+
+        refresh_btn.setBackground(new java.awt.Color(78, 66, 52));
+        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        refresh_btn.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_btn.setAlignmentX(0.5F);
+        refresh_btn.setBorderPainted(false);
+        refresh_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        refresh_btn.setFocusPainted(false);
+        refresh_btn.setFocusable(false);
+        refresh_btn.setMaximumSize(new java.awt.Dimension(50, 30));
+        refresh_btn.setMinimumSize(new java.awt.Dimension(50, 30));
+        refresh_btn.setName("search_btn"); // NOI18N
+        refresh_btn.setPreferredSize(new java.awt.Dimension(50, 30));
+        refresh_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refresh_btnActionPerformed(evt);
             }
         });
 
@@ -226,58 +268,63 @@ public class loansCRUD extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(edit_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(refresh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(edit_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(refresh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 902, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +350,6 @@ public class loansCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
-        // ADD delete
         if(rowIndex != -1){
             int option = JOptionPane.showConfirmDialog(null, "Are you sure you wish to delete '" +
                     loans.get(rowIndex).getLoanID()+ " " + loans.get(rowIndex).getLibraryCardID()+ "'?", "Confirmation", JOptionPane.YES_NO_OPTION);
@@ -319,12 +365,10 @@ public class loansCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_delete_btnActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
         RefreshTable();
     }//GEN-LAST:event_formWindowOpened
 
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
-        // TODO add your handling code here:
          if(search_txt.getText() == " "){
             JOptionPane.showMessageDialog(this, "Please enter the Borrower's name to search for", "Search Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -342,9 +386,26 @@ public class loansCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_search_btnActionPerformed
 
     private void loan_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loan_tblMouseClicked
-        // TODO add your handling code here:
         rowIndex = loan_tbl.getSelectedRow();
     }//GEN-LAST:event_loan_tblMouseClicked
+
+    private void refresh_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_btnActionPerformed
+        RefreshTable();
+    }//GEN-LAST:event_refresh_btnActionPerformed
+
+    private void search_txtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusGained
+        if (search_txt.getText().equals("Search by Name")) 
+        {
+            search_txt.setText("");
+        }
+    }//GEN-LAST:event_search_txtFocusGained
+
+    private void search_txtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusLost
+        if (search_txt.getText().isEmpty()) 
+        {
+            search_txt.setText("Search by Name");
+        }
+    }//GEN-LAST:event_search_txtFocusLost
 
     /**
      * @param args the command line arguments
@@ -391,6 +452,7 @@ public class loansCRUD extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTable loan_tbl;
+    private javax.swing.JButton refresh_btn;
     private javax.swing.JButton search_btn;
     private javax.swing.JTextField search_txt;
     // End of variables declaration//GEN-END:variables

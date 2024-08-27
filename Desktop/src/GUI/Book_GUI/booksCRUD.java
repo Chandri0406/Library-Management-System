@@ -77,6 +77,7 @@ public class booksCRUD extends javax.swing.JFrame {
         edit_btn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
         search_txt = new javax.swing.JTextField();
+        refresh_btn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         books_tbl = new javax.swing.JTable();
 
@@ -91,13 +92,14 @@ public class booksCRUD extends javax.swing.JFrame {
         });
 
         bookBody.setBackground(new java.awt.Color(38, 39, 43));
+        bookBody.setMaximumSize(new java.awt.Dimension(900, 500));
         bookBody.setPreferredSize(new java.awt.Dimension(900, 500));
         bookBody.setRequestFocusEnabled(false);
 
         add_btn.setBackground(new java.awt.Color(78, 66, 52));
         add_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         add_btn.setForeground(new java.awt.Color(255, 255, 255));
-        add_btn.setText("Add Book");
+        add_btn.setText("Add");
         add_btn.setAlignmentX(0.5F);
         add_btn.setBorderPainted(false);
         add_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -106,7 +108,7 @@ public class booksCRUD extends javax.swing.JFrame {
         add_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         add_btn.setName("add_btn"); // NOI18N
-        add_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        add_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         add_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_btnActionPerformed(evt);
@@ -128,8 +130,9 @@ public class booksCRUD extends javax.swing.JFrame {
         delete_btn.setBackground(new java.awt.Color(78, 66, 52));
         delete_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         delete_btn.setForeground(new java.awt.Color(255, 255, 255));
-        delete_btn.setText("Delete Book");
-        delete_btn.setAlignmentY(0.0F);
+        delete_btn.setText("Delete");
+        delete_btn.setToolTipText("");
+        delete_btn.setAlignmentX(0.5F);
         delete_btn.setBorderPainted(false);
         delete_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         delete_btn.setFocusPainted(false);
@@ -137,7 +140,7 @@ public class booksCRUD extends javax.swing.JFrame {
         delete_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         delete_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         delete_btn.setName("delete_btn"); // NOI18N
-        delete_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        delete_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         delete_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete_btnActionPerformed(evt);
@@ -155,7 +158,7 @@ public class booksCRUD extends javax.swing.JFrame {
         search_btn.setFocusable(false);
         search_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         search_btn.setName("search_btn"); // NOI18N
-        search_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        search_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         search_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search_btnActionPerformed(evt);
@@ -165,7 +168,8 @@ public class booksCRUD extends javax.swing.JFrame {
         edit_btn.setBackground(new java.awt.Color(78, 66, 52));
         edit_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         edit_btn.setForeground(new java.awt.Color(255, 255, 255));
-        edit_btn.setText("Edit Book");
+        edit_btn.setText("Edit");
+        edit_btn.setToolTipText("");
         edit_btn.setAlignmentX(0.5F);
         edit_btn.setBorderPainted(false);
         edit_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -173,7 +177,7 @@ public class booksCRUD extends javax.swing.JFrame {
         edit_btn.setFocusable(false);
         edit_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         edit_btn.setName("edit_btn"); // NOI18N
-        edit_btn.setPreferredSize(new java.awt.Dimension(152, 27));
+        edit_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         edit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_btnActionPerformed(evt);
@@ -188,6 +192,8 @@ public class booksCRUD extends javax.swing.JFrame {
         Backbtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Backbtn.setIconTextGap(1);
         Backbtn.setMargin(new java.awt.Insets(1, 5, 1, 5));
+        Backbtn.setMaximumSize(new java.awt.Dimension(40, 30));
+        Backbtn.setMinimumSize(new java.awt.Dimension(40, 30));
         Backbtn.setPreferredSize(new java.awt.Dimension(40, 30));
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,10 +204,40 @@ public class booksCRUD extends javax.swing.JFrame {
         search_txt.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         search_txt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         search_txt.setText("Search by Title");
+        search_txt.setMaximumSize(new java.awt.Dimension(188, 30));
+        search_txt.setMinimumSize(new java.awt.Dimension(188, 30));
+        search_txt.setPreferredSize(new java.awt.Dimension(188, 30));
+        search_txt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                search_txtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                search_txtFocusLost(evt);
+            }
+        });
+
+        refresh_btn.setBackground(new java.awt.Color(78, 66, 52));
+        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        refresh_btn.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_btn.setAlignmentX(0.5F);
+        refresh_btn.setBorderPainted(false);
+        refresh_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        refresh_btn.setFocusPainted(false);
+        refresh_btn.setFocusable(false);
+        refresh_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
+        refresh_btn.setMaximumSize(new java.awt.Dimension(50, 30));
+        refresh_btn.setMinimumSize(new java.awt.Dimension(50, 30));
+        refresh_btn.setName("search_btn"); // NOI18N
+        refresh_btn.setPreferredSize(new java.awt.Dimension(50, 30));
+        refresh_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refresh_btnActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setBackground(new java.awt.Color(200, 195, 174));
         jScrollPane2.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(100, 280));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(880, 340));
 
         books_tbl.setBackground(new java.awt.Color(183, 172, 162));
         books_tbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -226,46 +262,52 @@ public class booksCRUD extends javax.swing.JFrame {
             .addGroup(bookBodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bookBodyLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bookBodyLayout.createSequentialGroup()
-                        .addGap(0, 28, Short.MAX_VALUE)
-                        .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(bookBodyLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bookBodyLayout.createSequentialGroup()
-                                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(bookBodyLayout.createSequentialGroup()
-                                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(266, 266, 266))
+                    .addGroup(bookBodyLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 14, Short.MAX_VALUE))))
+            .addGroup(bookBodyLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(refresh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         bookBodyLayout.setVerticalGroup(
             bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bookBodyLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bookBodyLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bookBodyLayout.createSequentialGroup()
                         .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)))
-                .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-                .addContainerGap())
+                        .addGap(29, 29, 29)))
+                .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(refresh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -344,6 +386,24 @@ public class booksCRUD extends javax.swing.JFrame {
         rowIndex = books_tbl.getSelectedRow();
     }//GEN-LAST:event_books_tblMouseClicked
 
+    private void refresh_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_btnActionPerformed
+        RefreshTable();
+    }//GEN-LAST:event_refresh_btnActionPerformed
+
+    private void search_txtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusGained
+        if (search_txt.getText().equals("Search by Title")) 
+        {
+            search_txt.setText("");
+        }
+    }//GEN-LAST:event_search_txtFocusGained
+
+    private void search_txtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusLost
+         if (search_txt.getText().isEmpty()) 
+        {
+            search_txt.setText("Search by Title");
+        }
+    }//GEN-LAST:event_search_txtFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -389,6 +449,7 @@ public class booksCRUD extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JButton refresh_btn;
     private javax.swing.JButton search_btn;
     private javax.swing.JTextField search_txt;
     // End of variables declaration//GEN-END:variables
