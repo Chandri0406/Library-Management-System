@@ -3,6 +3,7 @@ package GUI.Book_GUI;
 import GUI.DatabaseConnection;
 import desktop.models.Author;
 import desktop.models.Book;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -21,7 +22,7 @@ public class bookEdit extends javax.swing.JFrame {
     
     public void SetBook(Book book){
         selectedBook = book;
-        title_txt4.setText(book.getTitle());
+        title_txt.setText(book.getTitle());
         
         try {
             db.connect();
@@ -64,7 +65,7 @@ public class bookEdit extends javax.swing.JFrame {
             status_btn.setSelected(false);
         }
         
-        yearpub_txt4.setText(Integer.toString(selectedBook.getYearOfPublication()));
+        yearpub_txt.setText(Integer.toString(selectedBook.getYearOfPublication()));
     }
 
     /**
@@ -83,8 +84,8 @@ public class bookEdit extends javax.swing.JFrame {
         title_lbl4 = new javax.swing.JLabel();
         genre_lbl4 = new javax.swing.JLabel();
         author_lbl = new javax.swing.JLabel();
-        title_txt4 = new javax.swing.JTextField();
-        yearpub_txt4 = new javax.swing.JTextField();
+        title_txt = new javax.swing.JTextField();
+        yearpub_txt = new javax.swing.JTextField();
         edit_btn4 = new javax.swing.JButton();
         yearpub_lbl1 = new javax.swing.JLabel();
         author_ComboBox = new javax.swing.JComboBox<>();
@@ -140,18 +141,19 @@ public class bookEdit extends javax.swing.JFrame {
         author_lbl.setForeground(new java.awt.Color(255, 255, 255));
         author_lbl.setText("Author :");
 
-        title_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        title_txt4.setForeground(new java.awt.Color(255, 255, 255));
-        title_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        title_txt.setBackground(new java.awt.Color(153, 153, 153));
+        title_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        title_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
-        yearpub_txt4.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        yearpub_txt4.setForeground(new java.awt.Color(255, 255, 255));
-        yearpub_txt4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        yearpub_txt.setBackground(new java.awt.Color(153, 153, 153));
+        yearpub_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        yearpub_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         edit_btn4.setBackground(new java.awt.Color(159, 105, 50));
         edit_btn4.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         edit_btn4.setForeground(new java.awt.Color(255, 255, 255));
         edit_btn4.setText("EDIT");
+        edit_btn4.setBorderPainted(false);
         edit_btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_btn4ActionPerformed(evt);
@@ -163,22 +165,32 @@ public class bookEdit extends javax.swing.JFrame {
         yearpub_lbl1.setText("Year of publication :");
         yearpub_lbl1.setToolTipText("");
 
-        author_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
+        author_ComboBox.setBackground(new java.awt.Color(153, 153, 153));
         author_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        author_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         author_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        author_ComboBox.setOpaque(false);
 
-        genre_ComboBox.setBackground(new java.awt.Color(40, 40, 40));
+        genre_ComboBox.setBackground(new java.awt.Color(153, 153, 153));
         genre_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        genre_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         genre_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        status_btn.setBackground(new java.awt.Color(78, 66, 52));
+        status_btn.setBackground(new java.awt.Color(159, 105, 50));
         status_btn.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        status_btn.setSelected(true);
+        status_btn.setForeground(new java.awt.Color(255, 255, 255));
         status_btn.setText("Available");
         status_btn.setToolTipText("");
+        status_btn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        status_btn.setBorderPainted(false);
         status_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        status_btn.setFocusPainted(false);
+        status_btn.setFocusable(false);
+        status_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        status_btn.setPreferredSize(new java.awt.Dimension(130, 23));
+        status_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                status_btnActionPerformed(evt);
+            }
+        });
 
         status_lbl2.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         status_lbl2.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,13 +218,13 @@ public class bookEdit extends javax.swing.JFrame {
                             .addComponent(genre_lbl4))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(status_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(author_ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(title_txt4)
+                                .addComponent(title_txt)
                                 .addComponent(genre_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edit_btn4))))
+                            .addComponent(yearpub_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edit_btn4)
+                            .addComponent(status_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -227,7 +239,7 @@ public class bookEdit extends javax.swing.JFrame {
                         .addComponent(back_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(title_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(title_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(title_lbl4))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -240,12 +252,12 @@ public class bookEdit extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(status_lbl2)
-                    .addComponent(status_btn))
+                    .addComponent(status_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(yearpub_lbl1)
-                    .addComponent(yearpub_txt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                    .addComponent(yearpub_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(edit_btn4)
                 .addGap(32, 32, 32))
         );
@@ -267,14 +279,16 @@ public class bookEdit extends javax.swing.JFrame {
     private void back_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btn4ActionPerformed
         this.dispose();
         new booksCRUD().setVisible(true);
+
+
     }//GEN-LAST:event_back_btn4ActionPerformed
 
     private void edit_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btn4ActionPerformed
-        if(title_txt4.getText() == " " || author_ComboBox.getSelectedIndex() == 0 || genre_ComboBox.getSelectedIndex() == 0 || yearpub_txt4.getText() == " "){
+        if(title_txt.getText() == " " || author_ComboBox.getSelectedIndex() == 0 || genre_ComboBox.getSelectedIndex() == 0 || yearpub_txt.getText() == " "){
             JOptionPane.showMessageDialog(this, "Please fill in all fields to update an existing book");
         }
         else{
-            selectedBook.setTitle(title_txt4.getText());
+            selectedBook.setTitle(title_txt.getText());
             
             int authorIndex = author_ComboBox.getSelectedIndex();
             Author author = authors.get(authorIndex - 1);
@@ -292,7 +306,7 @@ public class bookEdit extends javax.swing.JFrame {
             }
             selectedBook.setStatus(status);
             
-            selectedBook.setYearOfPublication(Integer.parseInt(yearpub_txt4.getText()));
+            selectedBook.setYearOfPublication(Integer.parseInt(yearpub_txt.getText()));
             
             db.UpdateBook(selectedBook);
             
@@ -300,6 +314,16 @@ public class bookEdit extends javax.swing.JFrame {
             new booksCRUD().setVisible(true);
         }
     }//GEN-LAST:event_edit_btn4ActionPerformed
+
+    private void status_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_status_btnActionPerformed
+         if (status_btn.isSelected()){
+                 status_btn.setText("Unavailable");
+                 status_btn.setBackground(new Color(133,103,72));
+         }else{
+                 status_btn.setText("Available");
+                 status_btn.setBackground(new Color(159,105,50));
+         }      
+    }//GEN-LAST:event_status_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,8 +373,8 @@ public class bookEdit extends javax.swing.JFrame {
     private javax.swing.JToggleButton status_btn;
     private javax.swing.JLabel status_lbl2;
     private javax.swing.JLabel title_lbl4;
-    private javax.swing.JTextField title_txt4;
+    private javax.swing.JTextField title_txt;
     private javax.swing.JLabel yearpub_lbl1;
-    private javax.swing.JTextField yearpub_txt4;
+    private javax.swing.JTextField yearpub_txt;
     // End of variables declaration//GEN-END:variables
 }

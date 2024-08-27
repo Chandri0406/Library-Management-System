@@ -112,16 +112,16 @@ public class authorEdit extends javax.swing.JFrame {
         publisher_lbl.setForeground(new java.awt.Color(255, 255, 255));
         publisher_lbl.setText("Publisher :");
 
+        name_txt.setBackground(new java.awt.Color(153, 153, 153));
         name_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        name_txt.setForeground(new java.awt.Color(255, 255, 255));
         name_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
+        surname_txt.setBackground(new java.awt.Color(153, 153, 153));
         surname_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        surname_txt.setForeground(new java.awt.Color(255, 255, 255));
         surname_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
+        publisher_txt.setBackground(new java.awt.Color(153, 153, 153));
         publisher_txt.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        publisher_txt.setForeground(new java.awt.Color(255, 255, 255));
         publisher_txt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         edited_btn.setBackground(new java.awt.Color(159, 105, 50));
@@ -192,7 +192,7 @@ public class authorEdit extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(publisher_lbl)
                     .addComponent(publisher_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(edited_btn)
                 .addGap(31, 31, 31))
         );

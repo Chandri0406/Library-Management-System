@@ -44,15 +44,16 @@ public class loanAdd extends javax.swing.JFrame {
         book_ComboBox = new javax.swing.JComboBox<>();
         borrower_ComboBox = new javax.swing.JComboBox<>();
         startDate_lbl2 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(350, 150));
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel6.setMaximumSize(new java.awt.Dimension(620, 490));
-        jPanel6.setMinimumSize(new java.awt.Dimension(620, 490));
-        jPanel6.setPreferredSize(new java.awt.Dimension(620, 490));
+        jPanel6.setMaximumSize(new java.awt.Dimension(560, 400));
+        jPanel6.setMinimumSize(new java.awt.Dimension(560, 400));
+        jPanel6.setPreferredSize(new java.awt.Dimension(560, 400));
 
         jScrollPane5.setBorder(null);
 
@@ -93,57 +94,65 @@ public class loanAdd extends javax.swing.JFrame {
         submit_btn.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         submit_btn.setForeground(new java.awt.Color(255, 255, 255));
         submit_btn.setText("SUBMIT");
+        submit_btn.setBorderPainted(false);
         submit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submit_btnActionPerformed(evt);
             }
         });
 
+        book_ComboBox.setBackground(new java.awt.Color(153, 153, 153));
         book_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        book_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         book_ComboBox.setEnabled(false);
+        book_ComboBox.setPreferredSize(new java.awt.Dimension(240, 23));
 
+        borrower_ComboBox.setBackground(new java.awt.Color(153, 153, 153));
         borrower_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        borrower_ComboBox.setForeground(new java.awt.Color(255, 255, 255));
         borrower_ComboBox.setEnabled(false);
+        borrower_ComboBox.setPreferredSize(new java.awt.Dimension(240, 23));
 
         startDate_lbl2.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         startDate_lbl2.setForeground(new java.awt.Color(255, 255, 255));
         startDate_lbl2.setText("Start Date:");
         startDate_lbl2.setToolTipText("");
 
+        jDateChooser1.setBackground(new java.awt.Color(153, 153, 153));
+        jDateChooser1.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jDateChooser1.setPreferredSize(new java.awt.Dimension(240, 23));
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(book_lbl)
                             .addComponent(borrower_lbl4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(startDate_lbl2))
+                            .addComponent(startDate_lbl2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(book_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(borrower_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(book_ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(borrower_ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
+                        .addGap(66, 66, 66)
                         .addComponent(back_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
+                        .addGap(104, 104, 104)
                         .addComponent(submit_btn)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,20 +164,22 @@ public class loanAdd extends javax.swing.JFrame {
                             .addComponent(borrower_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(borrower_lbl4)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(21, 21, 21)
                         .addComponent(back_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
-                .addComponent(startDate_lbl2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(startDate_lbl2)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
                 .addComponent(submit_btn)
-                .addGap(33, 33, 33))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,6 +239,7 @@ public class loanAdd extends javax.swing.JFrame {
     private javax.swing.JLabel book_lbl;
     private javax.swing.JComboBox<String> borrower_ComboBox;
     private javax.swing.JLabel borrower_lbl4;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextPane jTextPane5;
