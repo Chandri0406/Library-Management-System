@@ -1,14 +1,33 @@
 package GUI.Borrower_GUI;
 
+import GUI.DatabaseConnection;
+import desktop.models.Borrower;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class borrowersEdit extends javax.swing.JFrame {
 
     public borrowersEdit() {
         initComponents();
         addHoverEffect(edited_btn);
+    }
+    
+    DatabaseConnection db = new DatabaseConnection();
+    Borrower selectedBorrower = new Borrower();
+    
+    
+     public void SetBorrower(Borrower borrower)
+    {
+        selectedBorrower = borrower;
+        name_txt.setText(borrower.getName());
+        surname_txt.setText(borrower.getSurname());
+        address_txt1.setText(borrower.getAddress());
+        phone_txt.setText(borrower.getPhone());
+        email_txt2.setText(borrower.getEmail());
     }
     
     private void addHoverEffect(javax.swing.JButton button) {
@@ -242,6 +261,30 @@ public class borrowersEdit extends javax.swing.JFrame {
 
     private void edited_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edited_btnActionPerformed
         // TODO add your handling code here:
+        if(name_txt.getText().equals("") || surname_txt.getText().equals("") || address_txt1.getText().equals("") || phone_txt.getText().equals("") || email_txt2.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Please fill in all the fields to update borrower", "Error", JOptionPane.ERROR_MESSAGE);
+                    
+        }
+        else{
+            selectedBorrower.setName(name_txt.getText());
+            selectedBorrower.setSurname(surname_txt.getText());
+            selectedBorrower.setAddress(address_txt1.getText());
+            selectedBorrower.setPhone(phone_txt.getText());
+            selectedBorrower.setEmail(email_txt2.getText());
+            
+            try{
+                db.connect();
+            }
+            catch(ClassNotFoundException ex)
+            {
+                Logger.getLogger(borrowersAdd.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            db.UpdateBorrower(selectedBorrower);
+            this.dispose();
+            new borrowersCRUD().setVisible(true);
+            
+        }
     }//GEN-LAST:event_edited_btnActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
