@@ -1,11 +1,19 @@
 package GUI.Borrower_GUI;
 
+import GUI.DatabaseConnection;
 import GUI.maindashboard;
+import desktop.models.Borrower;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class borrowersCRUD extends javax.swing.JFrame {
+    public static DatabaseConnection db = new DatabaseConnection();
     
     public borrowersCRUD() {
         initComponents();
@@ -13,6 +21,26 @@ public class borrowersCRUD extends javax.swing.JFrame {
         addHoverEffect(search_btn);
         addHoverEffect(delete_btn);
         addHoverEffect(edit_btn);
+    }
+    
+    ArrayList<Borrower> borrowers = new ArrayList<Borrower>();
+    int rowIndex = -1;
+    
+    
+    
+    public void RefreshTable()
+    {
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(borrowersCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        borrowers = db.Borrowerview();
+        DefaultTableModel model = (DefaultTableModel) borrowers_tbl.getModel();
+        model.setRowCount(0);
+        for(Borrower borrower : borrowers){
+            model.addRow(new Object[]{borrower.getLibraryCardID(), borrower.getName(), borrower.getSurname(), borrower.getAddress(), borrower.getPhone(), borrower.getEmail()});
+        }
     }
     
     private void addHoverEffect(javax.swing.JButton button) {
@@ -56,6 +84,11 @@ public class borrowersCRUD extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage Borrowers");
         setLocation(new java.awt.Point(300, 150));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         borrowerBody.setBackground(new java.awt.Color(38, 39, 43));
         borrowerBody.setPreferredSize(new java.awt.Dimension(900, 500));
@@ -70,7 +103,6 @@ public class borrowersCRUD extends javax.swing.JFrame {
         add_btn.setFocusPainted(false);
         add_btn.setFocusable(false);
         add_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        add_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         add_btn.setName("add_btn"); // NOI18N
         add_btn.setPreferredSize(new java.awt.Dimension(152, 27));
         add_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +133,6 @@ public class borrowersCRUD extends javax.swing.JFrame {
         delete_btn.setFocusPainted(false);
         delete_btn.setFocusable(false);
         delete_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        delete_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         delete_btn.setName("delete_btn"); // NOI18N
         delete_btn.setPreferredSize(new java.awt.Dimension(152, 27));
         delete_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +151,6 @@ public class borrowersCRUD extends javax.swing.JFrame {
         search_btn.setFocusPainted(false);
         search_btn.setFocusable(false);
         search_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        search_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         search_btn.setMaximumSize(new java.awt.Dimension(66, 31));
         search_btn.setMinimumSize(new java.awt.Dimension(66, 31));
         search_btn.setName("search_btn"); // NOI18N
@@ -141,7 +171,6 @@ public class borrowersCRUD extends javax.swing.JFrame {
         edit_btn.setFocusPainted(false);
         edit_btn.setFocusable(false);
         edit_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        edit_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         edit_btn.setName("edit_btn"); // NOI18N
         edit_btn.setPreferredSize(new java.awt.Dimension(152, 27));
         edit_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -187,6 +216,11 @@ public class borrowersCRUD extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        borrowers_tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                borrowers_tblMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(borrowers_tbl);
 
         javax.swing.GroupLayout borrowerBodyLayout = new javax.swing.GroupLayout(borrowerBody);
@@ -247,7 +281,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(borrowerBody, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+            .addComponent(borrowerBody, javax.swing.GroupLayout.PREFERRED_SIZE, 490, Short.MAX_VALUE)
         );
 
         pack();
@@ -259,22 +293,65 @@ public class borrowersCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_add_btnActionPerformed
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
+        if(rowIndex != -1){
+        borrowersEdit editDialog = new borrowersEdit();
+        editDialog.SetBorrower(borrowers.get(rowIndex));
+        editDialog.setVisible(true);
         this.dispose();
-        new borrowersEdit().setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please select an borrower you wish to edit", "Update Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_edit_btnActionPerformed
 
     private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
         // TODO add your handling code here:
+        if(rowIndex != -1){
+            int option = JOptionPane.showConfirmDialog(null, "Are you sure you wish to delete '" +
+                    borrowers.get(rowIndex).getName() + " " + borrowers.get(rowIndex).getSurname() + "'?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                   if(option == JOptionPane.YES_OPTION)
+                   {
+                       String selectedID = borrowers.get(rowIndex).getLibraryCardID();
+                       db.DeleteBorrower(selectedID);
+                       RefreshTable();
+                   }
+        }
+        else{JOptionPane.showMessageDialog(this, "Please select borrower you wish to delete", "Delete Error", JOptionPane.ERROR_MESSAGE);
+    }  
     }//GEN-LAST:event_delete_btnActionPerformed
 
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
         // TODO add your handling code here:
+        if(search_txt.getText() == " "){
+            JOptionPane.showMessageDialog(this, "Please enter the Borrower's name to search for", "Search Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            String name = search_txt.getText();
+            borrowers = db.searchBorrower(name);
+            
+            DefaultTableModel model = (DefaultTableModel) borrowers_tbl.getModel();
+            model.setRowCount(0);
+            for(Borrower borrower: borrowers)
+            {
+                model.addRow(new Object[]{borrower.getLibraryCardID(), borrower.getName(), borrower.getSurname(), borrower.getAddress(), borrower.getPhone(), borrower.getEmail()});
+            }
+        }
     }//GEN-LAST:event_search_btnActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
         this.dispose();
         new maindashboard().setVisible(true);
     }//GEN-LAST:event_BackbtnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+         RefreshTable();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void borrowers_tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowers_tblMouseClicked
+        // TODO add your handling code here:
+         rowIndex = borrowers_tbl.getSelectedRow();
+    }//GEN-LAST:event_borrowers_tblMouseClicked
 
     /**
      * @param args the command line arguments
