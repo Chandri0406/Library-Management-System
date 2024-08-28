@@ -9,6 +9,13 @@
             function redirectToIndex() {
                 window.location.href = 'index.jsp';
             }
+            
+            function openDesktop() {
+                fetch('/your-web-app/OpenDesktopApp')
+                    .then(response => response.text())
+                    .then(data => alert(data))
+                    .catch(error => console.error('Error:', error));
+            }
         </script>
     </head>
     
