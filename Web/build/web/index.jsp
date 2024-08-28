@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="/css/style.css" >
+        <link rel="stylesheet" href="css/style.css" >
         <title>Library Management System</title>
     </head>
     <body>
@@ -14,8 +14,8 @@
             
             <div class="button-container">
                 <%-- Add buttons--%>
-                <a href="jsp/login.jsp" class="button">Login</a>
-                <a href="jsp/register.jsp" class="button">Register</a>
+                <a href="login.jsp" class="button">Login</a>
+                <a href="register.jsp" class="button">Register</a>
             </div>
             
         </div>
