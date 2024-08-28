@@ -1,12 +1,18 @@
 package GUI.Loan_GUI;
 
+import GUI.Book_GUI.bookAdd;
+import GUI.Borrower_GUI.borrowersAdd;
 import GUI.DatabaseConnection;
 import desktop.models.Book;
 import desktop.models.Borrower;
+import desktop.models.Loan;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class loanEdit extends javax.swing.JFrame {
 
@@ -16,8 +22,44 @@ public class loanEdit extends javax.swing.JFrame {
     }
     
     DatabaseConnection db = new DatabaseConnection();
+    Loan selectedLoan = new Loan();
     ArrayList<Book> books = new ArrayList<>();
     ArrayList<Borrower> borrowers = new ArrayList<>();
+    
+    public void SetLoan(Loan loan){
+        selectedLoan = loan;
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(loanEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        books = db.Bookview();
+        book_ComboBox.removeAllItems();
+        book_ComboBox.addItem("Select Book");
+        for(Borrower borrower : borrowers){
+           borrower_ComboBox.addItem(borrower.getName()+ " " + borrower.getSurname());
+        }
+         Book book = db.findNameOfBook(book.getBookID());
+        for(int i = 0; i < books.size(); i++){
+            String item = (String) book_ComboBox.getItemAt(i + 1);
+            if(item.equals(book.getTitle()+ " " + book.getStatus())){
+                book_ComboBox.setSelectedIndex(i + 1);
+            }
+        }
+
+        borrower_ComboBox.removeAllItems();
+        borrower_ComboBox.addItem("Select Genre");
+        for(Borrower borrower : borrowers){
+           borrower_ComboBox.addItem(borrower.getName()+ " " + borrower.getSurname());
+        }
+         Borrower borrower = db.Borrowerview(borrower.get);
+        for(int i = 0; i < borrowers.size(); i++){
+            String item = (String) borrower_ComboBox.getItemAt(i + 1);
+            if(item.equals(book.get() + " " + author.getLastName())){
+                borrower_ComboBox.setSelectedIndex(i + 1);
+            }
+        }
+    }
     
     private void addHoverEffect(javax.swing.JButton button) {
         button.addMouseListener(new MouseAdapter() {
@@ -124,13 +166,11 @@ public class loanEdit extends javax.swing.JFrame {
         book_ComboBox.setBackground(new java.awt.Color(153, 153, 153));
         book_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         book_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        book_ComboBox.setEnabled(false);
         book_ComboBox.setPreferredSize(new java.awt.Dimension(240, 23));
 
         borrower_ComboBox.setBackground(new java.awt.Color(153, 153, 153));
         borrower_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
         borrower_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        borrower_ComboBox.setEnabled(false);
         borrower_ComboBox.setPreferredSize(new java.awt.Dimension(240, 23));
 
         startDate_lbl2.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
@@ -243,10 +283,61 @@ public class loanEdit extends javax.swing.JFrame {
 
     private void edited_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edited_btnActionPerformed
         // Adds to the loan to the database
+        if(book_ComboBox.getSelectedIndex() == 0 || borrower_ComboBox.getSelectedIndex() == 0 || jDateChooser1.getDate() == null)
+        {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields and update loan please");
+        }
+        else{
+            int bookIndex = book_ComboBox.getSelectedIndex() - 1;
+            Book book = books.set(bookIndex - 1);
+            selectedLoan.setBookID(book.getBookID());
+            int borrowerIndex = borrower_ComboBox.getSelectedIndex() - 1;
+            Borrower borrower = borrowers.set(borrowerIndex - 1);
+            selectedLoan.setLibraryCardID(borrower.getLibraryCardID());
+            
+            java.util.Date selectedDate = jDateChooser1.getDate();
+            java.sql.Date sqlDate = new java.sql.Date(selectedDate.getTime());
+            
+            Loan loan = new Loan(book.getBookID(), borrower.getLibraryCardID(), sqlDate);
+            
+            db.UpdateLoan(loan);
+            this.dispose();
+            new loansCRUD().setVisible(true);
+
+         
+            
+             JOptionPane.showMessageDialog(this, "Loan updated successfully!");        
+        }
     }//GEN-LAST:event_edited_btnActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        book_ComboBox.removeAllItems();
+        book_ComboBox.addItem("Select Book");
+
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(bookAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        books = db.Bookview();
+        for(Book book : books){
+            book_ComboBox.addItem(book.getTitle() + " " + book.getStatus());
+        }
+
+        borrower_ComboBox.removeAllItems();
+        borrower_ComboBox.addItem("Select Borrower");
+        
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(borrowersAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        borrowers = db.Borrowerview();
+        for(Borrower borrower : borrowers){
+           borrower_ComboBox.addItem(borrower.getName()+ " " + borrower.getSurname());
+        }
     }//GEN-LAST:event_formWindowOpened
 
     /**
