@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="style.css" >
+        <link rel="stylesheet" href="css/style.css" >
         <title>Register</title>
     </head>
     <body>
@@ -39,7 +39,7 @@
                 
                 <div class="form-group">
                     <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="phone" required pattern="\d{3} \d{3} \d{4}" placeholder="___ ___ ____"  required>
+                    <input type="text" id="phone" name="phone" required>
                 </div>
                 
                 <div class="form-group">
