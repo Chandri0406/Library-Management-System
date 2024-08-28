@@ -1,0 +1,34 @@
+19-Aug-2024 16:11:36.228 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact [localhost:8005] (base port [8005] and offset [0]). Tomcat may not be running.
+19-Aug-2024 16:11:36.235 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Error stopping Catalina
+	java.net.ConnectException: Connection refused: connect
+		at java.base/sun.nio.ch.Net.connect0(Native Method)
+		at java.base/sun.nio.ch.Net.connect(Net.java:589)
+		at java.base/sun.nio.ch.Net.connect(Net.java:578)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at java.base/java.net.Socket.connect(Socket.java:686)
+		at java.base/java.net.Socket.<init>(Socket.java:555)
+		at java.base/java.net.Socket.<init>(Socket.java:324)
+		at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:653)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:393)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478)
+19-Aug-2024 16:14:28.108 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact [localhost:8005] (base port [8005] and offset [0]). Tomcat may not be running.
+19-Aug-2024 16:14:28.118 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Error stopping Catalina
+	java.net.ConnectException: Connection refused: connect
+		at java.base/sun.nio.ch.Net.connect0(Native Method)
+		at java.base/sun.nio.ch.Net.connect(Net.java:589)
+		at java.base/sun.nio.ch.Net.connect(Net.java:578)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at java.base/java.net.Socket.connect(Socket.java:686)
+		at java.base/java.net.Socket.<init>(Socket.java:555)
+		at java.base/java.net.Socket.<init>(Socket.java:324)
+		at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:653)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:393)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478)

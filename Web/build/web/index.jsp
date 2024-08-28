@@ -14,8 +14,8 @@
             
             <div class="button-container">
                 <%-- Add buttons--%>
-                <a href="jsp/login.jsp" class="button">Login</a>
-                <a href="jsp/register.jsp" class="button">Register</a>
+                <a href="login.jsp" class="button">Login</a>
+                <a href="register.jsp" class="button">Register</a>
             </div>
             
         </div>
