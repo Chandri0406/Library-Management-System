@@ -24,10 +24,11 @@ public class Loan {
         EndDate = endDate;
     }
 
-    public Loan(String bookID, Date startDate, Date endDate) {
+    public Loan(String bookID, String libraryCardID, Date startDate /*, Date endDate*/) {
         BookID = bookID;
         StartDate = startDate;
-        EndDate = endDate;
+        LibraryCardID = libraryCardID;
+        //EndDate = endDate;
     }
 
     public Loan() {

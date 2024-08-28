@@ -1,8 +1,20 @@
 package GUI.Loan_GUI;
 
+import GUI.Book_GUI.bookAdd;
+import GUI.Borrower_GUI.borrowersAdd;
+import GUI.DatabaseConnection;
+import desktop.models.Book;
+import desktop.models.Borrower;
+import desktop.models.Loan;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+//import java.lang.System.Logger;
+//import java.lang.System.Logger.Level;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class loanAdd extends javax.swing.JFrame {
 
@@ -10,6 +22,9 @@ public class loanAdd extends javax.swing.JFrame {
         initComponents();
         addHoverEffect(submit_btn);
     }
+     DatabaseConnection db = new DatabaseConnection();
+    ArrayList<Book> books = new ArrayList<>();
+    ArrayList<Borrower> borrowers = new ArrayList<>();
     
     private void addHoverEffect(javax.swing.JButton button) {
         button.addMouseListener(new MouseAdapter() {
@@ -48,6 +63,11 @@ public class loanAdd extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(350, 150));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,12 +123,10 @@ public class loanAdd extends javax.swing.JFrame {
 
         book_ComboBox.setBackground(new java.awt.Color(153, 153, 153));
         book_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        book_ComboBox.setEnabled(false);
         book_ComboBox.setPreferredSize(new java.awt.Dimension(240, 23));
 
         borrower_ComboBox.setBackground(new java.awt.Color(153, 153, 153));
         borrower_ComboBox.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
-        borrower_ComboBox.setEnabled(false);
         borrower_ComboBox.setPreferredSize(new java.awt.Dimension(240, 23));
 
         startDate_lbl2.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
@@ -145,7 +163,7 @@ public class loanAdd extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addComponent(submit_btn)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +190,7 @@ public class loanAdd extends javax.swing.JFrame {
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(submit_btn)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -196,7 +214,62 @@ public class loanAdd extends javax.swing.JFrame {
 
     private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
         // Adds to the loan to the database
+         if(book_ComboBox.getSelectedIndex() == 0 || borrower_ComboBox.getSelectedIndex() == 0 || jDateChooser1.getDate() == null)
+        {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields and choose an author and a genre please");
+        }
+        else{
+            int bookIndex = book_ComboBox.getSelectedIndex() - 1;
+            Book book = books.get(bookIndex);
+            int borrowerIndex = borrower_ComboBox.getSelectedIndex() - 1;
+            Borrower borrower = borrowers.get(borrowerIndex);
+            
+            java.util.Date selectedDate = jDateChooser1.getDate();
+            java.sql.Date sqlDate = new java.sql.Date(selectedDate.getTime());
+            
+            Loan loan = new Loan(book.getBookID(), borrower.getLibraryCardID(), sqlDate);
+            
+            db.addLoan(loan);
+            
+
+            
+            book_ComboBox.setSelectedIndex(0);
+            borrower_ComboBox.setSelectedIndex(0);
+            jDateChooser1.setDate(null);
+            
+             JOptionPane.showMessageDialog(this, "Loan added successfully!");        
+        }
     }//GEN-LAST:event_submit_btnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        book_ComboBox.removeAllItems();
+        book_ComboBox.addItem("Select Book");
+
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(bookAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        books = db.Bookview();
+        for(Book book : books){
+            book_ComboBox.addItem(book.getTitle() + " " + book.getStatus());
+        }
+
+        borrower_ComboBox.removeAllItems();
+        borrower_ComboBox.addItem("Select Borrower");
+        
+        try {
+            db.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(borrowersAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        borrowers = db.Borrowerview();
+        for(Borrower borrower : borrowers){
+            book_ComboBox.addItem(borrower.getName()+ " " + borrower.getSurname());
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
