@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LoginServlet extends HttpServlet {
-   @Override
+ @Override
 protected void doPost(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
     
@@ -27,8 +27,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             request.getSession().setAttribute("username", username);
             // Redirect to welcome.jsp
             response.sendRedirect("welcome.jsp");
+        } else if (result.equals("No user found")) {
+            // Redirect to register.jsp
+            response.sendRedirect("register.jsp");
         } else {
-            // Set error message and forward back to login.jsp
+            // Handle any other cases, e.g., errors
             request.setAttribute("errorMessage", result);
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
@@ -54,9 +57,9 @@ public String fetchData(String username, String password) throws SQLException {
         return "Login successful";
     } else {
         // User does not exist or invalid credentials
-        return "No user found with the provided username and password.";
+        return "No user found";
     }
 }
-
 }
+
 
