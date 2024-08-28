@@ -9,11 +9,6 @@
             function redirectToIndex() {
                 window.location.href = 'index.jsp';
             }
-            
-            function openDesktop(){
-                console.log("Desktop opened");
-                new maindashboard().setVisible(true);
-            }
         </script>
     </head>
     
