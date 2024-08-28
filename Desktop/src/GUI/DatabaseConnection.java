@@ -152,6 +152,56 @@ public class DatabaseConnection
         }
 
     }
+    
+    public Book findBookByLoan(String bookid){
+        Book book = new Book();
+        try{
+            //String query = "SELECT * FROM Author WHERE AuthorID = ?";
+            PreparedStatement query = con.prepareStatement("SELECT * FROM \"Book\" WHERE \"BookID\" = ?");
+            query.setString(1, bookid);
+            
+            
+            ResultSet rs = query.executeQuery();
+            
+            while(rs.next()){
+                String t = rs.getString("Title");
+                String g = rs.getString("Genre");
+                int y = rs.getInt("YearOfPublication");
+                String s = rs.getString("Status");
+                book = new Book(t, g, y, s);
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return book;
+    }
+    
+    public Borrower findBorrowerByLoan(String borrowerid){
+        Borrower borrower = new Borrower();
+        try{
+            PreparedStatement query = con.prepareStatement("SELECT * FROM \"Borrower\" WHERE \"LibraryCardID\" = ?");
+            query.setString(1, borrowerid);
+            
+            
+            ResultSet rs = query.executeQuery();
+            
+            while(rs.next()){
+                String lcid = rs.getString("LibraryCardID");
+                String lcn = rs.getString("Name");
+                String lcs = rs.getString("Surname");
+                String lcadress = rs.getString("Address");
+                String lcphone = rs.getString("Phone");
+                String lcemail = rs.getString("Email");
+                Borrower row = new Borrower(lcid, lcn, lcs, lcadress, lcphone, lcemail);
+                return row;
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return borrower;
+    }
+    
+    
 
     // Add Methods
     public void addAuthor(Author author) {
@@ -193,10 +243,11 @@ public class DatabaseConnection
     public void addLoan(Loan loan) {
                 PreparedStatement query;
                 try {
-                    query = con.prepareStatement("INSERT INTO \"Loan\"(\"BookId\", \"StartDate\", \"EndDate\") VALUES(?, ?, ?)");
-                    query.setString(2, loan.getBookID());
-                    query.setDate(3, loan.getStartDate());
-                    query.setDate(4, loan.getEndDate());
+                    query = con.prepareStatement("INSERT INTO \"Loan\"(\"BookID\", \"StartDate\", \"EndDate\", \"LibraryCardID\") VALUES(?, ?, ?, ?)");
+                    query.setString(1, loan.getBookID());
+                    query.setDate(2, loan.getStartDate());
+                    query.setDate(3, loan.getEndDate());
+                    query.setString(4, loan.getLibraryCardID());
                     query.executeUpdate();
                     System.out.println("Loan has been added");
 
@@ -209,12 +260,12 @@ public class DatabaseConnection
     public void addBorrower(Borrower borrower) {
                     PreparedStatement query;
                     try {
-                        query = con.prepareStatement("INSERT INTO \"Borrower\"(\"Name\", \"Surname\", \"Address\", \"Phone\", \"Email\") VALUES(?, ?, ?, ?, ?, ?)");
-                        query.setString(2, borrower.getName());
-                        query.setString(3, borrower.getSurname());
-                        query.setString(4, borrower.getAddress());
-                        query.setString(5, borrower.getPhone());
-                        query.setString(6, borrower.getEmail());
+                        query = con.prepareStatement("INSERT INTO \"Borrower\"(\"Name\", \"Surname\", \"Address\", \"Phone\", \"Email\") VALUES(?, ?, ?, ?, ?)");
+                        query.setString(1, borrower.getName());
+                        query.setString(2, borrower.getSurname());
+                        query.setString(3, borrower.getAddress());
+                        query.setString(4, borrower.getPhone());
+                        query.setString(5, borrower.getEmail());
 
                         query.executeUpdate();
                         System.out.println("Borrower has been added");
@@ -263,7 +314,7 @@ public class DatabaseConnection
     public void UpdateBorrower(Borrower borrower){
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE \"Borrower\" SET \"Name\" = ?, \"Surname\" = ?, \"Address\" = ?, \"Phone\" = ?, \"Email\" = ?, WHERE \"LibraryCardID\" = ?");
+            query = con.prepareStatement("UPDATE \"Borrower\" SET \"Name\" = ?, \"Surname\" = ?, \"Address\" = ?, \"Phone\" = ?, \"Email\" = ? WHERE \"LibraryCardID\" = ?");
             query.setString(1, borrower.getName());
             query.setString(2, borrower.getSurname());
             query.setString(3, borrower.getAddress());
@@ -281,7 +332,7 @@ public class DatabaseConnection
     public void UpdateLoan(Loan loan){
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE \"Loan\" SET \"BookID\" = ?, \"StartDate\" = ?, \"LibraryCardID\" = ?, WHERE \"LoanID\" = ?");
+            query = con.prepareStatement("UPDATE \"Loan\" SET \"BookID\" = ?, \"StartDate\" = ?, \"LibraryCardID\" = ? WHERE \"LoanID\" = ?");
             query.setString(1, loan.getBookID());
             query.setDate(2, loan.getStartDate());
             query.setString(3, loan.getLibraryCardID());
@@ -423,7 +474,9 @@ public class DatabaseConnection
     public ArrayList<Loan> searchLoan(String loanId) {
         ArrayList<Loan> dataList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM \"Loan\" WHERE \"LoanID\" =  " +"'"+ loanId +"'";
+             String query = "SELECT \"LoanID\", \"Loan\".\"BookID\", \"StartDate\", \"EndDate\", \"LibraryCardID\" \n" +
+            "FROM \"Loan\" RIGHT JOIN \"Book\" ON \"Loan\".\"BookID\" = \"Book\".\"BookID\" \n" +
+            "WHERE \"Title\" =  " +"'"+ loanId +"'";
             ResultSet table = this.con.createStatement().executeQuery(query);
             while (table.next())
             {
