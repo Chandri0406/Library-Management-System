@@ -4,20 +4,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="/css/style.css" >
-        <title>JSP Page</title>
+        <title>Library Management System</title>
     </head>
-    <body id="bg">
-
-        
-        <div class="container">
-            <div class="header">
-                <h1>Welcome to the Library Management System</h1>
+    <body>
+        <div class="center" id="indexbox" >
+            <div class="title">
+                Welcome to the Library Management System
             </div>
             
             <div class="button-container">
+                <%-- Add buttons--%>
                 <a href="jsp/login.jsp" class="button">Login</a>
                 <a href="jsp/register.jsp" class="button">Register</a>
             </div>
+            
         </div>
     </body>
 </html>
