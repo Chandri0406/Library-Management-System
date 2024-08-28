@@ -1,23 +1,27 @@
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 99%;
     background-image: url('classic-library-shelves.jpg');
-    color: white;
 }
 
-form{
-    border: 2px solid black;
+label{
+    color: #FFFFFF;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 5px;
+    margin: 5px;
 }
 
-.title{
-    color: #9F6932;
-    font-size: 40px;
-    text-align: center;
-}
-
-#indexbox{
-    background-color: #262630;
-    position: absolute;
-    width: 460px;
-    height: 265px;
+input{
+    color: #000000;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-size: 16px;
+    float: right;
+    margin-right: 15px;
 }
 
 #welcomebox{
@@ -27,21 +31,28 @@ form{
     height: 265px;
 }
 
-#registerForm{
-    background-color: #262630;
-    position: absolute;
-    width: 327px;
-    height: 444px;
+#indexbox{
+    width: 700px;
+    height: 300px;
+    padding: 10px;
     border-radius: 16px;
+    background-color: #262630;
+}
+
+#registerForm{
+    width: 380px;
+    height: 450px;
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #262630;
 }
 
 #loginForm{
-    background-color: #262630;
-    position: absolute;
-    width: 327px;
-    height: 363px;
+    width: 330px;
+    height: 360px;
+    padding: 10px;
     border-radius: 16px;
-    font-family: 'Stika';
+    background-color: #262630;
 }
 
 .btn{
@@ -52,14 +63,28 @@ form{
     border-bottom-color: #9F6932;
 }
 
-.lbl{
-    width: 135px;
-    height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 12px;
-    line-height: 15px;
-    color: #FFFFFF;
+.title{
+    color: #9F6932;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    text-align: center;
+    padding:10px;
+    margin:5px;
 }
 
+.errormsg{
+    color: #FF6363;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.center{
+    margin: auto;
+    margin: 10%;
+}
+
+.form-group{
+    margin-bottom: 30px;
+}

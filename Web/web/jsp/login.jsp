@@ -7,19 +7,21 @@
         <title>Login</title>
     </head>
     <body>
-        <div id="loginForm">
+        <%-- Add buttons--%>
+        <div class="container" id="loginForm">
             <h2 class="title">Login</h2>
+            
+            <%-- 
+                    Add div and class and id where needed
+                    Add div for error message
+                    Add validation for error
+            --%>
                 <form action="LoginServlet" method="post">
+                    <%-- Add labels--%>
                     Username: <input type="text" name="username" required><br>
                     Password: <input type="password" name="password" required><br>
                     <input type="submit" value="Login" class="btn">
                 </form>
         </div>
-       
-        <button><a href="/login.jsp">Login</a></button>
-        <button><a href="/index.jsp">Index</a></button>
-        <button><a href="/register.jsp">Register</a></button>
-        <button><a href="/welcome.jsp">Welcome</a></button>
-        <button><a href="/index.jsp">Back</a></button>
     </body>
 </html>
