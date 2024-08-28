@@ -194,9 +194,9 @@ public class DatabaseConnection
                 PreparedStatement query;
                 try {
                     query = con.prepareStatement("INSERT INTO \"Loan\"(\"BookId\", \"StartDate\", \"EndDate\") VALUES(?, ?, ?)");
-                    query.setString(2, loan.getBookID());
-                    query.setDate(3, loan.getStartDate());
-                    query.setDate(4, loan.getEndDate());
+                    query.setString(1, loan.getBookID());
+                    query.setDate(2, loan.getStartDate());
+                    query.setDate(3, loan.getEndDate());
                     query.executeUpdate();
                     System.out.println("Loan has been added");
 
@@ -209,12 +209,12 @@ public class DatabaseConnection
     public void addBorrower(Borrower borrower) {
                     PreparedStatement query;
                     try {
-                        query = con.prepareStatement("INSERT INTO \"Borrower\"(\"Name\", \"Surname\", \"Address\", \"Phone\", \"Email\") VALUES(?, ?, ?, ?, ?, ?)");
-                        query.setString(2, borrower.getName());
-                        query.setString(3, borrower.getSurname());
-                        query.setString(4, borrower.getAddress());
-                        query.setString(5, borrower.getPhone());
-                        query.setString(6, borrower.getEmail());
+                        query = con.prepareStatement("INSERT INTO \"Borrower\"(\"Name\", \"Surname\", \"Address\", \"Phone\", \"Email\") VALUES(?, ?, ?, ?, ?)");
+                        query.setString(1, borrower.getName());
+                        query.setString(2, borrower.getSurname());
+                        query.setString(3, borrower.getAddress());
+                        query.setString(4, borrower.getPhone());
+                        query.setString(5, borrower.getEmail());
 
                         query.executeUpdate();
                         System.out.println("Borrower has been added");
@@ -263,7 +263,7 @@ public class DatabaseConnection
     public void UpdateBorrower(Borrower borrower){
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE \"Borrower\" SET \"Name\" = ?, \"Surname\" = ?, \"Address\" = ?, \"Phone\" = ?, \"Email\" = ?, WHERE \"LibraryCardID\" = ?");
+            query = con.prepareStatement("UPDATE \"Borrower\" SET \"Name\" = ?, \"Surname\" = ?, \"Address\" = ?, \"Phone\" = ?, \"Email\" = ? WHERE \"LibraryCardID\" = ?");
             query.setString(1, borrower.getName());
             query.setString(2, borrower.getSurname());
             query.setString(3, borrower.getAddress());
@@ -281,7 +281,7 @@ public class DatabaseConnection
     public void UpdateLoan(Loan loan){
         PreparedStatement query;
         try{
-            query = con.prepareStatement("UPDATE \"Loan\" SET \"BookID\" = ?, \"StartDate\" = ?, \"LibraryCardID\" = ?, WHERE \"LoanID\" = ?");
+            query = con.prepareStatement("UPDATE \"Loan\" SET \"BookID\" = ?, \"StartDate\" = ?, \"LibraryCardID\" = ? WHERE \"LoanID\" = ?");
             query.setString(1, loan.getBookID());
             query.setDate(2, loan.getStartDate());
             query.setString(3, loan.getLibraryCardID());
@@ -423,7 +423,9 @@ public class DatabaseConnection
     public ArrayList<Loan> searchLoan(String loanId) {
         ArrayList<Loan> dataList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM \"Loan\" WHERE \"LoanID\" =  " +"'"+ loanId +"'";
+             String query = "SELECT \"LoanID\", \"Loan\".\"BookID\", \"StartDate\", \"EndDate\", \"LibraryCardID\" \n" +
+            "FROM \"Loan\" RIGHT JOIN \"Book\" ON \"Loan\".\"BookID\" = \"Book\".\"BookID\" \n" +
+            "WHERE \"Title\" =  " +"'"+ loanId +"'";
             ResultSet table = this.con.createStatement().executeQuery(query);
             while (table.next())
             {
