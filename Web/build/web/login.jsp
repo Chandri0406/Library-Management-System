@@ -14,10 +14,10 @@
                 
                 <div class="form-group">
                 <label for="Username">Username:</label>
-                <input type="text" id="Username" name="Username" required class="input"><br>
+                <input type="text" id="Username" name="Username" class="input" required><br>
                 </div>
                 
-                <div class="error-message" id="errorMessage" >
+                <div class="errormsg" id="errorMessage" >
                 <% 
                     String error = (String) request.getAttribute("errorMessage");
                     if (error != null) { 
@@ -28,11 +28,11 @@
             
                 <div class="form-group">
                 <label for="Password">Password:</label>
-                <input type="password" id="Password" name="Password" required class="input"><br>
+                <input type="password" id="Password" name="Password" class="input" required><br>
                 </div>
             
                 <div class="button-container">
-                <input type="submit" value="Login" class="btn">
+                <input type="submit" value="Login" class="btn" id="logbtn" id="#regbtn">
                 </div>
             </form>
         </div>

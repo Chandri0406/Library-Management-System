@@ -39,12 +39,16 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         request.setAttribute("errorMessage", "An error occurred: " + ex.getMessage());
         request.getRequestDispatcher("login.jsp").forward(request, response);
-    }
+    } catch (ClassNotFoundException ex) {
+         Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+     }
 }
 
-public String fetchData(String username, String password) throws SQLException {
-    Connection conn = ConnectionProvider.getConnection();
-    // Adjusted the SQL query to use the correct column names
+public String fetchData(String username, String password) throws SQLException, ClassNotFoundException {
+    Connection conn;
+    DBConnection dbcon = new DBConnection();
+    conn = dbcon.getConnection();
+   
     String sql = "SELECT * FROM \"Login\" WHERE \"Username\" = ? AND \"Password\" = ?";
     PreparedStatement stmt = conn.prepareStatement(sql);
     stmt.setString(1, username);

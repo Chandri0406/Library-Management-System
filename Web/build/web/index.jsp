@@ -15,11 +15,11 @@
             </div>
             
             <div class="button-container">
-                <button class="btn"><a href="login.jsp" >Login</a></button>
+                <button class="push-btn" id="b2ibtn"><a href="login.jsp" >Login</a></button>
             </div>
             
             <div class="button-container">
-                    <button class="btn"><a href="register.jsp">Register</a></button>
+                    <button class="push-btn" id=""><a href="register.jsp">Register</a></button>
             </div>
             
         </div>

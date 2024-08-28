@@ -23,6 +23,8 @@ public class RegisterServlet extends HttpServlet {
         String pass = req.getParameter("password");
         String phone = req.getParameter("phone");
         String em = req.getParameter("email");
+        
+        phone = formatPhoneNumber(phone);
 
         try {
             if (usernameExists(username)) {
@@ -92,5 +94,13 @@ public class RegisterServlet extends HttpServlet {
                 con.close();
             }
         }
+    }
+    
+    private String formatPhoneNumber(String phone) {
+        phone = phone.replaceAll("\\D", ""); // Remove all non-digit characters
+        if (phone.length() == 10) {
+            return phone.replaceFirst("(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3");
+        }
+        return phone; // Return the original string if it's not 10 digits long
     }
 }

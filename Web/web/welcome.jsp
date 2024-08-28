@@ -25,12 +25,11 @@
             
             <div id="desktopConnection">
                 <!-- Add content or functionality to connect to the desktop here -->
-                <button class="btn" onclick="openDesktop()">Open desktop</button>
+                <button class="push-btn" onclick="openDesktop()">Open desktop</button>
             </div>
 
-            <!-- Button to redirect to index.jsp -->
             <div class="button-container">
-            <button class="btn" onclick="redirectToIndex()">Logout</button>
+            <button class="push-btn" onclick="redirectToIndex()">Logout</button>
             </div>
         </div>
     </body>
