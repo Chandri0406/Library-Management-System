@@ -1,8 +1,12 @@
 package GUI.Loan_GUI;
 
+import GUI.DatabaseConnection;
+import desktop.models.Book;
+import desktop.models.Borrower;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class loanEdit extends javax.swing.JFrame {
 
@@ -10,6 +14,10 @@ public class loanEdit extends javax.swing.JFrame {
         initComponents();
         addHoverEffect(edited_btn);
     }
+    
+    DatabaseConnection db = new DatabaseConnection();
+    ArrayList<Book> books = new ArrayList<>();
+    ArrayList<Borrower> borrowers = new ArrayList<>();
     
     private void addHoverEffect(javax.swing.JButton button) {
         button.addMouseListener(new MouseAdapter() {
@@ -50,6 +58,11 @@ public class loanEdit extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(350, 150));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel6.setBackground(new java.awt.Color(38, 39, 43));
         jPanel6.setPreferredSize(new java.awt.Dimension(620, 400));
@@ -134,7 +147,7 @@ public class loanEdit extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
+                .addContainerGap(121, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(book_lbl)
                     .addComponent(borrower_lbl4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -178,7 +191,7 @@ public class loanEdit extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(startDate_lbl2)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(edited_btn)
                 .addGap(41, 41, 41))
         );
@@ -231,6 +244,10 @@ public class loanEdit extends javax.swing.JFrame {
     private void edited_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edited_btnActionPerformed
         // Adds to the loan to the database
     }//GEN-LAST:event_edited_btnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

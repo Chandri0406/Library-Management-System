@@ -193,10 +193,11 @@ public class DatabaseConnection
     public void addLoan(Loan loan) {
                 PreparedStatement query;
                 try {
-                    query = con.prepareStatement("INSERT INTO \"Loan\"(\"BookId\", \"StartDate\", \"EndDate\") VALUES(?, ?, ?)");
+                    query = con.prepareStatement("INSERT INTO \"Loan\"(\"BookID\", \"StartDate\", \"EndDate\", \"LibraryCardID\") VALUES(?, ?, ?, ?)");
                     query.setString(1, loan.getBookID());
                     query.setDate(2, loan.getStartDate());
                     query.setDate(3, loan.getEndDate());
+                    query.setString(4, loan.getLibraryCardID());
                     query.executeUpdate();
                     System.out.println("Loan has been added");
 

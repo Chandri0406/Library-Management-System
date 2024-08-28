@@ -267,7 +267,7 @@ public class loanAdd extends javax.swing.JFrame {
         }
         borrowers = db.Borrowerview();
         for(Borrower borrower : borrowers){
-            book_ComboBox.addItem(borrower.getName()+ " " + borrower.getSurname());
+           borrower_ComboBox.addItem(borrower.getName()+ " " + borrower.getSurname());
         }
     }//GEN-LAST:event_formWindowOpened
 
