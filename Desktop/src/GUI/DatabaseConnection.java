@@ -423,7 +423,9 @@ public class DatabaseConnection
     public ArrayList<Loan> searchLoan(String loanId) {
         ArrayList<Loan> dataList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM \"Loan\" WHERE \"LoanID\" =  " +"'"+ loanId +"'";
+             String query = "SELECT \"LoanID\", \"Loan\".\"BookID\", \"StartDate\", \"EndDate\", \"LibraryCardID\" \n" +
+            "FROM \"Loan\" RIGHT JOIN \"Book\" ON \"Loan\".\"BookID\" = \"Book\".\"BookID\" \n" +
+            "WHERE \"Title\" =  " +"'"+ loanId +"'";
             ResultSet table = this.con.createStatement().executeQuery(query);
             while (table.next())
             {
