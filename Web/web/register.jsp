@@ -39,7 +39,7 @@
                 
                 <div class="form-group">
                     <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="phone" required>
+                    <input type="text" id="phone" name="phone" required pattern="\d{3} \d{3} \d{4}" placeholder="___ ___ ____"  required>
                 </div>
                 
                 <div class="form-group">
