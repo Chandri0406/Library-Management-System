@@ -152,6 +152,31 @@ public class DatabaseConnection
         }
 
     }
+    
+    public Book findNameOfBook(String bookid){
+        Book book = new Book();
+        try{
+            //String query = "SELECT * FROM Author WHERE AuthorID = ?";
+            PreparedStatement query = con.prepareStatement("SELECT * FROM \"Book\" WHERE \"BookID\" = ?");
+            query.setString(1, bookid);
+            
+            
+            ResultSet rs = query.executeQuery();
+            
+            while(rs.next()){
+                String t = rs.getString("Title");
+                String g = rs.getString("Genre");
+                int y = rs.getInt("YearOfPublication");
+                String s = rs.getString("Status");
+                book = new Book(t, g, y, s);
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return book;
+    }
+    
+    
 
     // Add Methods
     public void addAuthor(Author author) {
