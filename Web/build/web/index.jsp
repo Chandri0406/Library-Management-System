@@ -6,16 +6,20 @@
         <link rel="stylesheet" href="style.css" >
         <title>Library Management System</title>
     </head>
+   
     <body>
         <div class="center" id="indexbox" >
+            
             <div class="title">
                 Welcome to the Library Management System
             </div>
             
             <div class="button-container">
-                <%-- Add buttons--%>
-                <a href="login.jsp" class="button">Login</a>
-                <a href="register.jsp" class="button">Register</a>
+                <button class="btn"><a href="login.jsp" >Login</a></button>
+            </div>
+            
+            <div class="button-container">
+                    <button class="btn"><a href="register.jsp">Register</a></button>
             </div>
             
         </div>

@@ -5,16 +5,31 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="style.css" >
         <title>Welcome</title>
+        <script>
+            function redirectToIndex() {
+                window.location.href = 'index.jsp';
+            }
+            
+            function openDesktop(){
+                console.log("Desktop opened");
+                new maindashboard().setVisible(true);
+            }
+        </script>
     </head>
     
     <body>
-        <%-- Not a form
-                 Add div and class and id where needed
-                 Needs to connect to desktop idk how
-        --%>
-        <h2>Welcome, ${username}</h2>
-            <form action="LoginServlet" method="post">
-                <input type="submit" value="Logout">
-            </form>
+         <div class="center" id="welcomebox">
+             <div class="title">Welcome, ${username}</div>
+            
+            <div id="desktopConnection">
+                <!-- Add content or functionality to connect to the desktop here -->
+                <button class="btn" onclick="openDesktop()">Open desktop</button>
+            </div>
+
+            <!-- Button to redirect to index.jsp -->
+            <div class="button-container">
+            <button class="btn" onclick="redirectToIndex()">Logout</button>
+            </div>
+        </div>
     </body>
 </html>

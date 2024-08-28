@@ -16,19 +16,11 @@ label{
     margin: 5px;
 }
 
-input{
-    color: #000000;
-    font-family: Georgia, Helvetica, sans-serif;
-    font-size: 16px;
-    float: right;
-    margin-right: 15px;
-}
-
 #welcomebox{
-    background-color: #262630;
-    position: absolute;
     width: 460px;
     height: 265px;
+    background-color: #262630;
+    border-radius: 16px;
 }
 
 #indexbox{
@@ -48,8 +40,8 @@ input{
 }
 
 #loginForm{
-    width: 330px;
-    height: 360px;
+    width: 380px;
+    height: 300px;
     padding: 10px;
     border-radius: 16px;
     background-color: #262630;
@@ -71,6 +63,14 @@ input{
     text-align: center;
     padding:10px;
     margin:5px;
+}
+
+.input{
+    color: #000000;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-size: 16px;
+    float: right;
+    margin-right: 15px;
 }
 
 .errormsg{
