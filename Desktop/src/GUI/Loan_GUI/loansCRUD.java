@@ -2,6 +2,8 @@ package GUI.Loan_GUI;
 
 import GUI.DatabaseConnection;
 import GUI.maindashboard;
+import desktop.models.Book;
+import desktop.models.Borrower;
 import desktop.models.Loan;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -37,7 +39,9 @@ public class loansCRUD extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) loan_tbl.getModel();
         model.setRowCount(0);
         for(Loan loan : loans){
-            model.addRow(new Object[]{loan.getLoanID(), loan.getBookID(), loan.getStartDate(), loan.getEndDate(), loan.getLibraryCardID()});
+            Book book = db.findBookByLoan(loan.getBookID());
+            Borrower borrower = db.findBorrowerByLoan(loan.getLibraryCardID());
+            model.addRow(new Object[]{loan.getLoanID(), book.getTitle(), loan.getStartDate(), loan.getEndDate(), borrower.getName() + " " + borrower.getSurname()});
         }
     }
     
@@ -157,7 +161,7 @@ public class loansCRUD extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "LoanID", "BookID", "StartDate", "EndDate", "LibraryCardID"
+                "LoanID", "Book Title", "StartDate", "EndDate", "Borrower Name & Surname"
             }
         ) {
             Class[] types = new Class [] {
@@ -299,7 +303,7 @@ public class loansCRUD extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,8 +339,16 @@ public class loansCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
-        this.dispose();
-        new loanEdit().setVisible(true);
+
+        if(rowIndex != -1){
+            loanEdit editDialog = new loanEdit();
+            editDialog.SetLoan(loans.get(rowIndex));
+            editDialog.setVisible(true);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please select a loan you wish to edit", "Update Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_edit_btnActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed

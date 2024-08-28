@@ -153,7 +153,7 @@ public class DatabaseConnection
 
     }
     
-    public Book findNameOfBook(String bookid){
+    public Book findBookByLoan(String bookid){
         Book book = new Book();
         try{
             //String query = "SELECT * FROM Author WHERE AuthorID = ?";
@@ -174,6 +174,31 @@ public class DatabaseConnection
             throw new RuntimeException(e);
         }
         return book;
+    }
+    
+    public Borrower findBorrowerByLoan(String borrowerid){
+        Borrower borrower = new Borrower();
+        try{
+            PreparedStatement query = con.prepareStatement("SELECT * FROM \"Borrower\" WHERE \"LibraryCardID\" = ?");
+            query.setString(1, borrowerid);
+            
+            
+            ResultSet rs = query.executeQuery();
+            
+            while(rs.next()){
+                String lcid = rs.getString("LibraryCardID");
+                String lcn = rs.getString("Name");
+                String lcs = rs.getString("Surname");
+                String lcadress = rs.getString("Address");
+                String lcphone = rs.getString("Phone");
+                String lcemail = rs.getString("Email");
+                Borrower row = new Borrower(lcid, lcn, lcs, lcadress, lcphone, lcemail);
+                return row;
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return borrower;
     }
     
     
