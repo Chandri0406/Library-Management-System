@@ -1,5 +1,6 @@
 package controller;
 
+import controller.DBConnection;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,8 +29,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             // Redirect to welcome.jsp
             response.sendRedirect("welcome.jsp");
         } else if (result.equals("No user found")) {
-            // Redirect to register.jsp
-            response.sendRedirect("register.jsp");
+            // Set error message and forward to login.jsp
+                 request.setAttribute("errorMessage", "No user found. Please register.");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             // Handle any other cases, e.g., errors
             request.setAttribute("errorMessage", result);
@@ -65,5 +67,3 @@ public String fetchData(String username, String password) throws SQLException, C
     }
 }
 }
-
-

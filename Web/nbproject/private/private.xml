@@ -3,23 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/web/welcome.jsp</file>
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/web/style.css</file>
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/src/java/controller/LoginServlet.java</file>
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/web/register.jsp</file>
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/src/java/controller/openDesktopApp.java</file>
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/web/index.jsp</file>
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/src/java/controller/RegisterServlet.java</file>
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/chanb/OneDrive/Documents/GitHub/Library-Management-System/Web/web/login.jsp</file>
-=======
-            <file>file:/C:/Users/peter/OneDrive/Documents/GitHub/Library-Management-System/Web/src/java/controller/ConnectionProvider.java</file>
-            <file>file:/C:/Users/peter/OneDrive/Documents/GitHub/Library-Management-System/Web/web/register.jsp</file>
-            <file>file:/C:/Users/peter/OneDrive/Documents/GitHub/Library-Management-System/Web/src/java/controller/RegisterServlet.java</file>
-            <file>file:/C:/Users/peter/OneDrive/Documents/GitHub/Library-Management-System/Web/web/index.jsp</file>
-            <file>file:/C:/Users/peter/OneDrive/Documents/GitHub/Library-Management-System/Web/src/java/controller/DBConnection.java</file>
->>>>>>> origin/PeterFinal
+            <file>file:/C:/Users/User/OneDrive/Marcel's%20Files/Documents/NetBeansProjects/Library-Management-System/Library-Management-System/Web/web/welcome.jsp</file>
         </group>
     </open-files>
 </project-private>

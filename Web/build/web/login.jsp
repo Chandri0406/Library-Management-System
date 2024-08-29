@@ -13,17 +13,25 @@
             <form action="LoginServlet" method="post">
                 
                 <div class="form-group">
+                         <% 
+                         String errorMessage = (String) request.getAttribute("errorMessage");
+                     if (errorMessage != null) {
+                    %>
+        <p style="color: red;"><%= errorMessage %></p>
+        <a href="register.jsp">Register here</a>
+                 <% 
+                  }
+                   
+%>
+<br>
+<br>
+<br>
                 <label for="Username">Username:</label>
                 <input type="text" id="Username" name="Username" class="input" required><br>
                 </div>
                 
                 <div class="errormsg" id="errorMessage" >
-                <% 
-                    String error = (String) request.getAttribute("errorMessage");
-                    if (error != null) { 
-                %>
-                    <p><%= error %></p>
-                <% } %>
+        
                 </div>
             
                 <div class="form-group">
