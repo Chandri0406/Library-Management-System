@@ -13,13 +13,13 @@
             <div class="title">
                 Welcome to the Library Management System
             </div>
-            
+            <br><br>
             <div class="button-container">
-                <button class="push-btn" id="b2ibtn"><a href="login.jsp" >Login</a></button>
+                <a href="login.jsp" ><button class="push-btn" id="b2ibtn">Login</button></a>
             </div>
             
             <div class="button-container">
-                    <button class="push-btn" id=""><a href="register.jsp">Register</a></button>
+                <a href="register.jsp"><button class="push-btn" id="regbtn">Register</button></a>
             </div>
             
         </div>

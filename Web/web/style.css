@@ -10,6 +10,7 @@ body{
 a{
     color: white;
     text-decoration: none;
+    color: white;
 }
 
 label{
@@ -57,7 +58,7 @@ label{
 }
 
 #regbtn{
-    float: right;
+
 }
 
 #b2ibtn{
@@ -77,14 +78,18 @@ label{
 }
 
 .push-btn{
-    width: 130px;
+    width: 150px;
     height: 40px;
-    background: #9F6932;
+    background: #7F5123;
+    border: 1px solid #7F5123;
     border-radius: 50px;
+    color: white;
     font-size: 20px;
     text-align: center;
-    padding: 5px;
-    margin: 5px;
+}
+
+.push-btn:hover{
+    background: #9F6932;
 }
 
 .title{
@@ -118,11 +123,18 @@ label{
 }
 
 .form-group{
+    margin-top: 10px;
     margin-bottom: 25px;
 }
 
 .button-container{
     display: inline;
-    padding: 10px;
-    margin: 15%;
+    padding: 5px;
+    margin: 14%;
+}
+
+.welcome-button-container{
+    display: inline;
+    padding: 5px;
+    margin: 7%;
 }

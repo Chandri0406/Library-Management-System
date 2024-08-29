@@ -23,12 +23,13 @@
          <div class="center" id="welcomebox">
              <div class="title">Welcome, ${username}</div>
             
-            <div id="desktopConnection">
+             <br><br>
+            <div class="welcome-button-container">
                 <!-- Add content or functionality to connect to the desktop here -->
                 <button class="push-btn" onclick="openDesktop()">Open desktop</button>
             </div>
 
-            <div class="button-container">
+            <div class="welcome-button-container">
             <button class="push-btn" onclick="redirectToIndex()">Logout</button>
             </div>
         </div>
