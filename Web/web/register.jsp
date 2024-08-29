@@ -10,9 +10,7 @@
     <body>
         <div class="center" id="registerForm">
             
-            <div class="title">
-                Register
-            </div>
+            <div class="title">Register</div>
 
             <%-- Error message div to display validation errors --%>
             <div class="errormsg">
@@ -20,7 +18,7 @@
                     String errorMessage = (String) request.getAttribute("errorMessage");
                     if (errorMessage != null) {
                 %>
-                    <p style="color:red;"><%= errorMessage %></p>
+                    <p><%= errorMessage %></p>
                 <% 
                     } 
                 %>

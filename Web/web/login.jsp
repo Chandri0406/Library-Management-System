@@ -12,16 +12,17 @@
             <div class="title">Login</div>
             
             <form action="LoginServlet" method="post">
-                
+                <%-- Error message div to display validation errors --%>
                 <div class="errormsg">
                    <% 
                        String errorMessage = (String) request.getAttribute("errorMessage");
-                     if (errorMessage != null) {
+                       if (errorMessage != null) {
                    %>
                     <p ><%= errorMessage %><a href="register.jsp" id="createID">Create User</a></p>
                  <% 
-                  }
+                    }
                   %>
+                </div>
                   <div class="form-group">
                     <label for="Username">Username:</label>
                     <input type="text" id="Username" name="Username" class="input" required><br>
