@@ -30,7 +30,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             response.sendRedirect("welcome.jsp");
         } else if (result.equals("No user found")) {
             // Set error message and forward to login.jsp
-                 request.setAttribute("errorMessage", "No user found. Please register.");
+                 request.setAttribute("errorMessage", "No user found. Please register. ");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             // Handle any other cases, e.g., errors

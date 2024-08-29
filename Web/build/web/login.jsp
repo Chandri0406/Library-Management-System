@@ -12,37 +12,34 @@
             <div class="title">Login</div>
             <form action="LoginServlet" method="post">
                 
-                <div class="form-group">
-                         <% 
-                         String errorMessage = (String) request.getAttribute("errorMessage");
+                <div class="errormsg">
+                   <% 
+                       String errorMessage = (String) request.getAttribute("errorMessage");
                      if (errorMessage != null) {
-                    %>
-        <p style="color: red;"><%= errorMessage %></p>
-        <a href="register.jsp">Register here</a>
+                   %>
+                    <p ><%= errorMessage %><a href="register.jsp" id="createID">Create User</a></p>
                  <% 
                   }
-                   
-%>
-<br>
-<br>
-<br>
-                <label for="Username">Username:</label>
-                <input type="text" id="Username" name="Username" class="input" required><br>
-                </div>
+                  %>
+                  <div class="form-group">
+                    <label for="Username">Username:</label>
+                    <input type="text" id="Username" name="Username" class="input" required><br>
+                  </div>
                 
-                <div class="errormsg" id="errorMessage" >
-        
-                </div>
-            
-                <div class="form-group">
-                <label for="Password">Password:</label>
-                <input type="password" id="Password" name="Password" class="input" required><br>
-                </div>
-            
-                <div class="button-container">
+                  <div class="form-group">
+                      <label for="Password">Password:</label>
+                      <input type="password" id="Password" name="Password" class="input" required><br>
+                  </div>
+
+                <div class="login-btn-con">
                 <input type="submit" value="Login" class="btn">
                 </div>
+            
             </form>
+
+               <div class="login-btn-con">
+                   <a href="index.jsp"><button class="btn" id="b2h">Back to Home</button></a>
+               </div>
         </div>
     </body>
 </html>

@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="controller.RegisterServlet" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -56,16 +57,18 @@
                     <label for="email">Email:</label>
                     <input  class="input" type="email" id="email" name="email" required>
                 </div>
-                                
-                <div class="button-container">
-                <a href="index.jsp"><button class="btn" >Back to Home</button></a>
-                </div>
-
-                <div class="button-container">
-                    <input type="submit" value="Register" class="btn">
+                 
+                <br>
+                <div class="reg-btn-con"> <%-- Shift here --%>
+                    <input type="submit" value="Register" class="btn"> <%-- Style here --%>
                 </div>
                 
             </form>
+            
+            <div class="reg-btn-con">
+                <a href="index.jsp"><button class="btn" id="b2h">Back to Home</button></a>
+            </div>
+        
         </div>
             
     </body>

@@ -10,7 +10,6 @@ body{
 a{
     color: white;
     text-decoration: none;
-    color: white;
 }
 
 label{
@@ -20,6 +19,11 @@ label{
     font-size: 18px;
     padding: 5px;
     margin: 5px;
+}
+
+input [type=submit]{
+    display: flex;
+    float: left;
 }
 
 #welcomebox{
@@ -53,17 +57,27 @@ label{
     background-color: #262630;
 }
 
+#b2h{
+    display: inline;
+    float: right;
+    margin-top: -40px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+#createID{
+    text-decoration: underline;
+}
+
 .btn{
-    width: 130px;
-    height: 30px;
+    width: 140px;
+    height: 40px;
     background: #7F5123;
     border: 1px solid #7F5123;
     border-radius: 50px;
-    text-align: center;
-    text-decoration: none;
     color: white;
     font-size: 18px;
-    font-family: Georgia, Helvetica, sans-serif;
+    text-align: center;
 }
 
 .btn:hover{
@@ -108,6 +122,8 @@ label{
     font-family: Georgia, Helvetica, sans-serif;
     font-weight: 600;
     font-size: 16px;
+    padding: 5px;
+    margin-top: -30px;
 }
 
 .center{
@@ -130,4 +146,16 @@ label{
     display: inline;
     padding: 5px;
     margin: 7%;
+}
+
+.reg-btn-con{
+    display: inline;
+    padding: 5px;
+    margin: 10px;
+}
+
+.login-btn-con{
+    display: inline;
+    padding: 5px;
+    margin:14%
 }

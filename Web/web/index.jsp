@@ -14,12 +14,12 @@
                 Welcome to the Library Management System
             </div>
             <br><br>
-            <div class="button-container">
-                <a href="login.jsp" ><button class="push-btn" id="b2ibtn">Login</button></a>
+            <div class="button-container"><%-- Shift here --%>
+                <a href="login.jsp" ><button class="push-btn">Login</button></a> <%-- Style --%>
             </div>
             
             <div class="button-container">
-                <a href="register.jsp"><button class="push-btn" id="regbtn">Register</button></a>
+                <a href="register.jsp"><button class="push-btn">Register</button></a>
             </div>
             
         </div>
