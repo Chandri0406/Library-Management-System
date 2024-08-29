@@ -1,0 +1,128 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99%;
+    width: 99%;
+    background-image: url('classic-library-shelves.jpg');
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+label{
+    color: #FFFFFF;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 5px;
+    margin: 5px;
+}
+
+#welcomebox{
+    width: 460px;
+    height: 265px;
+    background-color: #262630;
+    border-radius: 16px;
+}
+
+#indexbox{
+    width: 700px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #262630;
+}
+
+#registerForm{
+    width: 380px;
+    height: 480px;
+    padding: 8px;
+    border-radius: 16px;
+    background-color: #262630;
+}
+
+#loginForm{
+    width: 380px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #262630;
+}
+
+#logbtn{
+    margin: 10%;
+}
+
+#regbtn{
+    float: right;
+}
+
+#b2ibtn{
+    
+}
+
+.btn{
+    width: 130px;
+    height: 30px;
+    background: #9F6932;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: Georgia, Helvetica, sans-serif;
+}
+
+.push-btn{
+    width: 130px;
+    height: 40px;
+    background: #9F6932;
+    border-radius: 50px;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+}
+
+.title{
+    color: #9F6932;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    text-align: center;
+    padding:10px;
+    margin:5px;
+}
+
+.input{
+    color: #000000;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-size: 16px;
+    float: right;
+    margin-right: 15px;
+}
+
+.errormsg{
+    color: #FF6363;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.center{
+    margin: auto;
+    margin: 10%;
+}
+
+.form-group{
+    margin-bottom: 25px;
+}
+
+.button-container{
+    display: inline;
+    padding: 10px;
+    margin: 15%;
+}
