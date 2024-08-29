@@ -83,8 +83,7 @@ public class booksCRUD extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage Books");
-        setLocation(new java.awt.Point(500, 500));
-        setLocationByPlatform(true);
+        setLocation(new java.awt.Point(300, 150));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -106,7 +105,6 @@ public class booksCRUD extends javax.swing.JFrame {
         add_btn.setFocusPainted(false);
         add_btn.setFocusable(false);
         add_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        add_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         add_btn.setName("add_btn"); // NOI18N
         add_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         add_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +136,6 @@ public class booksCRUD extends javax.swing.JFrame {
         delete_btn.setFocusPainted(false);
         delete_btn.setFocusable(false);
         delete_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        delete_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         delete_btn.setName("delete_btn"); // NOI18N
         delete_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         delete_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +153,6 @@ public class booksCRUD extends javax.swing.JFrame {
         search_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         search_btn.setFocusPainted(false);
         search_btn.setFocusable(false);
-        search_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         search_btn.setName("search_btn"); // NOI18N
         search_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         search_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +171,6 @@ public class booksCRUD extends javax.swing.JFrame {
         edit_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         edit_btn.setFocusPainted(false);
         edit_btn.setFocusable(false);
-        edit_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         edit_btn.setName("edit_btn"); // NOI18N
         edit_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         edit_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -217,14 +212,14 @@ public class booksCRUD extends javax.swing.JFrame {
         });
 
         refresh_btn.setBackground(new java.awt.Color(78, 66, 52));
-        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         refresh_btn.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_btn.setText("RF");
         refresh_btn.setAlignmentX(0.5F);
         refresh_btn.setBorderPainted(false);
         refresh_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         refresh_btn.setFocusPainted(false);
         refresh_btn.setFocusable(false);
-        refresh_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         refresh_btn.setMaximumSize(new java.awt.Dimension(50, 30));
         refresh_btn.setMinimumSize(new java.awt.Dimension(50, 30));
         refresh_btn.setName("search_btn"); // NOI18N
@@ -270,7 +265,7 @@ public class booksCRUD extends javax.swing.JFrame {
                         .addGap(266, 266, 266))
                     .addGroup(bookBodyLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 14, Short.MAX_VALUE))))
+                        .addGap(0, 8, Short.MAX_VALUE))))
             .addGroup(bookBodyLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(refresh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,7 +284,7 @@ public class booksCRUD extends javax.swing.JFrame {
         bookBodyLayout.setVerticalGroup(
             bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bookBodyLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(bookBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bookBodyLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,6 +383,7 @@ public class booksCRUD extends javax.swing.JFrame {
 
     private void refresh_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_btnActionPerformed
         RefreshTable();
+        search_txt.setText("Search by Title");
     }//GEN-LAST:event_refresh_btnActionPerformed
 
     private void search_txtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusGained

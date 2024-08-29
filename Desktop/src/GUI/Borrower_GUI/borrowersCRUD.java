@@ -217,7 +217,6 @@ public class borrowersCRUD extends javax.swing.JFrame {
 
         borrowers_tbl.setBackground(new java.awt.Color(183, 172, 162));
         borrowers_tbl.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
-        borrowers_tbl.setForeground(new java.awt.Color(0, 0, 0));
         borrowers_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -247,8 +246,9 @@ public class borrowersCRUD extends javax.swing.JFrame {
         jScrollPane2.setViewportView(borrowers_tbl);
 
         refresh_btn.setBackground(new java.awt.Color(78, 66, 52));
-        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         refresh_btn.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_btn.setText("RF");
         refresh_btn.setAlignmentX(0.5F);
         refresh_btn.setBorderPainted(false);
         refresh_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -294,7 +294,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
                                 .addComponent(edit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         borrowerBodyLayout.setVerticalGroup(
             borrowerBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,6 +414,7 @@ public class borrowersCRUD extends javax.swing.JFrame {
 
     private void refresh_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_btnActionPerformed
         RefreshTable();
+        search_txt.setText("Search by Name");
     }//GEN-LAST:event_refresh_btnActionPerformed
 
     /**

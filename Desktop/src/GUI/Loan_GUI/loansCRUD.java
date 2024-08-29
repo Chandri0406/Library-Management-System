@@ -133,7 +133,7 @@ public class loansCRUD extends javax.swing.JFrame {
 
         search_txt.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
         search_txt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        search_txt.setText("Search by Name");
+        search_txt.setText("Search by Book Title");
         search_txt.setMaximumSize(new java.awt.Dimension(188, 30));
         search_txt.setMinimumSize(new java.awt.Dimension(188, 30));
         search_txt.setPreferredSize(new java.awt.Dimension(188, 30));
@@ -152,7 +152,6 @@ public class loansCRUD extends javax.swing.JFrame {
 
         loan_tbl.setBackground(new java.awt.Color(183, 172, 162));
         loan_tbl.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
-        loan_tbl.setForeground(new java.awt.Color(0, 0, 0));
         loan_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -251,8 +250,10 @@ public class loansCRUD extends javax.swing.JFrame {
         });
 
         refresh_btn.setBackground(new java.awt.Color(78, 66, 52));
-        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         refresh_btn.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_btn.setText("RF");
+        refresh_btn.setToolTipText("");
         refresh_btn.setAlignmentX(0.5F);
         refresh_btn.setBorderPainted(false);
         refresh_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -298,12 +299,12 @@ public class loansCRUD extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,7 +329,7 @@ public class loansCRUD extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 902, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 902, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,12 +378,12 @@ public class loansCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_delete_btnActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        RefreshTable();
+        RefreshTable(); 
     }//GEN-LAST:event_formWindowOpened
 
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
          if(search_txt.getText() == " "){
-            JOptionPane.showMessageDialog(this, "Please enter the Borrower's name to search for", "Search Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please enter the Book's title to search for", "Search Error", JOptionPane.ERROR_MESSAGE);
         }
         else{
             String loanid = search_txt.getText();
@@ -392,7 +393,9 @@ public class loansCRUD extends javax.swing.JFrame {
             model.setRowCount(0);
             for(Loan loan: loans)
             {
-                model.addRow(new Object[]{loan.getLoanID(), loan.getBookID(), loan.getStartDate(), loan.getEndDate(), loan.getLibraryCardID()});
+                Book book = db.findBookByLoan(loan.getBookID());
+                Borrower borrower = db.findBorrowerByLoan(loan.getLibraryCardID());
+                model.addRow(new Object[]{loan.getLoanID(), book.getTitle(), loan.getStartDate(), loan.getEndDate(), borrower.getName() + " " + borrower.getSurname()});
             }
         }
     }//GEN-LAST:event_search_btnActionPerformed
@@ -403,10 +406,11 @@ public class loansCRUD extends javax.swing.JFrame {
 
     private void refresh_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_btnActionPerformed
         RefreshTable();
+        search_txt.setText("Search by Book Title");
     }//GEN-LAST:event_refresh_btnActionPerformed
 
     private void search_txtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusGained
-        if (search_txt.getText().equals("Search by Name")) 
+        if (search_txt.getText().equals("Search by Book Title")) 
         {
             search_txt.setText("");
         }
@@ -415,7 +419,7 @@ public class loansCRUD extends javax.swing.JFrame {
     private void search_txtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusLost
         if (search_txt.getText().isEmpty()) 
         {
-            search_txt.setText("Search by Name");
+            search_txt.setText("Search by Book Title");
         }
     }//GEN-LAST:event_search_txtFocusLost
 

@@ -98,7 +98,6 @@ public class authorCRUD extends javax.swing.JFrame {
         add_btn.setFocusPainted(false);
         add_btn.setFocusable(false);
         add_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        add_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         add_btn.setMaximumSize(new java.awt.Dimension(141, 27));
         add_btn.setMinimumSize(new java.awt.Dimension(141, 27));
         add_btn.setName("add_btn"); // NOI18N
@@ -130,7 +129,6 @@ public class authorCRUD extends javax.swing.JFrame {
         delete_btn.setFocusPainted(false);
         delete_btn.setFocusable(false);
         delete_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        delete_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         delete_btn.setName("delete_btn"); // NOI18N
         delete_btn.setPreferredSize(new java.awt.Dimension(130, 30));
         delete_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +169,6 @@ public class authorCRUD extends javax.swing.JFrame {
         edit_btn.setFocusPainted(false);
         edit_btn.setFocusable(false);
         edit_btn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        edit_btn.setMargin(new java.awt.Insets(2, 14, 2, 14));
         edit_btn.setMaximumSize(new java.awt.Dimension(141, 27));
         edit_btn.setMinimumSize(new java.awt.Dimension(141, 27));
         edit_btn.setName("edit_btn"); // NOI18N
@@ -221,7 +218,6 @@ public class authorCRUD extends javax.swing.JFrame {
 
         author_tbl.setBackground(new java.awt.Color(183, 172, 162));
         author_tbl.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
-        author_tbl.setForeground(new java.awt.Color(0, 0, 0));
         author_tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -250,8 +246,9 @@ public class authorCRUD extends javax.swing.JFrame {
         jScrollPane2.setViewportView(author_tbl);
 
         refresh_btn.setBackground(new java.awt.Color(78, 66, 52));
-        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 16)); // NOI18N
+        refresh_btn.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         refresh_btn.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_btn.setText("RF");
         refresh_btn.setAlignmentX(0.5F);
         refresh_btn.setBorderPainted(false);
         refresh_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -297,7 +294,7 @@ public class authorCRUD extends javax.swing.JFrame {
                         .addComponent(edit_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(delete_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,7 +315,7 @@ public class authorCRUD extends javax.swing.JFrame {
                         .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(refresh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -327,7 +324,7 @@ public class authorCRUD extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, 904, 904, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,6 +398,7 @@ public class authorCRUD extends javax.swing.JFrame {
 
     private void refresh_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_btnActionPerformed
         RefreshTable();
+        search_txt.setText("Search by Name");
     }//GEN-LAST:event_refresh_btnActionPerformed
 
     private void search_txtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_txtFocusGained
