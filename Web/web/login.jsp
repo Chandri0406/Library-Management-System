@@ -10,6 +10,7 @@
     <body>
         <div class="center" id="loginForm">
             <div class="title">Login</div>
+            
             <form action="LoginServlet" method="post">
                 
                 <div class="errormsg">
