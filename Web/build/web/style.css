@@ -53,28 +53,21 @@ label{
     background-color: #262630;
 }
 
-#logbtn{
-    margin: 10%;
-}
-
-#regbtn{
-
-}
-
-#b2ibtn{
-    
-}
-
 .btn{
     width: 130px;
     height: 30px;
-    background: #9F6932;
+    background: #7F5123;
+    border: 1px solid #7F5123;
     border-radius: 50px;
     text-align: center;
     text-decoration: none;
     color: white;
     font-size: 18px;
     font-family: Georgia, Helvetica, sans-serif;
+}
+
+.btn:hover{
+    background: #9F6932;
 }
 
 .push-btn{

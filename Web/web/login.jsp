@@ -32,7 +32,7 @@
                 </div>
             
                 <div class="button-container">
-                <input type="submit" value="Login" class="btn" id="logbtn" id="#regbtn">
+                <input type="submit" value="Login" class="btn">
                 </div>
             </form>
         </div>

@@ -58,7 +58,7 @@
                 </div>
                                 
                 <div class="button-container">
-                <button class="btn" ><a href="index.jsp">Back to Home</a></button>
+                <a href="index.jsp"><button class="btn" >Back to Home</button></a>
                 </div>
 
                 <div class="button-container">
