@@ -8,7 +8,14 @@
         <script>
             function redirectToIndex() {
                 window.location.href = 'index.jsp';
-            } 
+            }
+            
+           // function openDesktop() {
+                //fetch("")
+                  //  .then(response => response.text())
+                   // .then(data => alert(data))
+                   // .catch(error => console.error('Error:', error));
+           // }
         </script>
     </head>
     
@@ -16,11 +23,16 @@
          <div class="center" id="welcomebox">
              <div class="title">Welcome, ${username}</div>
             
-             <p id="txt">Please wait to be redirected to the desktop application</p>
+             <br><br>
+             <!--
+              <div class="welcome-button-container"> 
+                <!-- Add content or functionality to connect to the desktop here
+                <button class="push-btn" onclick="openDesktop()">Open desktop</button>
+            </div>
+ -->
             <div class="welcome-button-container">
             <button class="push-btn" onclick="redirectToIndex()">Logout</button>
             </div>
-             
         </div>
     </body>
 </html>

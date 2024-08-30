@@ -26,20 +26,11 @@ input [type=submit]{
     float: left;
 }
 
-#txt{
-    font-size: 17px;
-    font-family: Georgia, Helvetica, sans-serif;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
 #welcomebox{
     width: 460px;
     height: 265px;
     background-color: #262630;
     border-radius: 16px;
-    display: inline;
 }
 
 #indexbox{
@@ -48,7 +39,6 @@ input [type=submit]{
     padding: 10px;
     border-radius: 16px;
     background-color: #262630;
-    display: inline;
 }
 
 #registerForm{
@@ -57,7 +47,6 @@ input [type=submit]{
     padding: 8px;
     border-radius: 16px;
     background-color: #262630;
-    display: inline;
 }
 
 #regbtn{
@@ -72,7 +61,6 @@ input [type=submit]{
     padding: 10px;
     border-radius: 16px;
     background-color: #262630;
-    display: inline;
 }
 
 #b2h{
@@ -145,7 +133,6 @@ input [type=submit]{
 }
 
 .center{
-    display: flex;
     margin: auto;
     margin: 10%;
 }
@@ -164,7 +151,7 @@ input [type=submit]{
 .welcome-button-container{
     display: inline;
     padding: 5px;
-    margin: 32%;
+    margin: 7%;
 }
 
 .reg-btn-con{
