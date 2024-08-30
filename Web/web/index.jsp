@@ -18,7 +18,7 @@
                 <a href="login.jsp" ><button class="push-btn">Login</button></a> <%-- Style --%>
             </div>
             
-            <div class="button-container">
+            <div class="button-container" id="regbtn">
                 <a href="register.jsp"><button class="push-btn">Register</button></a>
             </div>
             

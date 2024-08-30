@@ -60,6 +60,12 @@ input [type=submit]{
     display: inline;
 }
 
+#regbtn{
+    float:right;
+    margin-top: -45px;
+    display: inline;
+}
+
 #loginForm{
     width: 380px;
     height: 300px;
