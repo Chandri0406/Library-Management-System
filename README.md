@@ -28,4 +28,4 @@ This project evaluates your understanding and application of Core Java, OOP, GUI
 2. **Desktop Application**: Use NetBeans for GUI development and JavaDB for database operations.
 
 ## Contact
-**Project Manager**: Chandri Breytenbach - 577398@student.belgiumcampus.ac.za
+**Project Manager**: Chandri Breytenbach - chan.brey@gmail.com
