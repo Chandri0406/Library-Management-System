@@ -1,7 +1,7 @@
 # Library Management System Project
 
 ## Overview
-This project evaluates your understanding and application of Core Java, OOP, GUIs, and CRUD operations on a database. It involves creating a desktop application using NetBeans GUI Builder with Swing and performing CRUD operations on a JavaDB. Additionally, a web application using Apache Tomcat with a PostgreSQL database will be developed.
+This project evaluates your understanding and application of Core Java, OOP, GUIs, and CRUD operations on a database. It involves creating a desktop application using NetBeans GUI Builder with Swing and performing CRUD operations on a JavaDB. Additionally, a web application using Apache Tomcat with a PostgreSQL database was developed.
 
 ## Objectives
 1. **Web Application**: Implement a login and registration system using JSP/Servlets and PostgreSQL.
